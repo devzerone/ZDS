@@ -1,0 +1,9 @@
+{
+  "name": "@zds/react",
+  "version": "0.0.0",
+  "private": true,
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  }
+}

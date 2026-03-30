@@ -8,8 +8,7 @@ description: "Task list template for feature implementation"
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: Tests are REQUIRED. Every feature MUST include tasks for the relevant
-validation types defined in the specification and plan.
+**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -21,10 +20,10 @@ validation types defined in the specification and plan.
 
 ## Path Conventions
 
-- Use real monorepo paths from `plan.md`.
-- Separate tasks by artifact layer: spec, tokens, `.pen`, docs, implementations,
-  and tests.
-- Keep platform-specific tasks scoped to the exact package or directory.
+- **Single project**: `src/`, `tests/` at repository root
+- **Web app**: `backend/src/`, `frontend/src/`
+- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
+- Paths shown below assume single project - adjust based on plan.md structure
 
 <!-- 
   ============================================================================
@@ -45,28 +44,32 @@ validation types defined in the specification and plan.
   ============================================================================
 -->
 
-## Phase 1: Scope and Contract
+## Phase 1: Setup (Shared Infrastructure)
 
-**Purpose**: Establish the contract and artifact scope before implementation.
+**Purpose**: Project initialization and basic structure
 
-- [ ] T001 Define or update JSON spec in [path]
-- [ ] T002 Define or update token requirements and mapping in [path]
-- [ ] T003 [P] Record affected platforms and parity expectations in [path]
+- [ ] T001 Create project structure per implementation plan
+- [ ] T002 Initialize [language] project with [framework] dependencies
+- [ ] T003 [P] Configure linting and formatting tools
 
 ---
 
-## Phase 2: Visual Definition and Docs
+## Phase 2: Foundational (Blocking Prerequisites)
 
-**Purpose**: Create visual references and documentation before platform work.
+**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
 
-**⚠️ CRITICAL**: Platform implementation MUST NOT begin until this phase is complete.
+**⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Create or update `.pen` artifact in [path]
-- [ ] T005 [P] Update component or pattern docs in [path]
-- [ ] T006 [P] Define accessibility expectations in [path]
-- [ ] T007 Record documented exceptions and remediation target in [path]
+Examples of foundational tasks (adjust based on your project):
 
-**Checkpoint**: Contract, token mapping, `.pen`, and docs are ready for platform implementation.
+- [ ] T004 Setup database schema and migrations framework
+- [ ] T005 [P] Implement authentication/authorization framework
+- [ ] T006 [P] Setup API routing and middleware structure
+- [ ] T007 Create base models/entities that all stories depend on
+- [ ] T008 Configure error handling and logging infrastructure
+- [ ] T009 Setup environment configuration management
+
+**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
 ---
 
@@ -76,23 +79,21 @@ validation types defined in the specification and plan.
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 ⚠️
+### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
 
-> **NOTE: Add validation tasks before marking implementation complete**
+> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T008 [P] [US1] Spec validation test in [path]
-- [ ] T009 [P] [US1] Token validation test in [path]
-- [ ] T010 [P] [US1] Visual regression test in [path]
-- [ ] T011 [P] [US1] Accessibility test in [path]
+- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Implement React package changes in [path]
-- [ ] T013 [P] [US1] Implement SwiftUI package changes in [path]
-- [ ] T014 [P] [US1] Implement Kotlin Compose package changes in [path]
-- [ ] T015 [P] [US1] Implement Windows Native UI package changes in [path]
-- [ ] T016 [US1] Implement Tauri shell-specific changes or confirm React reuse in [path]
-- [ ] T017 [US1] Update parity metadata in [path]
+- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
+- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
+- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
+- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T016 [US1] Add validation and error handling
+- [ ] T017 [US1] Add logging for user story 1 operations
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -104,17 +105,17 @@ validation types defined in the specification and plan.
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 ⚠️
+### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Spec validation test in [path]
-- [ ] T019 [P] [US2] Visual regression or accessibility test in [path]
+- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Update affected platform package in [path]
-- [ ] T021 [US2] Update docs, `.pen`, or tokens if required by the story in [path]
-- [ ] T022 [US2] Update parity metadata in [path]
-- [ ] T023 [US2] Verify no undocumented exceptions remain
+- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
+- [ ] T021 [US2] Implement [Service] in src/services/[service].py
+- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -126,16 +127,16 @@ validation types defined in the specification and plan.
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 ⚠️
+### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Required validation tasks in [path]
-- [ ] T025 [P] [US3] Required platform-specific test tasks in [path]
+- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Update affected platform package in [path]
-- [ ] T027 [US3] Update tokens, spec, or `.pen` if the story changes contract in [path]
-- [ ] T028 [US3] Update parity metadata and release checklist in [path]
+- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
+- [ ] T027 [US3] Implement [Service] in src/services/[service].py
+- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -149,11 +150,12 @@ validation types defined in the specification and plan.
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] TXXX [P] Final documentation sweep in [path]
-- [ ] TXXX Run full validation suite for spec, tokens, visual regression, and accessibility
-- [ ] TXXX Verify parity status for every affected platform
-- [ ] TXXX Confirm breaking change notes and migration guidance if applicable
-- [ ] TXXX Run release eligibility checklist
+- [ ] TXXX [P] Documentation updates in docs/
+- [ ] TXXX Code cleanup and refactoring
+- [ ] TXXX Performance optimization across all stories
+- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
+- [ ] TXXX Security hardening
+- [ ] TXXX Run quickstart.md validation
 
 ---
 
@@ -161,50 +163,48 @@ validation types defined in the specification and plan.
 
 ### Phase Dependencies
 
-- **Scope and Contract (Phase 1)**: No dependencies - starts immediately
-- **Visual Definition and Docs (Phase 2)**: Depends on Phase 1 - BLOCKS all platform implementation
-- **User Stories (Phase 3+)**: All depend on Phase 2 completion
+- **Setup (Phase 1)**: No dependencies - can start immediately
+- **Foundational (Phase 2)**: Depends on Setup completion - BLOCKS all user stories
+- **User Stories (Phase 3+)**: All depend on Foundational phase completion
   - User stories can then proceed in parallel (if staffed)
   - Or sequentially in priority order (P1 → P2 → P3)
 - **Polish (Final Phase)**: Depends on all desired user stories being complete
 
 ### User Story Dependencies
 
-- **User Story 1 (P1)**: Can start after Phase 2 - No dependencies on other stories
-- **User Story 2 (P2)**: Can start after Phase 2 - Must preserve independent testability
-- **User Story 3 (P3)**: Can start after Phase 2 - Must preserve independent testability
+- **User Story 1 (P1)**: Can start after Foundational (Phase 2) - No dependencies on other stories
+- **User Story 2 (P2)**: Can start after Foundational (Phase 2) - May integrate with US1 but should be independently testable
+- **User Story 3 (P3)**: Can start after Foundational (Phase 2) - May integrate with US1/US2 but should be independently testable
 
 ### Within Each User Story
 
-- Validation tasks MUST exist before implementation is considered complete
-- Contract, tokens, and `.pen` changes MUST stay synchronized with implementation
-- Parity metadata MUST be updated before the story closes
-- Story complete before moving to next priority unless work is explicitly parallelized
+- Tests (if included) MUST be written and FAIL before implementation
+- Models before services
+- Services before endpoints
+- Core implementation before integration
+- Story complete before moving to next priority
 
 ### Parallel Opportunities
 
-- Phase 1 tasks marked [P] can run in parallel
-- Phase 2 tasks marked [P] can run in parallel
-- Platform implementation tasks for different packages can run in parallel
-- Validation tasks for the same story can run in parallel
-- Different user stories can be worked on in parallel if artifact ownership is clear
+- All Setup tasks marked [P] can run in parallel
+- All Foundational tasks marked [P] can run in parallel (within Phase 2)
+- Once Foundational phase completes, all user stories can start in parallel (if team capacity allows)
+- All tests for a user story marked [P] can run in parallel
+- Models within a story marked [P] can run in parallel
+- Different user stories can be worked on in parallel by different team members
 
 ---
 
 ## Parallel Example: User Story 1
 
 ```bash
-# Launch validation tasks for User Story 1 together:
-Task: "Spec validation test in [path]"
-Task: "Token validation test in [path]"
-Task: "Visual regression test in [path]"
-Task: "Accessibility test in [path]"
+# Launch all tests for User Story 1 together (if tests requested):
+Task: "Contract test for [endpoint] in tests/contract/test_[name].py"
+Task: "Integration test for [user journey] in tests/integration/test_[name].py"
 
-# Launch platform implementation tasks together:
-Task: "Implement React package changes in [path]"
-Task: "Implement SwiftUI package changes in [path]"
-Task: "Implement Kotlin Compose package changes in [path]"
-Task: "Implement Windows Native UI package changes in [path]"
+# Launch all models for User Story 1 together:
+Task: "Create [Entity1] model in src/models/[entity1].py"
+Task: "Create [Entity2] model in src/models/[entity2].py"
 ```
 
 ---
@@ -213,15 +213,15 @@ Task: "Implement Windows Native UI package changes in [path]"
 
 ### MVP First (User Story 1 Only)
 
-1. Complete Phase 1: Scope and Contract
-2. Complete Phase 2: Visual Definition and Docs
+1. Complete Phase 1: Setup
+2. Complete Phase 2: Foundational (CRITICAL - blocks all stories)
 3. Complete Phase 3: User Story 1
 4. **STOP and VALIDATE**: Test User Story 1 independently
 5. Deploy/demo if ready
 
 ### Incremental Delivery
 
-1. Complete Phase 1 + Phase 2 → contract and artifacts ready
+1. Complete Setup + Foundational → Foundation ready
 2. Add User Story 1 → Test independently → Deploy/Demo (MVP!)
 3. Add User Story 2 → Test independently → Deploy/Demo
 4. Add User Story 3 → Test independently → Deploy/Demo
@@ -231,8 +231,8 @@ Task: "Implement Windows Native UI package changes in [path]"
 
 With multiple developers:
 
-1. Team completes Phase 1 + Phase 2 together
-2. Once shared artifacts are done:
+1. Team completes Setup + Foundational together
+2. Once Foundational is done:
    - Developer A: User Story 1
    - Developer B: User Story 2
    - Developer C: User Story 3
@@ -245,8 +245,7 @@ With multiple developers:
 - [P] tasks = different files, no dependencies
 - [Story] label maps task to specific user story for traceability
 - Each user story should be independently completable and testable
-- Always include tasks for spec, tokens, `.pen`, docs, implementation, and tests when affected
-- Record parity and exceptions explicitly
+- Verify tests fail before implementing
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence

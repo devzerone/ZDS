@@ -1,6 +1,6 @@
 <!--
 Sync Impact Report
-- Version change: 1.0.0 -> 1.1.0
+- Version change: 1.1.0 -> 1.2.0
 - Modified principles:
   - Principle slot 1 -> I. Repository Identity
   - Principle slot 2 -> II. Source-of-Truth Hierarchy
@@ -123,12 +123,20 @@ contract, the team MUST either amend the contract or document the exception in
 spec and parity metadata before merge. Unrecorded platform differences are
 defects.
 
-Tauri MUST NOT be treated as an independent design language. Tauri is a desktop
-shell extension layer over the React implementation. Tauri-specific UI artifacts
-MAY exist only for shell behavior or desktop-only layout patterns. General
-components such as Button, Input, or Dialog MUST NOT fork into a Tauri-only
-visual language. Tauri implementations MUST maximize reuse of React-based UI
-artifacts.
+Next.js MUST NOT be treated as a first-class parity platform. Next.js is a React
+consumer environment. React UI packages in this repository MUST be usable from
+Next.js when they stay within documented React execution boundaries. Next.js-
+specific routing, server integration, image handling, and runtime composition
+MUST be handled by the consuming Next.js application or by explicit adapters,
+not by redefining the design system contract.
+
+Tauri MUST NOT be treated as an independent design language. Tauri is a React
+consumer environment with desktop shell integration needs. General components
+such as Button, Input, or Dialog MUST NOT fork into a Tauri-only visual
+language. Shell integration concerns such as window control, menu wiring, tray
+integration, filesystem bridges, global shortcuts, and app-specific desktop
+layout orchestration MUST be implemented in the consuming Tauri application, not
+as mandatory design-system-owned structure in this repository.
 
 ## Operational Rules
 
@@ -170,6 +178,20 @@ artifacts.
     A component is done only when spec, token mapping, `.pen`, documentation,
     at least one platform implementation, tests, and recorded parity status all
     exist. If any item is missing, the component is not done.
+11. React Consumer Strategy
+    React is the reusable UI implementation layer for JavaScript consumers.
+    Consumer-specific runtime concerns MUST be layered outside the shared React
+    contract when they do not change the design-system meaning.
+12. Next.js Consumption
+    Next.js support MUST be treated as React consumption, not as a separate
+    parity platform. Server or client execution boundaries, routing concerns, and
+    framework integrations MAY be handled by adapters, but they MUST NOT create a
+    separate design language or token namespace.
+13. Tauri Consumption
+    Tauri support MUST be treated as application-side consumption of shared React
+    UI plus app-owned desktop shell integration. This repository MUST NOT require
+    a dedicated Tauri shell-integration structure for concerns better owned by
+    the consuming application.
 
 ## Naming Rules
 
@@ -228,4 +250,4 @@ Compliance rules:
 4. Hidden divergence, undocumented raw values, or spec-less implementations MUST
    be treated as defects and tracked to closure.
 
-**Version**: 1.1.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-30
+**Version**: 1.2.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-30

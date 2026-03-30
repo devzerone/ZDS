@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Turborepo
+.turbo/
+turbo/
+
+# Environment files
+.env*
+!.env.example
+
+# Editor directories
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
