@@ -12,7 +12,8 @@ platform implementation areas have stable homes before component work begins.
 ## Scope Classification
 
 **Work Type**: documentation / release governance  
-**Affected Platforms**: React / Tauri / SwiftUI / Kotlin Compose / Windows Native UI  
+**Affected Platforms**: React / SwiftUI / Kotlin Compose / Windows Native UI  
+**Affected Consumer Environments**: Next.js consumer apps / Tauri consumer apps  
 **Artifact Layers**: spec / docs / implementations / tests  
 **Parity Impact**: no impact
 
@@ -22,16 +23,19 @@ platform implementation areas have stable homes before component work begins.
 **Token Sources**: None for this feature; no reusable visual values are being defined  
 **Pen Sources**: None for this feature; no visual component or pattern is being defined  
 **Docs Location**: `/home/choiho/zerone/ZDS/specs/001-monorepo-structure/`  
-**Implementation Packages**: Repository roots only; this feature defines placement
-for `apps/`, `foundation/`, `spec/`, `pen/`, `docs/`, `testing/`, `platforms/`,
-and `tools/` without creating product or component implementations  
+**Implementation Packages**: This feature defines placement for `packages/`
+(grouping `foundation/` and platform implementations under a single monorepo
+package root), `apps/`, `spec/`, `pen/`, `docs/`, `testing/`, and `tools/`
+without creating product or component implementations or consumer-owned Tauri
+shell layers  
 **Testing Strategy**: specification review, structure contract review, clean-checkout
 directory preservation review  
-**Target Platforms**: React, Tauri, SwiftUI, Kotlin Compose, Windows Native UI  
+**Target Platforms**: React, SwiftUI, Kotlin Compose, Windows Native UI  
+**Target Consumer Environments**: Next.js consumer apps, Tauri consumer apps  
 **Project Type**: design-system monorepo  
 **Constraints**: Must remain inside design-system scope; must preserve separation
-of concerns; must keep Tauri as a React-adjacent shell layer; must not introduce
-product runtime ownership
+of concerns; must treat Next.js and Tauri as React consumer environments; must
+not introduce product runtime ownership
 
 ## Constitution Check
 
@@ -53,14 +57,16 @@ merge.*
       Adapted for this feature: documentation must cover repository purpose,
       directory intent, platform placement, and structural constraints.
 - [x] Platform parity impact is recorded, including documented exceptions.
-      No parity delta is introduced; all supported platforms receive reserved
-      top-level placement in the layout contract.
+      No parity delta is introduced; repository-owned implementation platforms
+      receive reserved top-level placement and consumer environments are handled
+      by consumption rules.
 - [x] Tests cover token correctness, spec correctness, visual regression,
       accessibility, and affected platform behavior as applicable.
       Adapted for this feature: validation is limited to structure and checkout
       preservation because no component behavior or visual surface changes.
 - [x] Tauri changes reuse React UI artifacts unless the work is shell-specific.
-      This plan reserves Tauri space only for shell or desktop-specific work.
+      This plan keeps Tauri shell integration in the consuming application rather
+      than as a repository-owned structure.
 
 ## Artifact Plan
 
@@ -82,12 +88,21 @@ specs/001-monorepo-structure/
 ```text
 /
 ├── apps/
-│   ├── docs/
-│   └── sandbox/
-├── foundation/
-│   ├── tokens/
-│   ├── icons/
-│   └── assets/
+│   └── docs/
+│       ├── foundation/
+│       ├── components/
+│       ├── patterns/
+│       ├── platforms/
+│       └── governance/
+├── packages/
+│   ├── foundation/
+│   │   ├── tokens/
+│   │   ├── icons/
+│   │   └── assets/
+│   ├── react/
+│   ├── swiftui/
+│   ├── kotlin/
+│   └── windows/
 ├── spec/
 │   ├── components/
 │   ├── patterns/
@@ -96,44 +111,33 @@ specs/001-monorepo-structure/
 ├── pen/
 │   ├── components/
 │   └── patterns/
-├── docs/
-│   ├── foundation/
-│   ├── components/
-│   ├── patterns/
-│   ├── platforms/
-│   └── governance/
 ├── testing/
 │   ├── spec/
 │   ├── tokens/
 │   ├── visual/
 │   └── accessibility/
-├── platforms/
-│   ├── react/
-│   ├── tauri/
-│   ├── swiftui/
-│   ├── kotlin/
-│   └── windows/
 └── tools/
     ├── config/
     └── scripts/
 ```
 
-**Structure Decision**: Use a layer-first top-level layout that mirrors the
-constitution. Platform work is grouped under `platforms/`, while design-system
-authoring sources remain separated in `foundation/`, `spec/`, `pen/`, `docs/`,
-and `testing/`. `apps/` is reserved only for design-system-owned surfaces such as
-documentation or sandboxes, not product applications.
+**Structure Decision**: Use a packages-grouped layout where `packages/`
+consolidates foundation and platform implementation areas as monorepo packages.
+Design-system authoring sources (`spec/`, `pen/`, `docs/`, `testing/`) remain as
+separate top-level concerns. `apps/` is reserved only for design-system-owned
+surfaces such as documentation or sandboxes, not product applications. Next.js
+and Tauri are handled as consumer environments of the shared React layer, not as
+separate repository-owned platform roots.
 
 ## Delivery Plan
 
 1. Confirm structural requirements in spec.
-2. Document research decisions for root taxonomy and platform placement.
+2. Document research decisions for root taxonomy and consumer-environment handling.
 3. Define repository layout entities and validation rules.
 4. Publish a contributor-facing repository layout contract.
 5. Write a quickstart for applying and validating the directory structure.
-6. Update agent context with the new monorepo classification.
-7. Re-check constitution alignment before implementation work begins.
-8. Hand off to `/speckit.tasks` for actionable creation tasks.
+6. Re-check constitution alignment before implementation work begins.
+7. Hand off to `/speckit.tasks` for actionable creation tasks.
 
 ## Exceptions and Justification
 

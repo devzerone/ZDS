@@ -2,14 +2,17 @@
 
 ## Decision 1: Use a layer-first repository taxonomy
 
-**Decision**: Define top-level directories by constitutional concern:
-`foundation/`, `spec/`, `pen/`, `docs/`, `testing/`, `platforms/`, `apps/`, and
-`tools/`.
+**Decision**: Define top-level directories by constitutional concern, grouping
+buildable packages under `packages/`:
+`packages/` (containing `foundation/`, `react/`, `swiftui/`, `kotlin/`,
+`windows/`), `spec/`, `pen/`, `docs/`, `testing/`, `apps/`, and `tools/`.
 
 **Rationale**: The constitution requires explicit separation between foundation,
 specification, visual source of truth, implementation, documentation, and
-testing. A layer-first root makes those responsibilities obvious and keeps
-contributors from inventing product-oriented folder groupings.
+testing. A packages-grouped layout keeps buildable artifacts together while
+maintaining clear top-level separation for non-buildable concerns. Contributors
+can immediately distinguish between packages (published artifacts) and
+repository resources (specs, docs, tests, tools).
 
 **Alternatives considered**:
 
@@ -20,40 +23,49 @@ contributors from inventing product-oriented folder groupings.
   Rejected because component-first storage hides cross-cutting authorities such
   as tokens, parity metadata, and visual references.
 
-## Decision 2: Reserve all supported platform areas before implementation
+## Decision 2: Reserve repository-owned implementation areas before implementation
 
-**Decision**: Reserve explicit platform roots for React, Tauri, SwiftUI, Kotlin,
-and Windows under `platforms/`.
+**Decision**: Reserve explicit implementation roots for React, SwiftUI, Kotlin,
+and Windows under `packages/`, while treating Next.js and Tauri as React
+consumer environments rather than repository-owned roots. Foundation tokens,
+icons, and assets are also grouped under `packages/foundation/`.
 
 **Rationale**: The spec requires multi-platform growth without repeated
-reorganization. Pre-reserving these areas communicates supported scope and
-prevents contributors from creating ad hoc platform homes later.
+reorganization. Pre-reserving repository-owned implementation areas communicates
+supported scope while avoiding consumer-environment roots that belong to
+applications rather than the design system.
 
 **Alternatives considered**:
 
-- Create platform directories only when the first implementation lands.
+- Create implementation directories only when the first implementation lands.
   Rejected because directory shape would drift incrementally and reviews would
   need to renegotiate repository structure repeatedly.
-- Merge Tauri directly into the React tree.
-  Rejected because Tauri needs its own shell-specific area even though it is not
-  an independent design language.
+- Reserve separate roots for Next.js or Tauri.
+  Rejected because both are React consumer environments and their runtime or
+  shell integration concerns belong to consuming applications unless shared
+  adapters are intentionally introduced later.
 
-## Decision 3: Treat Tauri as a shell-adjacent platform area
+## Decision 3: Treat Next.js and Tauri as consumer environments
 
-**Decision**: Place Tauri under `platforms/tauri/` and constrain its intended use
-to shell-specific or desktop-only patterns.
+**Decision**: Keep Next.js and Tauri out of the repository-owned platform root
+set. Shared React UI is the reusable implementation layer. Next.js routing,
+server composition, and runtime integration remain in consuming Next.js
+applications or explicit adapters. Tauri shell integration remains in consuming
+Tauri applications.
 
-**Rationale**: The constitution requires Tauri to remain a React-adjacent desktop
-shell extension layer rather than a separate visual language. A dedicated but
-scoped location supports that rule cleanly.
+**Rationale**: The constitution defines Next.js and Tauri as React consumer
+environments, not separate design languages. Keeping them out of the repository's
+owned platform roots prevents shell or framework runtime concerns from leaking
+into the design-system source-of-truth hierarchy.
 
 **Alternatives considered**:
 
-- Give Tauri full parity with other component implementation packages.
-  Rejected because it would imply an independent UI language and encourage
-  divergence from React.
-- Omit Tauri from the initial structure.
-  Rejected because Tauri is explicitly in supported scope.
+- Give Next.js or Tauri their own repository-owned platform roots.
+  Rejected because it would imply first-class parity ownership for framework or
+  application runtime concerns rather than shared UI implementation.
+- Collapse all JavaScript concerns into one undocumented React area.
+  Rejected because the consumer strategy must still be documented explicitly even
+  when it does not create new root categories.
 
 ## Decision 4: Preserve empty required directories with `.gitkeep`
 
