@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const docsPage = readFileSync(resolve(root, "apps/docs/app/components/button/page.tsx"), "utf8");
-const storyFile = readFileSync(resolve(root, "packages/react/components/button/Button.stories.tsx"), "utf8");
+const storyFile = readFileSync(resolve(root, "packages/react/src/components/button/Button.stories.tsx"), "utf8");
 
 const errors = [];
 

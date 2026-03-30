@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const storybookDist = resolve(root, "dist/storybook/index.html");
-const storyFile = resolve(root, "packages/react/components/button/Button.stories.tsx");
+const storyFile = resolve(root, "packages/react/src/components/button/Button.stories.tsx");
 const requiredStates = ["default", "disabled", "loading", "focus", "hover", "pressed"];
 const errors = [];
 

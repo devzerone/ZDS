@@ -2,12 +2,19 @@
   "name": "@zds/react",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
-    "@zds/foundation": "workspace:*"
+    "@zds/tokens": "workspace:*"
   },
   "exports": {
-    ".": "./components/button/index.ts",
-    "./button": "./components/button/index.ts"
+    ".": "./dist/index.js",
+    "./button": "./dist/button.js"
+  },
+  "scripts": {
+    "build": "pnpm --filter @zds/tokens build && pnpm exec tsup"
   },
   "peerDependencies": {
     "react": "^19",

@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const spec = JSON.parse(readFileSync(resolve(root, "spec/components/button/button.spec.json"), "utf8"));
 const docsContent = readFileSync(resolve(root, "apps/docs/content/components/button.mdx"), "utf8");
-const storyFile = readFileSync(resolve(root, "packages/react/components/button/Button.stories.tsx"), "utf8");
+const storyFile = readFileSync(resolve(root, "packages/react/src/components/button/Button.stories.tsx"), "utf8");
 
 const errors = [];
 

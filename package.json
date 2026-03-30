@@ -6,14 +6,14 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "clean": "turbo clean",
-    "docs:dev": "pnpm --filter @zds/docs dev",
-    "docs:build": "pnpm --filter @zds/docs build",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build --output-dir dist/storybook",
+    "docs:dev": "pnpm --filter @zds/tokens build && pnpm --filter @zds/react build && pnpm --filter @zds/docs dev",
+    "docs:build": "turbo run build --filter=@zds/docs",
+    "storybook": "pnpm --filter @zds/tokens build && storybook dev -p 6006",
+    "storybook:build": "pnpm --filter @zds/tokens build && storybook build --output-dir dist/storybook",
     "validate:docs-system": "pnpm docs:build && node testing/docs/validate-docs-build.mjs && pnpm storybook:build && node testing/docs/validate-storybook-build.mjs && node testing/docs/validate-preview-links.mjs && node testing/docs/validate-docs-system.mjs",
     "validate:tokens": "node testing/tokens/validate-tokens.mjs",
     "validate:button-spec": "node testing/spec/validate-button-spec.mjs",
-    "test:button-react": "node --import tsx --test packages/react/components/button/Button.test.tsx",
+    "test:button-react": "pnpm --filter @zds/tokens build && node --import tsx --test packages/react/src/components/button/Button.test.tsx",
     "validate:button": "pnpm validate:tokens && pnpm validate:button-spec && pnpm test:button-react"
   },
   "devDependencies": {
@@ -30,6 +30,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "storybook": "^10.3.3",
+    "tsup": "^8.5.1",
     "tsx": "^4.20.6",
     "turbo": "^2",
     "typescript": "^5.9.3"
