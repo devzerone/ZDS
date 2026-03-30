@@ -10,9 +10,9 @@ const radius = require("../../../foundation/tokens/radius/core.json");
 const typography = require("../../../foundation/tokens/typography/core.json");
 const buttonTokens = require("../../../foundation/tokens/components/button.json");
 
-type ButtonVariant = keyof typeof buttonTokens.variants;
-type ButtonSize = keyof typeof buttonTokens.sizes;
-type VisualState = "default" | "hover" | "pressed" | "focus" | "disabled" | "loading";
+export type ButtonVariant = keyof typeof buttonTokens.variants;
+export type ButtonSize = keyof typeof buttonTokens.sizes;
+export type VisualState = "default" | "hover" | "pressed" | "focus" | "disabled" | "loading";
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
   variant?: ButtonVariant;
@@ -23,7 +23,7 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   disabled?: boolean;
 }
 
-function resolveSemanticColor(tokenName: string): string {
+export function resolveSemanticColor(tokenName: string): string {
   const token = semantic.tokens[tokenName];
   if (!token) {
     throw new Error(`Unknown semantic token: ${tokenName}`);
@@ -38,7 +38,7 @@ function resolveSemanticColor(tokenName: string): string {
   return family.steps[stepName];
 }
 
-function resolveSizeToken(size: ButtonSize) {
+export function resolveSizeToken(size: ButtonSize) {
   const sizeTokens = buttonTokens.sizes[size];
   return {
     paddingInline: spacing.tokens[sizeTokens.paddingX],
@@ -51,11 +51,11 @@ function resolveSizeToken(size: ButtonSize) {
   };
 }
 
-function resolveVariantState(variant: ButtonVariant, state: VisualState) {
+export function resolveVariantState(variant: ButtonVariant, state: VisualState) {
   return buttonTokens.variants[variant][state];
 }
 
-function resolveVisualState(input: {
+export function resolveVisualState(input: {
   disabled?: boolean;
   loading?: boolean;
   hovered: boolean;
@@ -78,6 +78,42 @@ function resolveVisualState(input: {
     return "hover";
   }
   return "default";
+}
+
+export function getButtonRenderModel(input: {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  disabled?: boolean;
+  loading?: boolean;
+  hovered?: boolean;
+  pressed?: boolean;
+  focusVisible?: boolean;
+}) {
+  const variant = input.variant ?? "primary";
+  const size = input.size ?? "medium";
+  const state = resolveVisualState({
+    disabled: input.disabled,
+    loading: input.loading,
+    hovered: input.hovered ?? false,
+    pressed: input.pressed ?? false,
+    focusVisible: input.focusVisible ?? false
+  });
+  const stateTokens = resolveVariantState(variant, state);
+  const sizeTokens = resolveSizeToken(size);
+
+  return {
+    variant,
+    size,
+    state,
+    stateTokens,
+    sizeTokens,
+    colors: {
+      background: resolveSemanticColor(stateTokens.background),
+      foreground: resolveSemanticColor(stateTokens.foreground),
+      border: resolveSemanticColor(stateTokens.border),
+      focus: resolveSemanticColor(stateTokens.focus)
+    }
+  };
 }
 
 function renderIcon(icon: ReactNode, iconSize: number, position: "leading" | "trailing") {
@@ -129,9 +165,8 @@ export function Button({
   const [pressed, setPressed] = useState(false);
   const [focusVisible, setFocusVisible] = useState(false);
 
-  const state = resolveVisualState({ disabled, loading, hovered, pressed, focusVisible });
-  const stateTokens = resolveVariantState(variant, state);
-  const sizeTokens = resolveSizeToken(size);
+  const renderModel = getButtonRenderModel({ variant, size, disabled, loading, hovered, pressed, focusVisible });
+  const { state, stateTokens, sizeTokens } = renderModel;
   const labelStyle = sizeTokens.labelTypography;
 
   const computedStyle = useMemo<CSSProperties>(() => {

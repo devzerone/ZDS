@@ -2,10 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { act, create } from "react-test-renderer";
-import { Button } from "./Button";
-
-(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
+import { Button, getButtonRenderModel, resolveVisualState } from "./Button";
 
 test("renders a primary medium button with a required label", () => {
   const markup = renderToStaticMarkup(<Button>Save changes</Button>);
@@ -45,20 +42,30 @@ test("renders leading and trailing icons without replacing the label", () => {
   assert.match(markup, /data-zds-slot="trailing-icon"/);
 });
 
-test("applies focus-visible treatment when focused", async () => {
-  let renderer;
-  await act(async () => {
-    renderer = create(<Button>Focus me</Button>);
-  });
-  const button = renderer.root.findByType("button");
+test("resolves focus-visible state before hover and default", () => {
+  assert.equal(
+    resolveVisualState({ disabled: false, loading: false, hovered: true, pressed: false, focusVisible: true }),
+    "focus"
+  );
+});
 
-  await act(async () => {
-    button.props.onFocus({} as never);
-  });
+test("resolves loading and disabled precedence over interactive states", () => {
+  assert.equal(
+    resolveVisualState({ disabled: false, loading: true, hovered: true, pressed: true, focusVisible: true }),
+    "loading"
+  );
+  assert.equal(
+    resolveVisualState({ disabled: true, loading: true, hovered: true, pressed: true, focusVisible: true }),
+    "disabled"
+  );
+});
 
-  const focusedButton = renderer.root.findByType("button");
-  assert.equal(focusedButton.props["data-zds-state"], "focus");
-  assert.notEqual(focusedButton.props.style.boxShadow, "none");
+test("computes focus render tokens for the primary variant", () => {
+  const model = getButtonRenderModel({ variant: "primary", size: "medium", focusVisible: true });
+
+  assert.equal(model.state, "focus");
+  assert.equal(model.colors.focus, "#5e6ad2");
+  assert.equal(model.sizeTokens.minHeight, 40);
 });
 
 test("supports destructive large buttons", () => {

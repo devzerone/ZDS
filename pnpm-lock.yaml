@@ -14,9 +14,6 @@ importers:
       react-dom:
         specifier: ^19.2.0
         version: 19.2.4(react@19.2.4)
-      react-test-renderer:
-        specifier: ^19.2.0
-        version: 19.2.4(react@19.2.4)
       tsx:
         specifier: ^4.20.6
         version: 4.21.0
@@ -246,14 +243,6 @@ packages:
     peerDependencies:
       react: ^19.2.4
 
-  react-is@19.2.4:
-    resolution: {integrity: sha512-W+EWGn2v0ApPKgKKCy/7s7WHXkboGcsrXE+2joLyVxkbyVQfO3MUEaUQDHoSmb8TFFrSKYa9mw64WZHNHSDzYA==}
-
-  react-test-renderer@19.2.4:
-    resolution: {integrity: sha512-Ttl5D7Rnmi6JGMUpri4UjB4BAN0FPs4yRDnu2XSsigCWOLm11o8GwRlVsh27ER+4WFqsGtrBuuv5zumUaRCmKw==}
-    peerDependencies:
-      react: ^19.2.4
-
   react@19.2.4:
     resolution: {integrity: sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==}
     engines: {node: '>=0.10.0'}
@@ -415,14 +404,6 @@ snapshots:
   react-dom@19.2.4(react@19.2.4):
     dependencies:
       react: 19.2.4
-      scheduler: 0.27.0
-
-  react-is@19.2.4: {}
-
-  react-test-renderer@19.2.4(react@19.2.4):
-    dependencies:
-      react: 19.2.4
-      react-is: 19.2.4
       scheduler: 0.27.0
 
   react@19.2.4: {}
