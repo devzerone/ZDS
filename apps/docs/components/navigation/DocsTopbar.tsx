@@ -1,26 +1,33 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { productTabs } from "./site-nav";
+import ThemeToggle from "./ThemeToggle";
+
+function getBreadcrumb(pathname: string) {
+  if (pathname === "/") {
+    return "Docs / Overview";
+  }
+
+  const segments = pathname
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => segment.replace(/-/g, " "))
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1));
+
+  return `Docs / ${segments.join(" / ")}`;
+}
 
 export function DocsTopbar() {
   const currentPath = usePathname();
 
   return (
     <header className="docs-topbar">
-      <nav className="docs-product-tabs" aria-label="Platform navigation">
-        {productTabs.map((tab) => {
-          const active = tab.href === "/" ? currentPath === "/" : currentPath.startsWith(tab.href);
-          return (
-            <a className={`docs-product-tab${active ? " is-active" : ""}`} href={tab.href} key={tab.label}>
-              {tab.label}
-            </a>
-          );
-        })}
-      </nav>
-      <div className="docs-search-shell" aria-label="Search shortcut">
-        <span>Search</span>
-        <kbd>⌘K</kbd>
+      <span className="docs-topbar__crumb">{getBreadcrumb(currentPath)}</span>
+      <div className="docs-topbar__actions">
+        <div className="docs-search-shell" aria-label="Search shortcut">
+          <span>Find component guidance</span>
+        </div>
+        <ThemeToggle />
       </div>
     </header>
   );

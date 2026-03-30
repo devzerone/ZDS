@@ -1,31 +1,27 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import logoDark from "../../../../packages/foundation/assets/brand/zds-logo-dark.png";
 import { siteNav } from "./site-nav";
-import ThemeToggle from "./ThemeToggle";
 
 export function DocsSidebar() {
   const currentPath = usePathname();
+
   return (
     <aside className="docs-sidebar">
       <div className="docs-sidebar__header">
-        <div>
-          <a className="docs-brand" href="/">
-            ZDS Docs
-          </a>
-          <p className="docs-brand-copy">공통 디자인 언어와 컴포넌트 스펙</p>
-        </div>
-        <ThemeToggle />
+        <a className="docs-brand" href="/">
+          <Image alt="ZDS logo" className="docs-brand__mark" priority src={logoDark} />
+          <div className="docs-brand__copy">
+            <strong>Zero Design System</strong>
+            <span>공통 디자인 언어와 컴포넌트 기준선</span>
+          </div>
+        </a>
       </div>
       <nav aria-label="Design system documentation">
         {siteNav.map((section) => (
           <div className="docs-nav-section" key={section.label}>
-            <a
-              className={`docs-nav-section__title${currentPath === section.href ? " is-active" : ""}`}
-              href={section.href}
-            >
-              {section.label}
-            </a>
             <ul className="docs-nav-list">
               {section.entries.map((entry) => (
                 <li key={entry.href}>
@@ -44,6 +40,10 @@ export function DocsSidebar() {
           </div>
         ))}
       </nav>
+      <div className="docs-sidebar__footer">
+        <span>Canonical source</span>
+        <p>Spec, pen, tokens, React docs를 같은 흐름에서 읽을 수 있게 유지합니다.</p>
+      </div>
     </aside>
   );
 }

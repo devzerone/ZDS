@@ -7,7 +7,8 @@ export function ThemeToggle() {
 
   return (
     <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle light and dark mode">
-      {theme === "light" ? "다크" : "라이트"}
+      <span className="theme-toggle__label">Light / Dark</span>
+      <span className={`theme-toggle__thumb theme-toggle__thumb--${theme}`} aria-hidden="true" />
     </button>
   );
 }

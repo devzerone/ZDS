@@ -1,4 +1,2159 @@
 {
   "version": "2.9",
-  "children": []
+  "children": [
+    {
+      "type": "frame",
+      "id": "M6BcM",
+      "x": 0,
+      "y": 0,
+      "name": "Docs Home",
+      "theme": {
+        "mode": "light"
+      },
+      "width": 1440,
+      "height": 1024,
+      "fill": "$color_bg_surface",
+      "children": [
+        {
+          "type": "frame",
+          "id": "jB0Go",
+          "name": "sidebar",
+          "width": 272,
+          "height": "fill_container",
+          "fill": "$color_bg_canvas",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "$color_border_default"
+          },
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            28,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "M1lUR",
+              "name": "brand",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lSoAs",
+                  "name": "brandMark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$color_bg_brand",
+                  "cornerRadius": 12
+                },
+                {
+                  "type": "text",
+                  "id": "TnC7L",
+                  "name": "brandText",
+                  "fill": "$color_fg_primary",
+                  "content": "Zero Design System",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vWfx5",
+              "name": "nav",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kci4I",
+                  "name": "nav1",
+                  "width": "fill_container",
+                  "fill": "$color_bg_brand_soft",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wjFtu",
+                      "name": "nav1Label",
+                      "fill": "$color_fg_brand",
+                      "content": "Overview",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5nYUr",
+                  "name": "nav2",
+                  "width": "fill_container",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OasKm",
+                      "name": "nav2Label",
+                      "fill": "$color_fg_secondary",
+                      "content": "Foundation",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LhhSt",
+                  "name": "nav3",
+                  "width": "fill_container",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Cuh8J",
+                      "name": "nav3Label",
+                      "fill": "$color_fg_secondary",
+                      "content": "Components",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jUA5u",
+                  "name": "nav4",
+                  "width": "fill_container",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NEc9n",
+                      "name": "nav4Label",
+                      "fill": "$color_fg_secondary",
+                      "content": "Patterns",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uiNV6",
+              "name": "footer",
+              "width": "fill_container",
+              "fill": "$color_bg_surface_alt",
+              "cornerRadius": 18,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": [
+                16,
+                18
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZVCqk",
+                  "name": "footerCaption",
+                  "fill": "$color_fg_tertiary",
+                  "content": "Canonical source",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "cHliS",
+                  "name": "footerBody",
+                  "fill": "$color_fg_secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Spec, pen, tokens, and React docs stay aligned from one sidebar-friendly source of truth.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Pretendard",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IOBp1",
+          "name": "main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            24,
+            32
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "BlosU",
+              "name": "topbar",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "W46bG",
+                  "name": "crumb",
+                  "fill": "$color_fg_tertiary",
+                  "content": "Docs / Overview",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "FbBQl",
+                  "name": "actions",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "kvjbF",
+                      "name": "search",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "RHE6a",
+                          "name": "searchLabel",
+                          "fill": "$color_fg_tertiary",
+                          "content": "Search documentation",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "A64hl",
+                      "name": "theme",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zVerW",
+                          "name": "themeLabel",
+                          "fill": "$color_fg_secondary",
+                          "content": "Light / Dark",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ndyJO",
+              "name": "hero",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "9cFL3",
+                  "name": "kicker",
+                  "fill": "$color_fg_brand",
+                  "content": "Design system docs",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "fqQOf",
+                  "name": "title",
+                  "fill": "$color_fg_primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A calm source of truth for tokens, components, and implementation.",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Pretendard",
+                  "fontSize": 46,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "8q5sC",
+                  "name": "desc",
+                  "fill": "$color_fg_secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Start from overview pages, move into component details, then jump to Storybook only when you need an interactive preview. The docs stay opinionated, searchable, and easy to scan.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Pretendard",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ei0Ot",
+              "name": "summary",
+              "width": "fill_container",
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "q1AdV",
+                  "name": "card1",
+                  "width": "fill_container",
+                  "fill": "$color_bg_canvas",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$color_border_default"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "t9Nv6",
+                      "name": "card1Label",
+                      "fill": "$color_fg_tertiary",
+                      "content": "Foundation",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Zk6qx",
+                      "name": "card1Body",
+                      "fill": "$color_fg_secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Token scales, color semantics, and theme guidance live in one editorial entry point.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Pretendard",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VtRH8",
+                  "name": "card2",
+                  "width": "fill_container",
+                  "fill": "$color_bg_canvas",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$color_border_default"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "baDCx",
+                      "name": "card2Label",
+                      "fill": "$color_fg_tertiary",
+                      "content": "Components",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mcD74",
+                      "name": "card2Body",
+                      "fill": "$color_fg_secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Every component page connects guidelines, parity, anatomy, and real React implementation references.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Pretendard",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tyC4x",
+                  "name": "card3",
+                  "width": "fill_container",
+                  "fill": "$color_bg_brand_soft",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$color_border_brand"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tcWvN",
+                      "name": "card3Label",
+                      "fill": "$color_fg_brand",
+                      "content": "Preview",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tdImi",
+                      "name": "card3Body",
+                      "fill": "$color_fg_secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Canonical docs stay in Next, while Storybook handles variants, args, and interaction review.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Pretendard",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "09S2f",
+              "name": "section",
+              "width": "fill_container",
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "2Nh9f",
+                  "name": "mainCol",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "qaT8p",
+                      "name": "article",
+                      "width": "fill_container",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 24,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vhb1f",
+                          "name": "articleKicker",
+                          "fill": "$color_fg_brand",
+                          "content": "Start here",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "K06As",
+                          "name": "articleTitle",
+                          "fill": "$color_fg_primary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Docs should explain the system before the playground asks you to experiment.",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 30,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hYI4c",
+                          "name": "articleBody",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Use overview pages to understand purpose, token language, and patterns. Then open Button docs for anatomy, states, accessibility, and parity. Interactive stories are linked, but they do not replace the narrative.",
+                          "lineHeight": 1.65,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XmSau",
+                          "name": "articleNote",
+                          "fill": "$color_fg_tertiary",
+                          "content": "Reference flow: Overview -> Button docs -> Storybook preview",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l44pN",
+                      "name": "articlePanel",
+                      "width": "fill_container",
+                      "fill": "$color_bg_surface_alt",
+                      "cornerRadius": 24,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 22,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Sksok",
+                          "name": "panelTitle",
+                          "fill": "$color_fg_tertiary",
+                          "content": "Release workflow",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dAt9E",
+                          "name": "panelBody",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Validate tokens, build docs, build Storybook, then publish static artifacts. The documentation shell remains stable while the reference components grow.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "eGGsA",
+                  "name": "rail",
+                  "width": 320,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "5KAoh",
+                      "name": "railCard",
+                      "width": "fill_container",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 22,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 22,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "1XB88",
+                          "name": "railLabel",
+                          "fill": "$color_fg_tertiary",
+                          "content": "Popular entries",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "DwA3M",
+                          "name": "railItem1",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Button\nToken foundation\nTheme toggle guidance",
+                          "lineHeight": 1.7,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "7Pe9V",
+                      "name": "railCard2",
+                      "width": "fill_container",
+                      "fill": "$color_bg_brand_soft",
+                      "cornerRadius": 22,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_brand"
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 22,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "426cd",
+                          "name": "railCard2Label",
+                          "fill": "$color_fg_brand",
+                          "content": "Preview policy",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "6johz",
+                          "name": "railCard2Body",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Storybook is for controlled exploration. The official guidance and API story start in the docs shell.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "XCqB6",
+      "x": 1560,
+      "y": 0,
+      "name": "Button Docs",
+      "theme": {
+        "mode": "light"
+      },
+      "width": 1440,
+      "height": 1220,
+      "fill": "$color_bg_surface",
+      "children": [
+        {
+          "type": "frame",
+          "id": "YKbls",
+          "name": "sidebar",
+          "width": 272,
+          "height": "fill_container",
+          "fill": "$color_bg_canvas",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "$color_border_default"
+          },
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            28,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "YAJmR",
+              "name": "brand",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ngANE",
+                  "name": "brandMark",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$color_bg_brand",
+                  "cornerRadius": 12
+                },
+                {
+                  "type": "text",
+                  "id": "0r9Z9",
+                  "name": "brandText",
+                  "fill": "$color_fg_primary",
+                  "content": "Zero Design System",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "arGtM",
+              "name": "nav",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "v8dje",
+                  "name": "nav1",
+                  "width": "fill_container",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "0qLlS",
+                      "name": "nav1Label",
+                      "fill": "$color_fg_secondary",
+                      "content": "Overview",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kIt17",
+                  "name": "nav2",
+                  "width": "fill_container",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oXaUr",
+                      "name": "nav2Label",
+                      "fill": "$color_fg_secondary",
+                      "content": "Foundation",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "e4TFc",
+                  "name": "nav3",
+                  "width": "fill_container",
+                  "fill": "$color_bg_brand_soft",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XgNv7",
+                      "name": "nav3Label",
+                      "fill": "$color_fg_brand",
+                      "content": "Components",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5FoS2",
+                  "name": "nav4",
+                  "width": "fill_container",
+                  "cornerRadius": 16,
+                  "gap": 10,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wTk8u",
+                      "name": "nav4Label",
+                      "fill": "$color_fg_secondary",
+                      "content": "Patterns",
+                      "fontFamily": "Pretendard",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gGIWD",
+          "name": "main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            24,
+            32
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ut00J",
+              "name": "topbar",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JOCvb",
+                  "name": "crumb",
+                  "fill": "$color_fg_tertiary",
+                  "content": "Docs / Components / Button",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "iwzJd",
+                  "name": "actions",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "abHPu",
+                      "name": "search",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Qx0L4",
+                          "name": "searchLabel",
+                          "fill": "#000000",
+                          "content": "Find component guidance",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nsHk4",
+                      "name": "theme",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 999,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pzySr",
+                          "name": "themeLabel",
+                          "fill": "$color_fg_secondary",
+                          "content": "Light / Dark",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "is5uP",
+              "name": "hero",
+              "width": "fill_container",
+              "fill": "$color_bg_canvas",
+              "cornerRadius": 28,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$color_border_default"
+              },
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "8fKGi",
+                  "name": "heroTitle",
+                  "fill": "$color_fg_primary",
+                  "content": "Button",
+                  "fontFamily": "Pretendard",
+                  "fontSize": 42,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "lseMJ",
+                  "name": "heroBody",
+                  "fill": "$color_fg_secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Buttons communicate emphasis, sequence, and responsibility. Use one dominant action per section, keep labels short, and lean on variants only when the hierarchy demands it.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Pretendard",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "sCEK3",
+                  "name": "pillRow",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Q95ck",
+                      "name": "pill1",
+                      "fill": "$color_bg_brand_soft",
+                      "cornerRadius": 999,
+                      "gap": 8,
+                      "padding": [
+                        8,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "gwoyE",
+                          "name": "pill1Text",
+                          "fill": "$color_fg_brand",
+                          "content": "4 variants",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lKZWP",
+                      "name": "pill2",
+                      "fill": "$color_bg_surface_alt",
+                      "cornerRadius": 999,
+                      "gap": 8,
+                      "padding": [
+                        8,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "QCs2f",
+                          "name": "pill2Text",
+                          "fill": "$color_fg_secondary",
+                          "content": "6 required states",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LQwcX",
+              "name": "layout",
+              "width": "fill_container",
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "5pyTn",
+                  "name": "content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "4mOlH",
+                      "name": "anatomy",
+                      "width": "fill_container",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 24,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "czbLl",
+                          "name": "anatomyTitle",
+                          "fill": "$color_fg_primary",
+                          "content": "Anatomy",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 28,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "njiwQ",
+                          "name": "anatomyBody",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "A button is led by its text label. Icons support direction, but should never replace the action name when clarity matters.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ExyZY",
+                          "name": "anatomyParts",
+                          "width": "fill_container",
+                          "gap": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "fdLM9",
+                              "name": "part1",
+                              "width": "fill_container",
+                              "fill": "$color_bg_surface",
+                              "cornerRadius": 20,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 18,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "58HqK",
+                                  "name": "part1Title",
+                                  "fill": "$color_fg_tertiary",
+                                  "content": "Label",
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Shjrc",
+                                  "name": "part1Body",
+                                  "fill": "$color_fg_secondary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Always visible, verb-led, and short enough to scan in dense layouts.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "iMs9h",
+                              "name": "part2",
+                              "width": "fill_container",
+                              "fill": "$color_bg_surface",
+                              "cornerRadius": 20,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 18,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "CxoFd",
+                                  "name": "part2Title",
+                                  "fill": "$color_fg_tertiary",
+                                  "content": "Icon slot",
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "TRJks",
+                                  "name": "part2Body",
+                                  "fill": "$color_fg_secondary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Optional leading or trailing support for context, never as the only meaning carrier.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nVZV4",
+                      "name": "variants",
+                      "width": "fill_container",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 24,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Sh3jk",
+                          "name": "variantsTitle",
+                          "fill": "$color_fg_primary",
+                          "content": "Variant guidance",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 28,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "YBUvi",
+                          "name": "variantRow",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Qpv1O",
+                              "name": "primaryCard",
+                              "width": "fill_container",
+                              "fill": "$color_bg_brand",
+                              "cornerRadius": 20,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 18,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "35UwQ",
+                                  "name": "primaryLabel",
+                                  "fill": "$color_fg_inverse",
+                                  "content": "Primary",
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "6MDPU",
+                                  "name": "primaryBody",
+                                  "fill": "$color_fg_inverse",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Use once per section when the next step must be unmistakable.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "S3zCj",
+                              "name": "secondaryCard",
+                              "width": "fill_container",
+                              "fill": "$color_bg_surface_alt",
+                              "cornerRadius": 20,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 18,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "dSkd9",
+                                  "name": "secondaryLabel",
+                                  "fill": "$color_fg_secondary",
+                                  "content": "Secondary",
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "EaMrV",
+                                  "name": "secondaryBody",
+                                  "fill": "$color_fg_secondary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Use when an adjacent primary action already carries the section's momentum.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "2sBdK",
+                              "name": "tertiaryCard",
+                              "width": "fill_container",
+                              "fill": "$color_bg_surface",
+                              "cornerRadius": 20,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$color_border_default"
+                              },
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 18,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "W3ZfI",
+                                  "name": "tertiaryLabel",
+                                  "fill": "$color_fg_secondary",
+                                  "content": "Tertiary",
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "XBHJi",
+                                  "name": "tertiaryBody",
+                                  "fill": "$color_fg_secondary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Reserve for low-emphasis support actions that should stay visible but quiet.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "hSoeT",
+                              "name": "destructiveCard",
+                              "width": "fill_container",
+                              "fill": "$color_bg_danger_soft",
+                              "cornerRadius": 20,
+                              "stroke": {
+                                "align": "inside",
+                                "thickness": 1,
+                                "fill": "$color_border_danger"
+                              },
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 18,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "pEglJ",
+                                  "name": "destructiveLabel",
+                                  "fill": "$color_status_danger_fg",
+                                  "content": "Destructive",
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 13,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "9ituf",
+                                  "name": "destructiveBody",
+                                  "fill": "$color_status_danger_fg",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Use for irreversible actions and pair with explicit confirmation language.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "Pretendard",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5tryv",
+                  "name": "rail",
+                  "width": 320,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "V6F3x",
+                      "name": "railCard",
+                      "width": "fill_container",
+                      "fill": "$color_bg_canvas",
+                      "cornerRadius": 22,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_default"
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 22,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "iKSTA",
+                          "name": "railLabel",
+                          "fill": "$color_fg_tertiary",
+                          "content": "Quick facts",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "7WRJu",
+                          "name": "railBody",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Variants: primary, secondary, tertiary, destructive\nSizes: small, medium, large\nStates: default, disabled, loading, focus, hover, pressed",
+                          "lineHeight": 1.7,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cqbD9",
+                      "name": "railCard2",
+                      "width": "fill_container",
+                      "fill": "$color_bg_brand_soft",
+                      "cornerRadius": 22,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$color_border_brand"
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 22,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DvsFW",
+                          "name": "railCard2Label",
+                          "fill": "$color_fg_brand",
+                          "content": "Implementation",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Nm9GF",
+                          "name": "railCard2Body",
+                          "fill": "$color_fg_secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Source of truth links should point to spec, pen, tokens, React, and Storybook without duplicating the API story.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "v4KZe",
+                      "name": "railCard3",
+                      "width": "fill_container",
+                      "fill": "$color_bg_brand_strong",
+                      "cornerRadius": 22,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 22,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NEK9t",
+                          "name": "railCard3Label",
+                          "fill": "$color_fg_inverse",
+                          "content": "Next step",
+                          "fontFamily": "Pretendard",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "m5kLA",
+                          "name": "railCard3Body",
+                          "fill": "$color_fg_inverse",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Open Storybook preview for args and interaction review, then come back here for canonical usage guidance.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Pretendard",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "mode": [
+      "light",
+      "dark"
+    ]
+  },
+  "variables": {
+    "color.bg.brand": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5e6ad2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#8b98f0",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.bg.brand-soft": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e9ebff",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#2b3167",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.bg.brand-strong": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#4f59bf",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#b2bbff",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.bg.canvas": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ffffff",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0d1016",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.bg.danger-soft": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ffdce3",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#652438",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.bg.surface": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f8f9fb",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#171b24",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.bg.surface-alt": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f1f3f6",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#242a35",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.border.brand": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5e6ad2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#b2bbff",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.border.danger": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#b33854",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#ff8ea3",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.border.default": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e4e8ee",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#3a414e",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.border.strong": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#9aa3b2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#6b7280",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.fg.brand": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#4f59bf",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#b2bbff",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.fg.disabled": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#9aa3b2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#515967",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.fg.inverse": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ffffff",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#171b24",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.fg.primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#171b24",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#f8f9fb",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.fg.secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#3a414e",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#e4e8ee",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.fg.tertiary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#6b7280",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#9aa3b2",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.status.danger.fg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#922d46",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#ff8ea3",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_canvas": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ffffff",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0d1016",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_surface": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f8f9fb",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#171b24",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_fg_primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#171b24",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#f8f9fb",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_brand": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5e6ad2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#8b98f0",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_brand_soft": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e9ebff",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#2b3167",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_brand_strong": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#4f59bf",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#b2bbff",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_danger_soft": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ffdce3",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#652438",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_bg_surface_alt": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f1f3f6",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#242a35",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_border_brand": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5e6ad2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#b2bbff",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_border_danger": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#b33854",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#ff8ea3",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_border_default": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e4e8ee",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#3a414e",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_fg_brand": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#4f59bf",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#b2bbff",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_fg_inverse": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ffffff",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#171b24",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_fg_secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#3a414e",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#e4e8ee",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_fg_tertiary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#6b7280",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#9aa3b2",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_status_danger_fg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#922d46",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#ff8ea3",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color_fg_disabled": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#9aa3b2",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#515967",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    }
+  }
 }
