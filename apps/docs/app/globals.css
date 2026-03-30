@@ -1,33 +1,22 @@
 :root {
-  color-scheme: light;
-  --docs-bg: #f8f9fb;
-  --docs-surface: #ffffff;
-  --docs-surface-strong: #f1f3f6;
-  --docs-border: #e4e8ee;
-  --docs-text: #171b24;
-  --docs-text-muted: #3a414e;
-  --docs-text-subtle: #6b7280;
-  --docs-accent: #4f59bf;
-  --docs-accent-soft: #e9ebff;
-  --docs-accent-strong: #353c83;
-  --docs-accent-contrast: #ffffff;
-  --docs-danger-soft: #ffdce3;
-  --docs-danger-text: #922d46;
-  --docs-code-bg: #f1f3f6;
+  --docs-bg: var(--color-bg-canvas);
+  --docs-surface: var(--color-bg-surface);
+  --docs-surface-strong: var(--color-bg-surface-alt);
+  --docs-border: var(--color-border-default);
+  --docs-text: var(--color-fg-primary);
+  --docs-text-muted: var(--color-fg-secondary);
+  --docs-text-subtle: var(--color-fg-tertiary);
+  --docs-accent: var(--color-accent-primary);
+  --docs-accent-soft: var(--color-bg-brand-soft);
+  --docs-accent-strong: var(--color-bg-brand-strong);
+  --docs-accent-contrast: var(--color-fg-inverse);
+  --docs-danger-soft: var(--color-bg-danger-soft);
+  --docs-danger-text: var(--color-status-danger-fg);
+  --docs-code-bg: var(--color-bg-surface-alt);
   --docs-shadow: none;
 }
 
 :root[data-theme="dark"] {
-  color-scheme: dark;
-  --docs-bg: #0f1115;
-  --docs-surface: #171a21;
-  --docs-surface-strong: #20242c;
-  --docs-border: #2b313c;
-  --docs-text: #f9fafb;
-  --docs-text-muted: #9ca3af;
-  --docs-accent: #ff8a3d;
-  --docs-accent-strong: #ffb37f;
-  --docs-accent-contrast: #111827;
   --docs-code-bg: #20242c;
   --docs-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
 }

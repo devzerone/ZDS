@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import "../packages/foundation/tokens.css";
 
 const preview: Preview = {
   parameters: {
@@ -30,11 +31,12 @@ const preview: Preview = {
       const isDark = context.globals.theme === "dark";
       return (
         <div
+          data-theme={isDark ? "dark" : "light"}
           style={{
             minHeight: "100vh",
             padding: "2rem",
-            background: isDark ? "#0f131a" : "#f5f7fb",
-            color: isDark ? "#f6f8fb" : "#171b24"
+            background: "var(--color-bg-canvas)",
+            color: "var(--color-fg-primary)"
           }}
         >
           <Story />

@@ -22,6 +22,10 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   disabled?: boolean;
 }
 
+function toCssVarName(tokenName: string) {
+  return `--${tokenName.replaceAll(".", "-")}`;
+}
+
 export function resolveSemanticColor(tokenName: string): string {
   const token = semantic.tokens[tokenName];
   if (!token) {
@@ -37,16 +41,28 @@ export function resolveSemanticColor(tokenName: string): string {
   return family.steps[stepName];
 }
 
+export function resolveSemanticColorVar(tokenName: string): string {
+  return `var(${toCssVarName(tokenName)}, ${resolveSemanticColor(tokenName)})`;
+}
+
 export function resolveSizeToken(size: ButtonSize) {
   const sizeTokens = buttonTokens.sizes[size];
+  const typographyTokenName = sizeTokens.labelTypography;
+  const typographyToken = typography.tokens[typographyTokenName];
+
   return {
+    paddingInlineToken: sizeTokens.paddingX,
     paddingInline: spacing.tokens[sizeTokens.paddingX],
+    paddingBlockToken: sizeTokens.paddingY,
     paddingBlock: spacing.tokens[sizeTokens.paddingY],
+    gapToken: sizeTokens.gap,
     gap: spacing.tokens[sizeTokens.gap],
+    borderRadiusToken: sizeTokens.radius,
     borderRadius: radius.tokens[sizeTokens.radius],
     minHeight: sizeTokens.minHeight,
     iconSize: sizeTokens.iconSize,
-    labelTypography: typography.tokens[sizeTokens.labelTypography]
+    labelTypographyToken: typographyTokenName,
+    labelTypography: typographyToken
   };
 }
 
@@ -138,6 +154,15 @@ function renderIcon(icon: ReactNode, iconSize: number, position: "leading" | "tr
   );
 }
 
+function resolveDimensionVar(tokenName: string, fallback: number) {
+  return `var(${toCssVarName(tokenName)}, ${fallback}px)`;
+}
+
+function resolveTypographyVar(tokenName: string, suffix: "family" | "size" | "line-height" | "weight", fallback: string | number) {
+  const cssVarName = `--${tokenName.replaceAll(".", "-")}-${suffix}`;
+  return `var(${cssVarName}, ${fallback})`;
+}
+
 export function Button({
   variant = "primary",
   size = "medium",
@@ -173,20 +198,20 @@ export function Button({
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      gap: sizeTokens.gap,
+      gap: resolveDimensionVar(sizeTokens.gapToken, sizeTokens.gap),
       minHeight: sizeTokens.minHeight,
-      padding: `${sizeTokens.paddingBlock}px ${sizeTokens.paddingInline}px`,
-      borderRadius: sizeTokens.borderRadius,
-      border: `1px solid ${resolveSemanticColor(stateTokens.border)}`,
-      backgroundColor: resolveSemanticColor(stateTokens.background),
-      color: resolveSemanticColor(stateTokens.foreground),
+      padding: `${resolveDimensionVar(sizeTokens.paddingBlockToken, sizeTokens.paddingBlock)} ${resolveDimensionVar(sizeTokens.paddingInlineToken, sizeTokens.paddingInline)}`,
+      borderRadius: resolveDimensionVar(sizeTokens.borderRadiusToken, sizeTokens.borderRadius),
+      border: `1px solid ${resolveSemanticColorVar(stateTokens.border)}`,
+      backgroundColor: resolveSemanticColorVar(stateTokens.background),
+      color: resolveSemanticColorVar(stateTokens.foreground),
       cursor: disabled || loading ? "not-allowed" : "pointer",
-      fontFamily: labelStyle.fontFamily,
-      fontSize: labelStyle.fontSize,
-      fontWeight: labelStyle.fontWeight,
-      lineHeight: `${labelStyle.lineHeight}px`,
+      fontFamily: resolveTypographyVar(sizeTokens.labelTypographyToken, "family", labelStyle.fontFamily),
+      fontSize: resolveTypographyVar(sizeTokens.labelTypographyToken, "size", `${labelStyle.fontSize}px`),
+      fontWeight: resolveTypographyVar(sizeTokens.labelTypographyToken, "weight", labelStyle.fontWeight),
+      lineHeight: resolveTypographyVar(sizeTokens.labelTypographyToken, "line-height", `${labelStyle.lineHeight}px`),
       transition: "background-color 120ms ease, color 120ms ease, border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease",
-      boxShadow: focusVisible ? `0 0 0 3px ${resolveSemanticColor(stateTokens.focus)}33` : "none",
+      boxShadow: focusVisible ? `0 0 0 3px color-mix(in srgb, ${resolveSemanticColorVar(stateTokens.focus)} 20%, transparent)` : "none",
       transform: pressed ? "translateY(1px)" : "translateY(0)"
     };
 
