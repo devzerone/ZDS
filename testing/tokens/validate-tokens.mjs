@@ -4,15 +4,15 @@ import { resolve } from "node:path";
 const root = process.cwd();
 
 const files = {
-  palette: resolve(root, "packages/foundation/tokens/color/palette.json"),
-  semantic: resolve(root, "packages/foundation/tokens/color/semantic.json"),
-  components: resolve(root, "packages/foundation/tokens/components/core.json"),
-  buttonComponents: resolve(root, "packages/foundation/tokens/components/button.json"),
-  typography: resolve(root, "packages/foundation/tokens/typography/core.json"),
-  spacing: resolve(root, "packages/foundation/tokens/spacing/core.json"),
-  radius: resolve(root, "packages/foundation/tokens/radius/core.json"),
-  light: resolve(root, "packages/foundation/tokens/themes/light.json"),
-  dark: resolve(root, "packages/foundation/tokens/themes/dark.json")
+  palette: resolve(root, "packages/tokens/data/color/palette.json"),
+  semantic: resolve(root, "packages/tokens/data/color/semantic.json"),
+  components: resolve(root, "packages/tokens/data/components/core.json"),
+  buttonComponents: resolve(root, "packages/tokens/data/components/button.json"),
+  typography: resolve(root, "packages/tokens/data/typography/core.json"),
+  spacing: resolve(root, "packages/tokens/data/spacing/core.json"),
+  radius: resolve(root, "packages/tokens/data/radius/core.json"),
+  light: resolve(root, "packages/tokens/data/themes/light.json"),
+  dark: resolve(root, "packages/tokens/data/themes/dark.json")
 };
 
 const requiredFamilies = [

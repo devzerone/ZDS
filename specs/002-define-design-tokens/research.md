@@ -1,9 +1,9 @@
 # Research: 브랜드 차별화 디자인 토큰 정의
 
-## Decision 1: Keep token source of truth in `packages/foundation/tokens/`
+## Decision 1: Keep token source of truth in `packages/tokens/data/`
 
 **Decision**: Store all foundation token artifacts under
-`packages/foundation/tokens/`, separating raw palette values, semantic tokens,
+`packages/tokens/data/`, separating raw palette values, semantic tokens,
 theme mappings, typography, spacing, and radius by concern.
 
 **Rationale**: The constitution makes design tokens the only authority for

@@ -23,8 +23,8 @@ contract-first lifecycle을 충족한다.
 ## Technical Context
 
 **Language/Version**: JSON specification artifacts, JSON token artifacts, Markdown documentation, and React 19 component package conventions in a pnpm monorepo workspace  
-**Primary Dependencies**: pnpm workspace, Turbo repo orchestration, `@zds/foundation` token package, `@zds/react` peer dependency contract on React 19 and React DOM 19  
-**Storage**: repository files under `specs/003-button-component/`, `packages/foundation/tokens/`, `packages/react/components/`, `apps/docs/components/`, `testing/spec/`, `testing/accessibility/`, and `testing/visual/`  
+**Primary Dependencies**: pnpm workspace, Turbo repo orchestration, `@zds/tokens` package, `@zds/react` peer dependency contract on React 19 and React DOM 19  
+**Storage**: repository files under `specs/003-button-component/`, `packages/tokens/data/`, `packages/react/components/`, `apps/docs/components/`, `testing/spec/`, `testing/accessibility/`, and `testing/visual/`  
 **Testing**: executable contract review for spec completeness, token validation updates, React component behavior tests, accessibility checks, and visual comparison baselines  
 **Target Platform**: shared design-system artifacts consumed by React, SwiftUI, Kotlin Compose, and Windows Native UI implementations  
 **Project Type**: design-system component package with cross-layer source-of-truth artifacts  
@@ -34,7 +34,7 @@ contract-first lifecycle을 충족한다.
 
 **Spec Location**: `/home/choiho/zerone/ZDS/specs/003-button-component/spec.md`  
 **JSON Contract Source**: planned canonical component contract under `spec/components/button/button.spec.json`  
-**Token Sources**: `packages/foundation/tokens/components/button.json` consuming semantic tokens from the existing foundation token layer  
+**Token Sources**: `packages/tokens/data/components/button.json` consuming semantic tokens from the shared token layer  
 **Pen Sources**: planned button `.pen` reference under `pen/components/button/` to define visual anatomy, variants, sizes, and state baselines  
 **Docs Location**: `apps/docs/components/button.md` plus feature planning documents under `/home/choiho/zerone/ZDS/specs/003-button-component/`  
 **Implementation Packages**: `packages/react/components/button/` as the first platform implementation; `packages/swiftui/components/`, `packages/kotlin/components/`, and `packages/windows/components/` follow the same contract later  
@@ -48,7 +48,7 @@ contract-first lifecycle을 충족한다.
 - [x] JSON spec exists before implementation and remains the authority for variants, sizes, states, slots, and accessibility expectations.
       Planned canonical location: `spec/components/button/button.spec.json`.
 - [x] Token mapping will exist for every reusable visual decision.
-      Planned component-token source: `packages/foundation/tokens/components/button.json`.
+      Planned component-token source: `packages/tokens/data/components/button.json`.
 - [x] `.pen` artifact is planned for all visual component states affected by this feature.
       Planned visual baseline location: `pen/components/button/`.
 - [x] Documentation updates will cover purpose, anatomy, variants, states, accessibility, token dependencies, and platform differences.
@@ -114,7 +114,7 @@ testing/
 
 **Structure Decision**: Keep the authoritative component contract in
 `spec/components/button/`, component token mapping in
-`packages/foundation/tokens/components/`, visual reference assets in
+`packages/tokens/data/components/`, visual reference assets in
 `pen/components/button/`, public usage documentation in
 `apps/docs/components/`, and the first implementation in
 `packages/react/components/button/`. Testing stays separated by concern under

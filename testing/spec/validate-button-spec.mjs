@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const buttonSpecPath = resolve(root, "spec/components/button/button.spec.json");
-const buttonTokenPath = resolve(root, "packages/foundation/tokens/components/button.json");
+const buttonTokenPath = resolve(root, "packages/tokens/data/components/button.json");
 
 const errors = [];
 

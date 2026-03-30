@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
-    "@zds/foundation": "workspace:*",
+    "@zds/tokens": "workspace:*",
     "@zds/react": "workspace:*",
     "next": "^15.3.0",
     "react": "^19.2.0",

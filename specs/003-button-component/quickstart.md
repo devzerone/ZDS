@@ -8,7 +8,7 @@
 ## Planned Artifact Order
 
 1. `spec/components/button/button.spec.json`에 canonical button contract를 작성한다.
-2. `packages/foundation/tokens/components/button.json`에 variant, size, state별 component token 매핑을 추가한다.
+2. `packages/tokens/data/components/button.json`에 variant, size, state별 component token 매핑을 추가한다.
 3. `pen/components/button/`에 `.pen` 시각 기준선과 상태/크기 비교 아트를 만든다.
 4. `apps/docs/components/button.md`에 목적, anatomy, variants, sizes, states, accessibility, misuse를 문서화한다.
 5. `packages/react/components/button/`에 첫 구현을 추가한다.

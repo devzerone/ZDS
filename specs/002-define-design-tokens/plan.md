@@ -5,7 +5,7 @@
 
 ## Summary
 
-`packages/foundation/tokens/`를 토큰 소스 오브 트루스로 삼아, Seed Design
+`packages/tokens/data/`를 토큰 소스 오브 트루스로 삼아, Seed Design
 참조 구조를 따르는 원시 팔레트, 의미 토큰, 테마 토큰, 컴포넌트 토큰 준비
 체계를 정의한다.
 핵심 브랜드 프라이머리 `#5e6ad2`를 기준으로 베리에이션을 구성하고, 라이트와
@@ -23,8 +23,8 @@
 ## Technical Context
 
 **Language/Version**: JSON token artifacts in a pnpm monorepo workspace  
-**Primary Dependencies**: pnpm workspace, Turbo repo orchestration, foundation token package conventions  
-**Storage**: Repository files under `packages/foundation/tokens/`, `apps/docs/foundation/`, and `testing/tokens/`  
+**Primary Dependencies**: pnpm workspace, Turbo repo orchestration, dedicated token package conventions  
+**Storage**: Repository files under `packages/tokens/data/`, `apps/docs/foundation/`, and `testing/tokens/`  
 **Testing**: executable token validation scripts plus token structure review, theme coverage review, semantic naming review, contrast validation for key semantic color pairs, and Seed differentiation review in `testing/tokens/`  
 **Target Platform**: React, SwiftUI, Kotlin Compose, Windows Native UI consumers  
 **Project Type**: design-system foundation package  
@@ -33,7 +33,7 @@
 **Scale/Scope**: one foundation token release covering 1 primary family, 2 secondary families, 1 neutral family, 4 state families, typography tiers, spacing scale, radius scale, light/dark theme mappings, and component-token scaffolding  
 
 **Spec Location**: `/home/choiho/zerone/ZDS/specs/002-define-design-tokens/spec.md`  
-**Token Sources**: `packages/foundation/tokens/` as the canonical location for raw, semantic, theme, and component-token artifacts  
+**Token Sources**: `packages/tokens/data/` as the canonical location for raw, semantic, theme, and component-token artifacts  
 **Pen Sources**: None in this feature; token definitions are created before component `.pen` updates  
 **Docs Location**: `apps/docs/foundation/` plus feature documentation in `/home/choiho/zerone/ZDS/specs/002-define-design-tokens/`  
 **Implementation Packages**: `packages/foundation/` publishes token artifacts; `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, and `packages/windows/` are downstream consumers  
@@ -101,7 +101,7 @@ testing/
 ```
 
 **Structure Decision**: Keep all source-of-truth token artifacts in
-`packages/foundation/tokens/`, including a component-token scaffold, publish human-facing guidance from
+`packages/tokens/data/`, including a component-token scaffold, publish human-facing guidance from
 `apps/docs/foundation/`, and place validation assets under `testing/tokens/`.
 Platform packages consume the shared token layer and do not define their own raw
 or semantic token namespaces.

@@ -1,0 +1,65 @@
+{
+  "name": "@zds/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "": ["./dist/index.d.ts"],
+      "tokens": ["./dist/index.d.ts"],
+      "color": ["./dist/color.d.ts"],
+      "semantic": ["./dist/semantic.d.ts"],
+      "spacing": ["./dist/spacing.d.ts"],
+      "radius": ["./dist/radius.d.ts"],
+      "typography": ["./dist/typography.d.ts"],
+      "components/button": ["./dist/components/button.d.ts"],
+      "themes": ["./dist/themes.d.ts"]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./color": {
+      "types": "./dist/color.d.ts",
+      "default": "./dist/color.js"
+    },
+    "./semantic": {
+      "types": "./dist/semantic.d.ts",
+      "default": "./dist/semantic.js"
+    },
+    "./spacing": {
+      "types": "./dist/spacing.d.ts",
+      "default": "./dist/spacing.js"
+    },
+    "./radius": {
+      "types": "./dist/radius.d.ts",
+      "default": "./dist/radius.js"
+    },
+    "./typography": {
+      "types": "./dist/typography.d.ts",
+      "default": "./dist/typography.js"
+    },
+    "./components/button": {
+      "types": "./dist/components/button.d.ts",
+      "default": "./dist/components/button.js"
+    },
+    "./themes": {
+      "types": "./dist/themes.d.ts",
+      "default": "./dist/themes.js"
+    }
+  },
+  "scripts": {
+    "build": "pnpm build:tokens-css && node ./scripts/build-package.mjs",
+    "build:tokens-css": "node ./scripts/build-tokens-css.mjs"
+  }
+}

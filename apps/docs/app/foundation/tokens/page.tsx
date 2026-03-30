@@ -28,9 +28,9 @@ export default function FoundationTokensPage() {
         <aside className="docs-rail">
           <article className="docs-rail-card">
             <span>Source references</span>
-            <p><code>packages/foundation/tokens/color/palette.json</code></p>
-            <p><code>packages/foundation/tokens/color/semantic.json</code></p>
-            <p><code>packages/foundation/tokens/components/core.json</code></p>
+            <p><code>packages/tokens/data/color/palette.json</code></p>
+            <p><code>packages/tokens/data/color/semantic.json</code></p>
+            <p><code>packages/tokens/data/components/core.json</code></p>
           </article>
           <article className="docs-rail-card docs-rail-card--accent">
             <span>Rule of thumb</span>

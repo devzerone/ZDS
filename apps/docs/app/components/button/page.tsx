@@ -117,7 +117,7 @@ export default function ButtonDocsPage() {
             <p>source of truth는 spec, token, pen, React, Storybook 링크를 함께 보여주고 API 서사는 중복하지 않습니다.</p>
             <ul className="source-list">
               <li><code>spec/components/button/button.spec.json</code></li>
-              <li><code>packages/foundation/tokens/components/button.json</code></li>
+              <li><code>packages/tokens/data/components/button.json</code></li>
               <li><code>pen/components/button/button.pen</code></li>
               <li><code>packages/react/components/button/Button.tsx</code></li>
             </ul>

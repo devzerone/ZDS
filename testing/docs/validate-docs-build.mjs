@@ -9,7 +9,7 @@ const docsPage = resolve(root, "apps/docs/app/components/button/page.tsx");
 const requiredStates = ["default", "disabled", "loading", "focus", "hover", "pressed"];
 const requiredRefs = [
   "spec/components/button/button.spec.json",
-  "packages/foundation/tokens/components/button.json",
+  "packages/tokens/data/components/button.json",
   "pen/components/button/button.pen",
   "packages/react/components/button/Button.tsx"
 ];

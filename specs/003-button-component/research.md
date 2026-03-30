@@ -23,7 +23,7 @@ spec.
 ## Decision 2: Add button-specific component tokens that reference semantic tokens
 
 **Decision**: Create a dedicated button component-token file at
-`packages/foundation/tokens/components/button.json` with mappings for variant,
+`packages/tokens/data/components/button.json` with mappings for variant,
 size, and state surfaces such as background, foreground, border, focus ring,
 padding, and icon gap.
 

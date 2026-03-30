@@ -11,7 +11,7 @@ hierarchy, light and dark themes, and a primary brand family anchored to
 1. Review [spec.md](/home/choiho/zerone/ZDS/specs/002-define-design-tokens/spec.md),
    [plan.md](/home/choiho/zerone/ZDS/specs/002-define-design-tokens/plan.md), and
    [token-definition-contract.md](/home/choiho/zerone/ZDS/specs/002-define-design-tokens/contracts/token-definition-contract.md).
-2. Define raw palette families in `packages/foundation/tokens/`, starting with
+2. Define raw palette families in `packages/tokens/data/`, starting with
    the primary family anchored to `#5e6ad2`, then the two secondary families,
    neutral family, and four state families.
 3. Define semantic color tokens that map foreground, background, border, accent,
@@ -40,7 +40,7 @@ hierarchy, light and dark themes, and a primary brand family anchored to
 
 ## Completion Notes
 
-- Foundation token files were created under `packages/foundation/tokens/`.
+- Foundation token files were created under `packages/tokens/data/`.
 - Contributor-facing documentation was added under `apps/docs/foundation/`.
 - Executable validation is available via `node testing/tokens/validate-tokens.mjs`.
 - Initial validation passed for file presence, semantic/theme coverage, and component scaffold references.

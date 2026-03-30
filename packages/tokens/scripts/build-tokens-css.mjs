@@ -3,9 +3,9 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
-const foundationDir = resolve(scriptDir, "..");
-const tokensDir = resolve(foundationDir, "tokens");
-const outputFile = resolve(foundationDir, "tokens.css");
+const tokensPackageDir = resolve(scriptDir, "..");
+const tokensDir = resolve(tokensPackageDir, "data");
+const outputFile = resolve(tokensPackageDir, "tokens.css");
 
 function toCssVarName(tokenName) {
   return `--${tokenName.replaceAll(".", "-")}`;
@@ -74,7 +74,7 @@ for (const [tokenName, tokenValue] of Object.entries(semantic.tokens)) {
 }
 
 const css = [
-  "/* Generated from packages/foundation/tokens/*.json. Do not edit by hand. */",
+  "/* Generated from packages/tokens/data/*.json. Do not edit by hand. */",
   ":root {",
   renderDeclarations(rootDeclarations),
   "}",

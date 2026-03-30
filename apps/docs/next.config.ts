@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   pageExtensions: ["ts", "tsx", "mdx"],
-  transpilePackages: ["@zds/react"]
+  transpilePackages: ["@zds/react", "@zds/tokens"]
 };
 
 export default withMDX(nextConfig);

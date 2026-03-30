@@ -18,7 +18,7 @@ documentation site and the Storybook preview surface.
 1. `spec/` remains the authority for component contract and parity metadata.
 2. `pen/` remains the authority for visual composition and comparison
    baselines.
-3. `packages/foundation/tokens/` remains the authority for reusable visual
+3. `packages/tokens/data/` remains the authority for reusable visual
    values.
 4. `packages/react/components/` remains the authority for React API shape and
    rendering behavior.

@@ -8,7 +8,7 @@ the ZDS button component.
 | Artifact Layer | Required Outcome | Planned Location |
 |----------------|------------------|------------------|
 | JSON Spec | Canonical contract for variants, sizes, states, slots, accessibility, and parity exceptions | `spec/components/button/button.spec.json` |
-| Component Tokens | Button-level token mappings that consume semantic tokens | `packages/foundation/tokens/components/button.json` |
+| Component Tokens | Button-level token mappings that consume semantic tokens | `packages/tokens/data/components/button.json` |
 | `.pen` Visual Reference | Visual anatomy, variants, sizes, and state baselines | `pen/components/button/` |
 | Documentation | Public explanation of usage, anatomy, accessibility, and anti-patterns | `apps/docs/components/button.md` |
 | React Implementation | First reusable platform implementation | `packages/react/components/button/` |

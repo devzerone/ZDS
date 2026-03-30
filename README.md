@@ -19,7 +19,8 @@ ZDS는 토큰, 컴포넌트 계약, Pencil 기준선, React 구현, 문서 사�
 apps/
   docs/                  Next.js App Router 문서 사이트
 packages/
-  foundation/            토큰, 계약, 브랜드/디자인 자산
+  foundation/            브랜드 자산과 foundation 공용 에셋
+  tokens/                디자인 토큰 패키지
   react/                 React 컴포넌트 구현
 pen/
   components/            컴포넌트 Pencil 기준선
@@ -39,18 +40,20 @@ testing/
 
 1. `spec/`
    컴포넌트 API와 상태, parity, 계약 정의
-2. `packages/foundation/tokens/`
+2. `packages/tokens/`
    시맨틱 토큰과 컴포넌트 토큰
 3. `pen/`
    시각 기준선
-4. `packages/react/`
+4. `packages/foundation/`
+   브랜드 로고와 foundation 공용 에셋
+5. `packages/react/`
    실제 React 구현
-5. `apps/docs/`
+6. `apps/docs/`
    공식 문서 경험
 
 대표 예시:
 - Button contract: [button.spec.json](/home/choiho/zerone/ZDS/spec/components/button/button.spec.json)
-- Button tokens: [button.json](/home/choiho/zerone/ZDS/packages/foundation/tokens/components/button.json)
+- Button tokens: [button.json](/home/choiho/zerone/ZDS/packages/tokens/data/components/button.json)
 - Button pen: [button.pen](/home/choiho/zerone/ZDS/pen/components/button/button.pen)
 - Docs pen: [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/docs/design-system-docs.pen)
 - React Button: [Button.tsx](/home/choiho/zerone/ZDS/packages/react/components/button/Button.tsx)
@@ -105,7 +108,7 @@ pnpm validate:docs-system
 문서와 프리뷰는 역할이 다릅니다.
 
 - `apps/docs`
-  공식 문서, 토큰 설명, 사용 가이드, 접근성, parity
+  공식 문서 앱. 여기서 말하는 docs는 이 Next.js 사이트를 뜻합니다.
 - `Storybook`
   variant, size, state, args 기반 인터랙티브 검토
 
@@ -150,7 +153,7 @@ pnpm validate:docs-system
 새 컴포넌트를 추가할 때 권장 순서:
 
 1. `spec/`에 계약 정의
-2. `packages/foundation/tokens/`에 컴포넌트 토큰 추가
+2. `packages/tokens/`에 컴포넌트 토큰 추가
 3. `pen/components/`에 기준선 추가
 4. `packages/react/`에 구현과 테스트 추가
 5. `apps/docs/`와 Storybook 연결

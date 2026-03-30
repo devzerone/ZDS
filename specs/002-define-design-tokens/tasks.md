@@ -17,7 +17,7 @@
 
 **Purpose**: 토큰 작업을 위한 기본 디렉터리와 파일 골격 준비
 
-- [X] T001 Create token directory structure in `packages/foundation/tokens/color/`, `packages/foundation/tokens/components/`, `packages/foundation/tokens/typography/`, `packages/foundation/tokens/spacing/`, `packages/foundation/tokens/radius/`, and `packages/foundation/tokens/themes/`
+- [X] T001 Create token directory structure in `packages/tokens/data/color/`, `packages/tokens/data/components/`, `packages/tokens/data/typography/`, `packages/tokens/data/spacing/`, `packages/tokens/data/radius/`, and `packages/tokens/data/themes/`
 - [X] T002 [P] Create base documentation placeholders in `apps/docs/foundation/README.md` and `apps/docs/foundation/tokens.md`
 - [X] T003 [P] Create token validation workspace placeholders in `testing/tokens/README.md` and `testing/tokens/token-validation-checklist.md`
 
@@ -29,13 +29,13 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [X] T004 Define raw token file contract in `packages/foundation/tokens/color/palette.json`
-- [X] T005 [P] Define typography token scaffold in `packages/foundation/tokens/typography/core.json`
-- [X] T006 [P] Define spacing token scaffold in `packages/foundation/tokens/spacing/core.json`
-- [X] T007 [P] Define radius token scaffold in `packages/foundation/tokens/radius/core.json`
-- [X] T008 Define semantic color token scaffold in `packages/foundation/tokens/color/semantic.json`
-- [X] T009 Define theme token scaffold for light and dark themes in `packages/foundation/tokens/themes/light.json` and `packages/foundation/tokens/themes/dark.json`
-- [X] T010 Define component token scaffold structure in `packages/foundation/tokens/components/core.json`
+- [X] T004 Define raw token file contract in `packages/tokens/data/color/palette.json`
+- [X] T005 [P] Define typography token scaffold in `packages/tokens/data/typography/core.json`
+- [X] T006 [P] Define spacing token scaffold in `packages/tokens/data/spacing/core.json`
+- [X] T007 [P] Define radius token scaffold in `packages/tokens/data/radius/core.json`
+- [X] T008 Define semantic color token scaffold in `packages/tokens/data/color/semantic.json`
+- [X] T009 Define theme token scaffold for light and dark themes in `packages/tokens/data/themes/light.json` and `packages/tokens/data/themes/dark.json`
+- [X] T010 Define component token scaffold structure in `packages/tokens/data/components/core.json`
 - [X] T011 Document token naming rules and raw-to-semantic usage boundaries in `apps/docs/foundation/tokens.md`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
@@ -46,17 +46,17 @@
 
 **Goal**: Seed Design 구조를 참고한 raw/semantic/theme 토큰 체계와 실제 기본 값 세트를 정의한다
 
-**Independent Test**: `packages/foundation/tokens/`와 `apps/docs/foundation/tokens.md`를 검토했을 때 색상, 타이포그래피, 간격, 반경, 상태 표현의 구조와 실제 기본 값이 모두 식별되어야 한다
+**Independent Test**: `packages/tokens/data/`와 `apps/docs/foundation/tokens.md`를 검토했을 때 색상, 타이포그래피, 간격, 반경, 상태 표현의 구조와 실제 기본 값이 모두 식별되어야 한다
 
 ### Implementation for User Story 1
 
-- [X] T012 [US1] Implement primary brand family anchored to `#5e6ad2` with tonal variations in `packages/foundation/tokens/color/palette.json`
-- [X] T013 [P] [US1] Implement two secondary brand families in `packages/foundation/tokens/color/palette.json`
-- [X] T014 [P] [US1] Implement one neutral family and four state families in `packages/foundation/tokens/color/palette.json`
-- [X] T015 [US1] Implement role-based typography tokens for title, body, caption, and supporting text in `packages/foundation/tokens/typography/core.json`
-- [X] T016 [P] [US1] Implement ordered spacing scale in `packages/foundation/tokens/spacing/core.json`
-- [X] T017 [P] [US1] Implement ordered radius scale in `packages/foundation/tokens/radius/core.json`
-- [X] T018 [US1] Implement component token scaffold entries that reference semantic token placeholders in `packages/foundation/tokens/components/core.json`
+- [X] T012 [US1] Implement primary brand family anchored to `#5e6ad2` with tonal variations in `packages/tokens/data/color/palette.json`
+- [X] T013 [P] [US1] Implement two secondary brand families in `packages/tokens/data/color/palette.json`
+- [X] T014 [P] [US1] Implement one neutral family and four state families in `packages/tokens/data/color/palette.json`
+- [X] T015 [US1] Implement role-based typography tokens for title, body, caption, and supporting text in `packages/tokens/data/typography/core.json`
+- [X] T016 [P] [US1] Implement ordered spacing scale in `packages/tokens/data/spacing/core.json`
+- [X] T017 [P] [US1] Implement ordered radius scale in `packages/tokens/data/radius/core.json`
+- [X] T018 [US1] Implement component token scaffold entries that reference semantic token placeholders in `packages/tokens/data/components/core.json`
 - [X] T019 [US1] Document token domain coverage and Seed-inspired structure in `apps/docs/foundation/tokens.md`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
@@ -71,10 +71,10 @@
 
 ### Implementation for User Story 2
 
-- [X] T020 [US2] Implement semantic foreground, background, border, accent, inverse, and disabled tokens in `packages/foundation/tokens/color/semantic.json`
-- [X] T021 [US2] Implement semantic status tokens for info, success, warning, and danger in `packages/foundation/tokens/color/semantic.json`
-- [X] T022 [US2] Map all required semantic color tokens to light theme references in `packages/foundation/tokens/themes/light.json`
-- [X] T023 [US2] Map all required semantic color tokens to dark theme references in `packages/foundation/tokens/themes/dark.json`
+- [X] T020 [US2] Implement semantic foreground, background, border, accent, inverse, and disabled tokens in `packages/tokens/data/color/semantic.json`
+- [X] T021 [US2] Implement semantic status tokens for info, success, warning, and danger in `packages/tokens/data/color/semantic.json`
+- [X] T022 [US2] Map all required semantic color tokens to light theme references in `packages/tokens/data/themes/light.json`
+- [X] T023 [US2] Map all required semantic color tokens to dark theme references in `packages/tokens/data/themes/dark.json`
 - [X] T024 [US2] Document semantic color usage rules, inverse handling, and raw-token avoidance guidance in `apps/docs/foundation/tokens.md`
 - [X] T025 [US2] Implement executable token validation script for completeness, naming, and theme coverage in `testing/tokens/validate-tokens.mjs`
 - [X] T026 [US2] Add validation execution guide in `testing/tokens/README.md`
@@ -91,7 +91,7 @@
 
 ### Implementation for User Story 3
 
-- [X] T027 [US3] Normalize all token identifiers to English semantic names across `packages/foundation/tokens/color/palette.json`, `packages/foundation/tokens/color/semantic.json`, `packages/foundation/tokens/components/core.json`, `packages/foundation/tokens/typography/core.json`, `packages/foundation/tokens/spacing/core.json`, `packages/foundation/tokens/radius/core.json`, `packages/foundation/tokens/themes/light.json`, and `packages/foundation/tokens/themes/dark.json`
+- [X] T027 [US3] Normalize all token identifiers to English semantic names across `packages/tokens/data/color/palette.json`, `packages/tokens/data/color/semantic.json`, `packages/tokens/data/components/core.json`, `packages/tokens/data/typography/core.json`, `packages/tokens/data/spacing/core.json`, `packages/tokens/data/radius/core.json`, `packages/tokens/data/themes/light.json`, and `packages/tokens/data/themes/dark.json`
 - [X] T028 [US3] Write Korean contributor guidance for token purpose, do-use, and avoid-use examples in `apps/docs/foundation/tokens.md`
 - [X] T029 [P] [US3] Add consumer handoff summary for downstream platform packages in `apps/docs/foundation/README.md`
 - [X] T030 [US3] Add Seed differentiation review and naming/documentation checklist entries in `testing/tokens/token-validation-checklist.md`
@@ -104,7 +104,7 @@
 
 **Purpose**: 여러 user story에 걸치는 마무리 작업
 
-- [X] T031 [P] Review token files for raw -> semantic -> component hierarchy compliance in `packages/foundation/tokens/`
+- [X] T031 [P] Review token files for raw -> semantic -> component hierarchy compliance in `packages/tokens/data/`
 - [X] T032 [P] Execute `testing/tokens/validate-tokens.mjs` and record results in `testing/tokens/token-validation-checklist.md`
 - [X] T033 [P] Validate primary palette continuity from `#5e6ad2` and key contrast-sensitive pairings in `testing/tokens/token-validation-checklist.md`
 - [X] T034 Run quickstart validation and update completion notes in `specs/002-define-design-tokens/quickstart.md`
@@ -149,12 +149,12 @@
 
 ```bash
 # Launch secondary, neutral, and state palette work together after primary anchor is defined:
-Task: "Implement two secondary brand families in packages/foundation/tokens/color/palette.json"
-Task: "Implement one neutral family and four state families in packages/foundation/tokens/color/palette.json"
+Task: "Implement two secondary brand families in packages/tokens/data/color/palette.json"
+Task: "Implement one neutral family and four state families in packages/tokens/data/color/palette.json"
 
 # Launch dimension scale work together:
-Task: "Implement ordered spacing scale in packages/foundation/tokens/spacing/core.json"
-Task: "Implement ordered radius scale in packages/foundation/tokens/radius/core.json"
+Task: "Implement ordered spacing scale in packages/tokens/data/spacing/core.json"
+Task: "Implement ordered radius scale in packages/tokens/data/radius/core.json"
 ```
 
 ---

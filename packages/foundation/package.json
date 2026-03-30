@@ -2,10 +2,16 @@
   "name": "@zds/foundation",
   "version": "0.0.0",
   "private": true,
+  "files": ["assets", "icons"],
   "exports": {
-    "./tokens.css": "./tokens.css"
+    "./assets/*": "./assets/*",
+    "./icons/*": "./icons/*"
   },
   "scripts": {
-    "build:tokens-css": "node ./scripts/build-tokens-css.mjs"
+    "build": "node -e \"console.log('No build step required for @zds/foundation assets.')\""
+  },
+  "zdsArtifact": {
+    "type": "asset-package",
+    "contents": ["brand-assets", "foundation-shared-assets"]
   }
 }

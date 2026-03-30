@@ -9,7 +9,7 @@
 `apps/docs`는 Next.js App Router 기반 디자인 시스템 문서 사이트로 계획하고,
 Storybook은 `packages/react`의 실제 컴포넌트를 직접 소비하는 별도 프리뷰
 환경으로 계획한다. 두 표면은 `spec/`, `pen/`,
-`packages/foundation/tokens/`, `packages/react/components/`를 공통
+`packages/tokens/data/`, `packages/react/components/`를 공통
 source of truth로 유지하며, 버튼을 첫 end-to-end reference component로
 연결한다. docs 사이트는 헤더 light/dark theme toggle을 제공하고,
 Storybook은 matching theme view를 제공한다. 검증 범위에는 docs build,
@@ -28,7 +28,7 @@ storybook build, Turbo pipeline, CI 자동 실행, 배포 artifact 준비가
 
 **Language/Version**: TypeScript 5.9, React 19.2, Markdown/MDX documentation assets, JSON design-system artifacts in a pnpm monorepo  
 **Primary Dependencies**: Next.js App Router for `apps/docs`, Storybook for React component preview, pnpm workspace, Turbo repo orchestration, `@zds/react` component exports, existing spec and token validation scripts  
-**Storage**: repository files under `apps/docs/`, `.storybook/` or `apps/storybook/` planning scope, `packages/react/components/`, `spec/`, `pen/`, `packages/foundation/tokens/`, `testing/`, and `.github/workflows/`  
+**Storage**: repository files under `apps/docs/`, `.storybook/` or `apps/storybook/` planning scope, `packages/react/components/`, `spec/`, `pen/`, `packages/tokens/data/`, `testing/`, and `.github/workflows/`  
 **Testing**: repository validation commands for docs build, Storybook build, existing token/spec/component checks, plus CI execution on push and pull request  
 **Target Platform**: static or deployable web documentation surfaces consumed by design system contributors and reviewers  
 **Project Type**: design-system documentation application plus component preview tooling in a monorepo  
@@ -39,7 +39,7 @@ storybook build, Turbo pipeline, CI 자동 실행, 배포 artifact 준비가
 **Planned Docs App**: `apps/docs` becomes a Next.js App Router site with content routes for foundation and components  
 **Planned Preview Surface**: Storybook is configured as a standalone preview environment that reads stories from `packages/react/components/**`  
 **Content Sources**: existing `apps/docs/components/button.md` and `apps/docs/foundation/*.md` are normalized into routes or MDX-backed pages rather than duplicated in separate content systems  
-**Source of Truth Layers**: `spec/components/`, `pen/components/`, `packages/foundation/tokens/`, and `packages/react/components/` remain canonical; docs and stories are consumer representations only  
+**Source of Truth Layers**: `spec/components/`, `pen/components/`, `packages/tokens/data/`, and `packages/react/components/` remain canonical; docs and stories are consumer representations only  
 **Planned Docs Artifact**: static docs build output is planned around a single deployable export directory for `apps/docs` so CI and hosting can consume one stable path  
 **Planned Storybook Artifact**: Storybook static build output is planned as a separate deployable directory with a stable root path for hosting and cross-linking  
 **Execution Note**: this plan is explicitly deployment-oriented, so scripts, Turbo tasks, CI, publish artifact locations, and theme review behavior are part of the initial architecture rather than post-implementation polish
@@ -122,7 +122,7 @@ testing/
 ```
 
 **Structure Decision**: Keep design-system authority in `spec/`, `pen/`,
-`packages/foundation/tokens/`, and `packages/react/components/`, then add two
+`packages/tokens/data/`, and `packages/react/components/`, then add two
 consumer surfaces on top: a Next.js docs app in `apps/docs` and a root
 Storybook configuration that reads stories colocated with React components.
 This keeps route content, component stories, and build validation close to the
