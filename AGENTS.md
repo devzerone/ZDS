@@ -5,6 +5,8 @@ Auto-generated from all feature plans. Last updated: 2026-03-30
 ## Active Technologies
 - JSON token artifacts in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, foundation token package conventions (002-define-design-tokens)
 - Repository files under `packages/foundation/tokens/`, `apps/docs/foundation/`, and `testing/tokens/` (002-define-design-tokens)
+- JSON specification artifacts, JSON token artifacts, Markdown documentation, and React 19 component package conventions in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, `@zds/foundation` token package, `@zds/react` peer dependency contract on React 19 and React DOM 19 (003-button-component)
+- repository files under `specs/003-button-component/`, `packages/foundation/tokens/`, `packages/react/components/`, `apps/docs/components/`, `testing/spec/`, `testing/accessibility/`, and `testing/visual/` (003-button-component)
 
 - (001-monorepo-structure)
 
@@ -24,6 +26,7 @@ tests/
 : Follow standard conventions
 
 ## Recent Changes
+- 003-button-component: Added JSON specification artifacts, JSON token artifacts, Markdown documentation, and React 19 component package conventions in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, `@zds/foundation` token package, `@zds/react` peer dependency contract on React 19 and React DOM 19
 - 002-define-design-tokens: Added JSON token artifacts in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, foundation token package conventions
 
 - 001-monorepo-structure: Added

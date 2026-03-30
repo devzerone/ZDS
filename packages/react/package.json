@@ -2,6 +2,9 @@
   "name": "@zds/react",
   "version": "0.0.0",
   "private": true,
+  "exports": {
+    "./button": "./components/button/index.ts"
+  },
   "peerDependencies": {
     "react": "^19",
     "react-dom": "^19"

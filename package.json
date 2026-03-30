@@ -6,10 +6,18 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "clean": "turbo clean",
-    "validate:tokens": "node testing/tokens/validate-tokens.mjs"
+    "validate:tokens": "node testing/tokens/validate-tokens.mjs",
+    "validate:button-spec": "node testing/spec/validate-button-spec.mjs",
+    "test:button-react": "node --import tsx --test packages/react/components/button/Button.test.tsx",
+    "validate:button": "pnpm validate:tokens && pnpm validate:button-spec && pnpm test:button-react"
   },
   "devDependencies": {
-    "turbo": "^2"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-test-renderer": "^19.2.0",
+    "tsx": "^4.20.6",
+    "turbo": "^2",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.30.3"
 }

@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "name": "zds-button",
+    "component": "button",
+    "status": "draft",
+    "source": "003-button-component"
+  },
+  "description": "Text-led action button for shared ZDS usage across platforms.",
+  "variants": {
+    "primary": {
+      "intent": "Highest-emphasis action in a local surface or section",
+      "priorityLevel": "high",
+      "usageNotes": [
+        "Use for the primary action of a section.",
+        "Avoid repeating multiple primary buttons in the same action group."
+      ],
+      "allowedStates": ["default", "hover", "pressed", "focus", "disabled", "loading"]
+    },
+    "secondary": {
+      "intent": "Supporting action with clear affordance but lower emphasis than primary",
+      "priorityLevel": "medium",
+      "usageNotes": [
+        "Use for alternate or supporting actions next to a primary action."
+      ],
+      "allowedStates": ["default", "hover", "pressed", "focus", "disabled", "loading"]
+    },
+    "tertiary": {
+      "intent": "Low-emphasis action that remains discoverable without surface-heavy styling",
+      "priorityLevel": "low",
+      "usageNotes": [
+        "Use for low-emphasis actions or utility actions within dense layouts."
+      ],
+      "allowedStates": ["default", "hover", "pressed", "focus", "disabled", "loading"]
+    },
+    "destructive": {
+      "intent": "Action that removes, resets, or otherwise causes irreversible change",
+      "priorityLevel": "high",
+      "usageNotes": [
+        "Use only for destructive or high-risk actions.",
+        "Ensure surrounding copy makes the risk obvious."
+      ],
+      "allowedStates": ["default", "hover", "pressed", "focus", "disabled", "loading"]
+    }
+  },
+  "sizes": {
+    "small": {
+      "minHitArea": 32,
+      "paddingRef": "space.150",
+      "gapRef": "space.050",
+      "labelTextRef": "font.label.md",
+      "iconSize": 14
+    },
+    "medium": {
+      "minHitArea": 40,
+      "paddingRef": "space.200",
+      "gapRef": "space.100",
+      "labelTextRef": "font.label.md",
+      "iconSize": 16
+    },
+    "large": {
+      "minHitArea": 48,
+      "paddingRef": "space.300",
+      "gapRef": "space.100",
+      "labelTextRef": "font.body.lg",
+      "iconSize": 18
+    }
+  },
+  "states": {
+    "default": {
+      "interactionAllowed": true,
+      "announcedMeaning": "Ready for activation"
+    },
+    "hover": {
+      "interactionAllowed": true,
+      "announcedMeaning": "Pointer hover emphasis"
+    },
+    "pressed": {
+      "interactionAllowed": true,
+      "announcedMeaning": "Active press feedback"
+    },
+    "focus": {
+      "interactionAllowed": true,
+      "announcedMeaning": "Keyboard or assistive focus"
+    },
+    "disabled": {
+      "interactionAllowed": false,
+      "announcedMeaning": "Currently unavailable action"
+    },
+    "loading": {
+      "interactionAllowed": false,
+      "announcedMeaning": "Action is processing and repeat activation is blocked"
+    }
+  },
+  "statePrecedence": ["disabled", "loading", "pressed", "focus", "hover", "default"],
+  "slots": {
+    "label": {
+      "required": true,
+      "contentType": "text",
+      "notes": "Primary source of action meaning"
+    },
+    "leading-icon": {
+      "required": false,
+      "contentType": "icon",
+      "notes": "Optional supporting icon before the label"
+    },
+    "trailing-icon": {
+      "required": false,
+      "contentType": "icon",
+      "notes": "Optional supporting icon after the label"
+    }
+  },
+  "accessibility": {
+    "labelRequired": true,
+    "iconOnlyAllowed": false,
+    "focusVisibleRequired": true,
+    "loadingLocksInteraction": true,
+    "disabledRetainsDiscoverability": true,
+    "contrastChecks": [
+      "label must remain readable against the active background",
+      "focus indicator must remain visible without hover"
+    ],
+    "misusePatterns": [
+      "multiple primary buttons in one action group",
+      "icon-only usage in the base button contract",
+      "missing text label"
+    ]
+  },
+  "parity": {
+    "react": {
+      "status": "ready",
+      "gap": "None planned for initial release",
+      "owner": "design-system-web",
+      "remediationTarget": "003-button-component"
+    },
+    "swiftui": {
+      "status": "not-started",
+      "gap": "Platform translation pending after React reference is finalized",
+      "owner": "design-system-ios",
+      "remediationTarget": "future-release"
+    },
+    "kotlin": {
+      "status": "not-started",
+      "gap": "Compose translation pending after React reference is finalized",
+      "owner": "design-system-android",
+      "remediationTarget": "future-release"
+    },
+    "windows": {
+      "status": "not-started",
+      "gap": "Windows translation pending after React reference is finalized",
+      "owner": "design-system-windows",
+      "remediationTarget": "future-release"
+    }
+  }
+}

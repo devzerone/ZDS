@@ -7,6 +7,7 @@ const files = {
   palette: resolve(root, "packages/foundation/tokens/color/palette.json"),
   semantic: resolve(root, "packages/foundation/tokens/color/semantic.json"),
   components: resolve(root, "packages/foundation/tokens/components/core.json"),
+  buttonComponents: resolve(root, "packages/foundation/tokens/components/button.json"),
   typography: resolve(root, "packages/foundation/tokens/typography/core.json"),
   spacing: resolve(root, "packages/foundation/tokens/spacing/core.json"),
   radius: resolve(root, "packages/foundation/tokens/radius/core.json"),
@@ -58,6 +59,7 @@ function ensureEnglishLike(name) {
 const palette = loadJson("palette", files.palette);
 const semantic = loadJson("semantic", files.semantic);
 const components = loadJson("components", files.components);
+const buttonComponents = loadJson("button components", files.buttonComponents);
 const typography = loadJson("typography", files.typography);
 const spacing = loadJson("spacing", files.spacing);
 const radius = loadJson("radius", files.radius);
@@ -130,6 +132,44 @@ if (components?.components) {
           errors.push(`Component scaffold reference must point to semantic token: ${componentName} -> ${reference}`);
         }
       }
+    }
+  }
+}
+
+if (buttonComponents?.variants) {
+  const semanticKeys = new Set(Object.keys(semantic?.tokens ?? {}));
+  for (const [variantName, stateMap] of Object.entries(buttonComponents.variants)) {
+    if (!ensureEnglishLike(variantName)) {
+      errors.push(`Button variant name must be English-like: ${variantName}`);
+    }
+    for (const [stateName, tokenMap] of Object.entries(stateMap)) {
+      if (!ensureEnglishLike(stateName)) {
+        errors.push(`Button state name must be English-like: ${variantName}.${stateName}`);
+      }
+      for (const tokenKey of ["background", "foreground", "border", "focus"]) {
+        const tokenRef = tokenMap[tokenKey];
+        if (typeof tokenRef !== "string" || !semanticKeys.has(tokenRef)) {
+          errors.push(`Button token ${variantName}.${stateName}.${tokenKey} must reference an existing semantic token`);
+        }
+      }
+    }
+  }
+}
+
+if (buttonComponents?.sizes) {
+  const spacingKeys = new Set(Object.keys(spacing?.tokens ?? {}));
+  const radiusKeys = new Set(Object.keys(radius?.tokens ?? {}));
+  const typographyKeys = new Set(Object.keys(typography?.tokens ?? {}));
+
+  for (const [sizeName, sizeMap] of Object.entries(buttonComponents.sizes)) {
+    if (!spacingKeys.has(sizeMap.paddingX) || !spacingKeys.has(sizeMap.paddingY) || !spacingKeys.has(sizeMap.gap)) {
+      errors.push(`Button size ${sizeName} must reference existing spacing tokens`);
+    }
+    if (!radiusKeys.has(sizeMap.radius)) {
+      errors.push(`Button size ${sizeName} must reference an existing radius token`);
+    }
+    if (!typographyKeys.has(sizeMap.labelTypography)) {
+      errors.push(`Button size ${sizeName} must reference an existing typography token`);
     }
   }
 }

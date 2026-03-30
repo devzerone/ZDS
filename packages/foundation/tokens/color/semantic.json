@@ -76,11 +76,32 @@
       "dark": "brand.400",
       "contrastSensitive": true
     },
+    "color.bg.brand-strong": {
+      "category": "background",
+      "intent": "High-emphasis brand background for active surfaces",
+      "light": "brand.600",
+      "dark": "brand.300",
+      "contrastSensitive": true
+    },
     "color.bg.brand-soft": {
       "category": "background",
       "intent": "Soft brand emphasis background",
       "light": "brand.100",
       "dark": "brand.900",
+      "contrastSensitive": false
+    },
+    "color.bg.danger": {
+      "category": "background",
+      "intent": "High-emphasis danger background",
+      "light": "danger.600",
+      "dark": "danger.400",
+      "contrastSensitive": true
+    },
+    "color.bg.danger-soft": {
+      "category": "background",
+      "intent": "Soft danger emphasis background",
+      "light": "danger.100",
+      "dark": "danger.900",
       "contrastSensitive": false
     },
     "color.border.default": {
@@ -95,6 +116,13 @@
       "intent": "Strong border emphasis",
       "light": "neutral.400",
       "dark": "neutral.500",
+      "contrastSensitive": true
+    },
+    "color.border.danger": {
+      "category": "border",
+      "intent": "Danger border emphasis",
+      "light": "danger.600",
+      "dark": "danger.300",
       "contrastSensitive": true
     },
     "color.border.brand": {
@@ -116,6 +144,13 @@
       "intent": "Secondary accent for supportive highlights",
       "light": "secondary-teal.500",
       "dark": "secondary-teal.300",
+      "contrastSensitive": false
+    },
+    "color.accent.danger": {
+      "category": "accent",
+      "intent": "Danger accent for destructive focus and emphasis",
+      "light": "danger.500",
+      "dark": "danger.300",
       "contrastSensitive": false
     },
     "color.status.info.fg": {
