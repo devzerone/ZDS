@@ -1,0 +1,64 @@
+{
+  "$schema": "../schemas/typography.schema.json",
+  "meta": {
+    "name": "zds-typography-core"
+  },
+  "tokens": {
+    "font.title.lg": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 40,
+      "lineHeight": 52,
+      "fontWeight": 700,
+      "usage": "Hero and major section titles"
+    },
+    "font.title.md": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 32,
+      "lineHeight": 42,
+      "fontWeight": 700,
+      "usage": "Section titles"
+    },
+    "font.title.sm": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 24,
+      "lineHeight": 32,
+      "fontWeight": 600,
+      "usage": "Subsection titles"
+    },
+    "font.body.lg": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 18,
+      "lineHeight": 28,
+      "fontWeight": 500,
+      "usage": "Large body copy"
+    },
+    "font.body.md": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 16,
+      "lineHeight": 24,
+      "fontWeight": 400,
+      "usage": "Default body copy"
+    },
+    "font.body.sm": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 14,
+      "lineHeight": 20,
+      "fontWeight": 400,
+      "usage": "Compact body copy"
+    },
+    "font.caption.md": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 12,
+      "lineHeight": 18,
+      "fontWeight": 400,
+      "usage": "Caption and helper copy"
+    },
+    "font.label.md": {
+      "fontFamily": "'Pretendard Variable', 'Pretendard', sans-serif",
+      "fontSize": 14,
+      "lineHeight": 20,
+      "fontWeight": 600,
+      "usage": "Labels and interactive text"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./palette.schema.json",
+  "title": "ZDS Palette",
+  "type": "object",
+  "required": ["meta", "families"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "source", "referenceModel", "primaryAnchor"],
+      "properties": {
+        "name": { "type": "string" },
+        "source": { "type": "string" },
+        "referenceModel": { "type": "string" },
+        "primaryAnchor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+      },
+      "additionalProperties": true
+    },
+    "families": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z0-9-]+$": {
+          "type": "object",
+          "required": ["role", "anchor", "steps"],
+          "properties": {
+            "role": { "type": "string", "enum": ["primary", "secondary", "neutral", "state"] },
+            "anchor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+            "steps": {
+              "type": "object",
+              "minProperties": 1,
+              "patternProperties": {
+                "^[0-9]+$": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+              },
+              "additionalProperties": false
+            },
+            "usageNotes": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

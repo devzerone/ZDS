@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./theme.schema.json",
+  "title": "ZDS Theme Mapping",
+  "type": "object",
+  "required": ["meta", "theme", "inverseRules"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "theme"],
+      "properties": {
+        "name": { "type": "string" },
+        "theme": { "type": "string", "enum": ["light", "dark"] }
+      },
+      "additionalProperties": true
+    },
+    "theme": {
+      "type": "object",
+      "patternProperties": {
+        "^color\\.[a-z0-9.]+$": { "type": "string", "pattern": "^\\{color\\.[a-z0-9.]+\\}$" }
+      },
+      "additionalProperties": false
+    },
+    "inverseRules": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z]+$": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./component-scaffold.schema.json",
+  "title": "ZDS Component Token Scaffold",
+  "type": "object",
+  "required": ["meta", "components"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "status", "purpose"],
+      "properties": {
+        "name": { "type": "string" },
+        "status": { "type": "string" },
+        "purpose": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "components": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9-]+$": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]+$": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-zA-Z]+$": { "type": "string", "pattern": "^color\\.[a-z0-9.]+$" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

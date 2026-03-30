@@ -1,0 +1,53 @@
+{
+  "$schema": "../schemas/component-scaffold.schema.json",
+  "meta": {
+    "name": "zds-component-token-scaffold",
+    "status": "scaffold",
+    "purpose": "Reserve semantic-token consumption points for future component specs"
+  },
+  "components": {
+    "button": {
+      "background": {
+        "default": "color.bg.brand",
+        "disabled": "color.bg.surface-alt"
+      },
+      "foreground": {
+        "default": "color.fg.inverse",
+        "disabled": "color.fg.disabled"
+      },
+      "border": {
+        "default": "color.border.brand",
+        "disabled": "color.border.default"
+      }
+    },
+    "input": {
+      "background": {
+        "default": "color.bg.surface",
+        "disabled": "color.bg.surface-alt"
+      },
+      "foreground": {
+        "default": "color.fg.primary",
+        "placeholder": "color.fg.tertiary"
+      },
+      "border": {
+        "default": "color.border.default",
+        "focused": "color.border.brand"
+      }
+    },
+    "surface": {
+      "background": {
+        "default": "color.bg.surface",
+        "alt": "color.bg.surface-alt",
+        "brandSoft": "color.bg.brand-soft"
+      },
+      "foreground": {
+        "default": "color.fg.primary",
+        "secondary": "color.fg.secondary"
+      },
+      "border": {
+        "default": "color.border.default",
+        "strong": "color.border.strong"
+      }
+    }
+  }
+}

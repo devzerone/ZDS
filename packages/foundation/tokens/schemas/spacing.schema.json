@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./spacing.schema.json",
+  "title": "ZDS Spacing Tokens",
+  "type": "object",
+  "required": ["meta", "tokens"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "tokens": {
+      "type": "object",
+      "patternProperties": {
+        "^space\\.[0-9]+$": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
