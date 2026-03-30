@@ -3,7 +3,17 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", ".next/**", "out/**"]
+    },
+    "docs:build": {
+      "outputs": ["apps/docs/dist/**"]
+    },
+    "storybook:build": {
+      "outputs": ["dist/storybook/**"]
+    },
+    "validate:docs-system": {
+      "dependsOn": ["docs:build", "storybook:build"],
+      "outputs": []
     },
     "dev": {
       "cache": false,

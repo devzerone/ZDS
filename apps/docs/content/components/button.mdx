@@ -1,0 +1,44 @@
+export const meta = {
+  title: "Button"
+};
+
+# 버튼 컴포넌트 가이드
+
+버튼은 화면의 액션 우선순위를 명확하게 전달하는 ZDS의 공통 액션 컴포넌트입니다.
+기본 계약은 텍스트 레이블 중심이며, 아이콘은 보조 요소로만 사용합니다.
+
+## Anatomy
+
+- `label`: 버튼 의미를 전달하는 필수 슬롯입니다.
+- `leading-icon`: 레이블을 보조하는 선택 슬롯입니다.
+- `trailing-icon`: 보조 방향성을 주는 선택 슬롯입니다.
+
+## Variants
+
+- `primary`: 가장 중요한 액션
+- `secondary`: primary를 보조하는 액션
+- `tertiary`: 낮은 강조의 액션
+- `destructive`: 되돌리기 어려운 액션
+
+## Required states
+
+- `default`
+- `disabled`
+- `loading`
+- `focus`
+- `hover`
+- `pressed`
+
+## Accessibility
+
+- 버튼은 항상 텍스트 레이블을 포함해야 합니다.
+- icon-only 버튼은 이 base contract 범위에 포함하지 않습니다.
+- focus ring은 hover 없이도 보여야 합니다.
+- loading 상태에서는 `aria-busy`와 비활성 상호작용이 함께 제공되어야 합니다.
+
+## Selection guide
+
+1. 가장 중요한 액션이면 `primary`
+2. primary를 보조하면 `secondary`
+3. 낮은 강조의 보조 동작이면 `tertiary`
+4. 파괴적 의미가 있으면 `destructive`

@@ -1,18 +1,17 @@
 import React, { type ButtonHTMLAttributes, type CSSProperties, type ReactNode, useMemo, useState } from "react";
-import { createRequire } from "node:module";
-
-const require = createRequire(import.meta.url);
-
-const palette = require("../../../foundation/tokens/color/palette.json");
-const semantic = require("../../../foundation/tokens/color/semantic.json");
-const spacing = require("../../../foundation/tokens/spacing/core.json");
-const radius = require("../../../foundation/tokens/radius/core.json");
-const typography = require("../../../foundation/tokens/typography/core.json");
-const buttonTokens = require("../../../foundation/tokens/components/button.json");
+import palette from "../../../foundation/tokens/color/palette.json";
+import semantic from "../../../foundation/tokens/color/semantic.json";
+import spacing from "../../../foundation/tokens/spacing/core.json";
+import radius from "../../../foundation/tokens/radius/core.json";
+import typography from "../../../foundation/tokens/typography/core.json";
+import buttonTokens from "../../../foundation/tokens/components/button.json";
 
 export type ButtonVariant = keyof typeof buttonTokens.variants;
 export type ButtonSize = keyof typeof buttonTokens.sizes;
 export type VisualState = "default" | "hover" | "pressed" | "focus" | "disabled" | "loading";
+export const BUTTON_VARIANTS = Object.freeze(Object.keys(buttonTokens.variants)) as ButtonVariant[];
+export const BUTTON_SIZES = Object.freeze(Object.keys(buttonTokens.sizes)) as ButtonSize[];
+export const BUTTON_VISUAL_STATES = Object.freeze(["default", "hover", "pressed", "focus", "disabled", "loading"]) as VisualState[];
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
   variant?: ButtonVariant;

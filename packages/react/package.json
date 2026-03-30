@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    ".": "./components/button/index.ts",
     "./button": "./components/button/index.ts"
   },
   "peerDependencies": {

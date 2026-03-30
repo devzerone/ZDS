@@ -1,5 +1,21 @@
 {
   "name": "@zds/docs",
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "files": ["dist"],
+  "zdsArtifact": {
+    "type": "static-site",
+    "outputDir": "dist"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && rm -rf dist && mv out dist"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^3.1.1",
+    "@zds/react": "workspace:*",
+    "next": "^15.3.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
 }
