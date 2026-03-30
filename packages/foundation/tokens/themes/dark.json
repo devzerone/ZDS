@@ -1,0 +1,36 @@
+{
+  "$schema": "../schemas/theme.schema.json",
+  "meta": {
+    "name": "zds-dark-theme",
+    "theme": "dark"
+  },
+  "theme": {
+    "color.fg.primary": "{color.fg.primary}",
+    "color.fg.secondary": "{color.fg.secondary}",
+    "color.fg.tertiary": "{color.fg.tertiary}",
+    "color.fg.brand": "{color.fg.brand}",
+    "color.fg.inverse": "{color.fg.inverse}",
+    "color.fg.disabled": "{color.fg.disabled}",
+    "color.bg.canvas": "{color.bg.canvas}",
+    "color.bg.surface": "{color.bg.surface}",
+    "color.bg.surface-alt": "{color.bg.surface-alt}",
+    "color.bg.brand": "{color.bg.brand}",
+    "color.bg.brand-soft": "{color.bg.brand-soft}",
+    "color.border.default": "{color.border.default}",
+    "color.border.strong": "{color.border.strong}",
+    "color.border.brand": "{color.border.brand}",
+    "color.accent.primary": "{color.accent.primary}",
+    "color.accent.secondary": "{color.accent.secondary}",
+    "color.status.info.fg": "{color.status.info.fg}",
+    "color.status.info.bg": "{color.status.info.bg}",
+    "color.status.success.fg": "{color.status.success.fg}",
+    "color.status.success.bg": "{color.status.success.bg}",
+    "color.status.warning.fg": "{color.status.warning.fg}",
+    "color.status.warning.bg": "{color.status.warning.bg}",
+    "color.status.danger.fg": "{color.status.danger.fg}",
+    "color.status.danger.bg": "{color.status.danger.bg}"
+  },
+  "inverseRules": {
+    "surface": "Use color.fg.inverse on light or lifted surfaces inside dark theme contexts"
+  }
+}

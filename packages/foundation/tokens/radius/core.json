@@ -1,0 +1,15 @@
+{
+  "$schema": "../schemas/radius.schema.json",
+  "meta": {
+    "name": "zds-radius-core"
+  },
+  "tokens": {
+    "radius.none": 0,
+    "radius.xs": 4,
+    "radius.sm": 8,
+    "radius.md": 12,
+    "radius.lg": 16,
+    "radius.xl": 24,
+    "radius.full": 999
+  }
+}

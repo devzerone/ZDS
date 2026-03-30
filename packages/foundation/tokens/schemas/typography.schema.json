@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./typography.schema.json",
+  "title": "ZDS Typography Tokens",
+  "type": "object",
+  "required": ["meta", "tokens"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "tokens": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9.-]+$": {
+          "type": "object",
+          "required": ["fontFamily", "fontSize", "lineHeight", "fontWeight", "usage"],
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontSize": { "type": "number" },
+            "lineHeight": { "type": "number" },
+            "fontWeight": { "type": "number" },
+            "usage": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

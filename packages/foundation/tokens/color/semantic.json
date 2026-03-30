@@ -1,0 +1,178 @@
+{
+  "$schema": "../schemas/semantic-color.schema.json",
+  "meta": {
+    "name": "zds-semantic-colors",
+    "naming": "english-only",
+    "documentationLanguage": "ko-KR"
+  },
+  "tokens": {
+    "color.fg.primary": {
+      "category": "foreground",
+      "intent": "Primary readable text",
+      "light": "neutral.900",
+      "dark": "neutral.50",
+      "contrastSensitive": true
+    },
+    "color.fg.secondary": {
+      "category": "foreground",
+      "intent": "Secondary readable text",
+      "light": "neutral.700",
+      "dark": "neutral.200",
+      "contrastSensitive": true
+    },
+    "color.fg.tertiary": {
+      "category": "foreground",
+      "intent": "Low-emphasis supporting text",
+      "light": "neutral.500",
+      "dark": "neutral.400",
+      "contrastSensitive": true
+    },
+    "color.fg.brand": {
+      "category": "foreground",
+      "intent": "Brand-emphasized text and icons",
+      "light": "brand.600",
+      "dark": "brand.300",
+      "contrastSensitive": true
+    },
+    "color.fg.inverse": {
+      "category": "foreground",
+      "intent": "Readable text on inverse surfaces",
+      "light": "neutral.0",
+      "dark": "neutral.900",
+      "contrastSensitive": true
+    },
+    "color.fg.disabled": {
+      "category": "foreground",
+      "intent": "Disabled text and icon state",
+      "light": "neutral.400",
+      "dark": "neutral.600",
+      "contrastSensitive": true
+    },
+    "color.bg.canvas": {
+      "category": "background",
+      "intent": "Application canvas background",
+      "light": "neutral.0",
+      "dark": "neutral.1000",
+      "contrastSensitive": true
+    },
+    "color.bg.surface": {
+      "category": "background",
+      "intent": "Default content surface",
+      "light": "neutral.50",
+      "dark": "neutral.900",
+      "contrastSensitive": true
+    },
+    "color.bg.surface-alt": {
+      "category": "background",
+      "intent": "Alternative elevated surface",
+      "light": "neutral.100",
+      "dark": "neutral.800",
+      "contrastSensitive": true
+    },
+    "color.bg.brand": {
+      "category": "background",
+      "intent": "Brand-led emphasized surface",
+      "light": "brand.500",
+      "dark": "brand.400",
+      "contrastSensitive": true
+    },
+    "color.bg.brand-soft": {
+      "category": "background",
+      "intent": "Soft brand emphasis background",
+      "light": "brand.100",
+      "dark": "brand.900",
+      "contrastSensitive": false
+    },
+    "color.border.default": {
+      "category": "border",
+      "intent": "Default border and divider",
+      "light": "neutral.200",
+      "dark": "neutral.700",
+      "contrastSensitive": true
+    },
+    "color.border.strong": {
+      "category": "border",
+      "intent": "Strong border emphasis",
+      "light": "neutral.400",
+      "dark": "neutral.500",
+      "contrastSensitive": true
+    },
+    "color.border.brand": {
+      "category": "border",
+      "intent": "Brand-highlighted border",
+      "light": "brand.500",
+      "dark": "brand.300",
+      "contrastSensitive": true
+    },
+    "color.accent.primary": {
+      "category": "accent",
+      "intent": "Primary accent for focus and emphasis",
+      "light": "brand.500",
+      "dark": "brand.300",
+      "contrastSensitive": false
+    },
+    "color.accent.secondary": {
+      "category": "accent",
+      "intent": "Secondary accent for supportive highlights",
+      "light": "secondary-teal.500",
+      "dark": "secondary-teal.300",
+      "contrastSensitive": false
+    },
+    "color.status.info.fg": {
+      "category": "status",
+      "intent": "Informational foreground",
+      "light": "info.700",
+      "dark": "info.300",
+      "contrastSensitive": true
+    },
+    "color.status.info.bg": {
+      "category": "status",
+      "intent": "Informational background",
+      "light": "info.50",
+      "dark": "info.950",
+      "contrastSensitive": false
+    },
+    "color.status.success.fg": {
+      "category": "status",
+      "intent": "Success foreground",
+      "light": "success.700",
+      "dark": "success.300",
+      "contrastSensitive": true
+    },
+    "color.status.success.bg": {
+      "category": "status",
+      "intent": "Success background",
+      "light": "success.50",
+      "dark": "success.950",
+      "contrastSensitive": false
+    },
+    "color.status.warning.fg": {
+      "category": "status",
+      "intent": "Warning foreground",
+      "light": "warning.700",
+      "dark": "warning.300",
+      "contrastSensitive": true
+    },
+    "color.status.warning.bg": {
+      "category": "status",
+      "intent": "Warning background",
+      "light": "warning.50",
+      "dark": "warning.950",
+      "contrastSensitive": false
+    },
+    "color.status.danger.fg": {
+      "category": "status",
+      "intent": "Danger foreground",
+      "light": "danger.700",
+      "dark": "danger.300",
+      "contrastSensitive": true
+    },
+    "color.status.danger.bg": {
+      "category": "status",
+      "intent": "Danger background",
+      "light": "danger.50",
+      "dark": "danger.950",
+      "contrastSensitive": false
+    }
+  }
+}

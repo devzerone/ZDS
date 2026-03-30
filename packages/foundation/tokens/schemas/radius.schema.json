@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./radius.schema.json",
+  "title": "ZDS Radius Tokens",
+  "type": "object",
+  "required": ["meta", "tokens"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "tokens": {
+      "type": "object",
+      "patternProperties": {
+        "^radius\\.[a-z]+$": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

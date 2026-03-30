@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./semantic-color.schema.json",
+  "title": "ZDS Semantic Colors",
+  "type": "object",
+  "required": ["meta", "tokens"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "naming", "documentationLanguage"],
+      "properties": {
+        "name": { "type": "string" },
+        "naming": { "type": "string" },
+        "documentationLanguage": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "tokens": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9.-]+$": {
+          "type": "object",
+          "required": ["category", "intent", "light", "dark", "contrastSensitive"],
+          "properties": {
+            "category": {
+              "type": "string",
+              "enum": ["foreground", "background", "border", "accent", "status"]
+            },
+            "intent": { "type": "string" },
+            "light": { "type": "string", "pattern": "^[a-z0-9-]+\\.[0-9]+$" },
+            "dark": { "type": "string", "pattern": "^[a-z0-9-]+\\.[0-9]+$" },
+            "contrastSensitive": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

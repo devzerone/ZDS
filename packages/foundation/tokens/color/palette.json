@@ -1,0 +1,163 @@
+{
+  "$schema": "../schemas/palette.schema.json",
+  "meta": {
+    "name": "zds-color-palette",
+    "source": "002-define-design-tokens",
+    "referenceModel": "Seed Design token structure",
+    "primaryAnchor": "#5e6ad2"
+  },
+  "families": {
+    "brand": {
+      "role": "primary",
+      "anchor": "#5e6ad2",
+      "steps": {
+        "50": "#f4f5ff",
+        "100": "#e9ebff",
+        "200": "#cfd4ff",
+        "300": "#b2bbff",
+        "400": "#8b98f0",
+        "500": "#5e6ad2",
+        "600": "#4f59bf",
+        "700": "#424aa4",
+        "800": "#353c83",
+        "900": "#2b3167",
+        "950": "#1b203f"
+      },
+      "usageNotes": [
+        "Primary brand family anchored to #5e6ad2",
+        "Use as the base for brand-led semantic mappings"
+      ]
+    },
+    "secondary-teal": {
+      "role": "secondary",
+      "anchor": "#1ca6a3",
+      "steps": {
+        "50": "#eefcfb",
+        "100": "#d5f7f5",
+        "200": "#adeeea",
+        "300": "#78dfda",
+        "400": "#42cac6",
+        "500": "#1ca6a3",
+        "600": "#148786",
+        "700": "#136c6c",
+        "800": "#145657",
+        "900": "#144849",
+        "950": "#05292b"
+      },
+      "usageNotes": [
+        "Supportive cool accent family",
+        "Avoid using directly in product UI outside semantic mapping layers"
+      ]
+    },
+    "secondary-amber": {
+      "role": "secondary",
+      "anchor": "#d98b2b",
+      "steps": {
+        "50": "#fff8ed",
+        "100": "#ffefd3",
+        "200": "#ffdca5",
+        "300": "#ffc26d",
+        "400": "#f0a43f",
+        "500": "#d98b2b",
+        "600": "#b86d20",
+        "700": "#95511c",
+        "800": "#7a421d",
+        "900": "#65381c",
+        "950": "#3a1c0a"
+      },
+      "usageNotes": [
+        "Warm supporting accent family",
+        "Use for secondary emphasis through semantic tokens"
+      ]
+    },
+    "neutral": {
+      "role": "neutral",
+      "anchor": "#6b7280",
+      "steps": {
+        "0": "#ffffff",
+        "50": "#f8f9fb",
+        "100": "#f1f3f6",
+        "200": "#e4e8ee",
+        "300": "#d2d8e2",
+        "400": "#9aa3b2",
+        "500": "#6b7280",
+        "600": "#515967",
+        "700": "#3a414e",
+        "800": "#242a35",
+        "900": "#171b24",
+        "1000": "#0d1016"
+      },
+      "usageNotes": [
+        "Base neutral family for surfaces, text, borders, and inverse contexts"
+      ]
+    },
+    "info": {
+      "role": "state",
+      "anchor": "#2f80ed",
+      "steps": {
+        "50": "#eef6ff",
+        "100": "#d9ebff",
+        "200": "#bddcff",
+        "300": "#90c6ff",
+        "400": "#5ca6f8",
+        "500": "#2f80ed",
+        "600": "#1f67ca",
+        "700": "#1d53a4",
+        "800": "#1e4685",
+        "900": "#1d3b6d",
+        "950": "#152545"
+      }
+    },
+    "success": {
+      "role": "state",
+      "anchor": "#2e9b63",
+      "steps": {
+        "50": "#eefbf3",
+        "100": "#d6f5e1",
+        "200": "#b0ebc5",
+        "300": "#7fd9a0",
+        "400": "#50c27d",
+        "500": "#2e9b63",
+        "600": "#237d50",
+        "700": "#1f6442",
+        "800": "#1d4f35",
+        "900": "#19412d",
+        "950": "#0a2418"
+      }
+    },
+    "warning": {
+      "role": "state",
+      "anchor": "#d98b2b",
+      "steps": {
+        "50": "#fff8ed",
+        "100": "#ffefd3",
+        "200": "#ffdca5",
+        "300": "#ffc26d",
+        "400": "#f0a43f",
+        "500": "#d98b2b",
+        "600": "#b86d20",
+        "700": "#95511c",
+        "800": "#7a421d",
+        "900": "#65381c",
+        "950": "#3a1c0a"
+      }
+    },
+    "danger": {
+      "role": "state",
+      "anchor": "#d84f68",
+      "steps": {
+        "50": "#fff0f3",
+        "100": "#ffdce3",
+        "200": "#ffbac7",
+        "300": "#ff8ea3",
+        "400": "#f56483",
+        "500": "#d84f68",
+        "600": "#b33854",
+        "700": "#922d46",
+        "800": "#78283d",
+        "900": "#652438",
+        "950": "#3a0f1c"
+      }
+    }
+  }
+}
