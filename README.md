@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./packages/foundation/assets/brand/zds-logo-dark.png" alt="ZDS logo" width="96" />
+  <img src="./packages/foundation/assets/brand/zds-logo-dark.png" alt="ZDS logo" />
 </p>
 
 # ZDS
