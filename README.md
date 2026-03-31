@@ -53,6 +53,8 @@ tools/                   저장소 자동화 및 설정 보조
    시각 기준선
 4. `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`
    플랫폼 구현 계층
+   React에서는 `src/primitives/`가 low-level/headless 레이어이고,
+   `src/components/`가 public tokenized component 레이어입니다.
 5. `apps/docs/`, `Storybook`
    설명과 프리뷰 계층
 
@@ -167,6 +169,14 @@ pnpm validate:docs-system
 5. `apps/docs/`와 Storybook 연결
 6. validation 스크립트와 CI에 연결
 7. parity 메타데이터가 바뀌면 `spec/metadata/parity/` 갱신
+
+React 구현 원칙:
+- native semantic HTML로 충분한 경우에는 직접 primitive를 구현합니다.
+- focus management, overlays, roving tabindex, composite widget처럼
+  non-trivial headless behavior가 필요한 경우 React primitive에서 Radix UI를
+  사용합니다.
+- public component는 `packages/react/src/components/`에서 primitive를 감싼
+  tokenized API로 노출합니다.
 
 ## 참고
 

@@ -40,6 +40,9 @@
   component, pattern, or foundation artifact.
 - Confirm parity metadata updates or explicit "no parity change" rationale for
   impacted platform surfaces.
+- Confirm React implementation work names the boundary between
+  `packages/react/src/primitives/` and `packages/react/src/components/`, and
+  justify any Radix usage versus native semantics.
 - Confirm validation coverage changes are planned for every contract, token,
   visual, accessibility, docs, or preview behavior change.
 
@@ -72,6 +75,9 @@ packages/
 ├── foundation/         # Brand and shared foundation assets
 ├── tokens/             # Token sources, build scripts, generated outputs
 ├── react/              # React implementation package
+│   └── src/
+│       ├── primitives/ # Low-level/headless React building blocks
+│       └── components/ # Public tokenized React components
 ├── swiftui/            # SwiftUI implementation surface or placeholder
 ├── kotlin/             # Kotlin implementation surface or placeholder
 └── windows/            # Windows implementation surface or placeholder

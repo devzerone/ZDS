@@ -1,25 +1,17 @@
 <!--
 Sync Impact Report
-- Version change: 1.2.0 -> 1.3.0
+- Version change: 1.3.0 -> 1.4.0
 - Modified principles:
-  - I. Repository Identity -> I. Repository Scope and Artifact Topology
-  - II. Source-of-Truth Hierarchy -> II. Source-of-Truth Chain and Promotion Rules
-  - III. Token Architecture -> III. Token and Asset Architecture
-  - IV. Contract-First Artifact Lifecycle -> IV. Contract-to-Preview Delivery Lifecycle
-  - V. Cross-Platform Parity and Controlled Exceptions -> V. Platform Parity and Exception Metadata
-- Added sections:
-  - Repository Topology
-  - Delivery Workflow
-- Removed sections:
-  - Operational Rules
-  - Naming Rules
+  - V. Platform Parity and Exception Metadata
+- Added sections: None
+- Removed sections: None
 - Templates requiring updates:
   - ✅ updated: .specify/templates/plan-template.md
   - ✅ updated: .specify/templates/spec-template.md
   - ✅ updated: .specify/templates/tasks-template.md
   - ✅ updated: README.md
   - ✅ updated: AGENTS.md
-  - ⚠ pending: .specify/templates/commands/*.md (directory not present in this repository; active command files live under .claude/commands/)
+  - ⚠ pending: .specify/templates/commands/*.md (directory not present in this repository)
 - Deferred TODOs:
   - None
 -->
@@ -111,6 +103,15 @@ communication surfaces, not independent parity platforms. Framework consumers
 such as Next.js or shell environments such as Tauri MAY add integration-specific
 adapters, but those consumers MUST NOT fork the shared design language.
 
+Within implementation packages, structural building blocks and public
+components MUST remain separate. In React, `src/primitives/` MUST contain
+headless or low-level behavior layers, while `src/components/` MUST contain
+tokenized public components that expose the approved ZDS API. Radix UI is the
+approved headless dependency for React primitives that need non-trivial
+accessibility, focus management, overlays, roving tabindex, or composite-widget
+behavior. Native semantic HTML MUST remain the default when it already satisfies
+the contract without extra headless machinery.
+
 Any platform difference MUST be recorded in shared metadata before merge. Hidden
 divergence is a defect. Temporary lag is allowed only when parity metadata names
 the missing capability, the affected platform, the user impact, and the intended
@@ -126,11 +127,15 @@ follow-up release or removal condition.
 3. `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, and
    `packages/windows/` MUST remain implementation roots only; contract or token
    ownership MUST NOT migrate into them.
-4. `spec/components/`, `spec/patterns/`, and `spec/metadata/parity/` MUST hold
+4. `packages/react/src/primitives/` MUST hold low-level or headless React
+   building blocks, and `packages/react/src/components/` MUST hold public
+   tokenized component APIs that wrap those primitives when a primitive layer is
+   needed.
+5. `spec/components/`, `spec/patterns/`, and `spec/metadata/parity/` MUST hold
    publishable component, pattern, and parity metadata respectively.
-5. `testing/` MUST reflect the validation strategy by artifact type such as
+6. `testing/` MUST reflect the validation strategy by artifact type such as
    tokens, specs, docs, accessibility, and visual review.
-6. `tools/` MUST contain repository automation or configuration support and MUST
+7. `tools/` MUST contain repository automation or configuration support and MUST
    NOT become a backdoor place to redefine design-system contract.
 
 ## Delivery Workflow
@@ -139,12 +144,15 @@ follow-up release or removal condition.
    spec, tokens, pen, implementations, docs, previews, and validation.
 2. Every feature spec MUST list source-of-truth updates, downstream delivery
    surfaces, and any parity exceptions or confirm that none are needed.
-3. Every task list MUST include work for each affected owned layer; validation
+3. Any feature that adds or changes a reusable React interaction pattern MUST
+   state whether the work belongs in `src/primitives/`, `src/components/`, or
+   both, and MUST justify any new Radix dependency usage against native HTML.
+4. Every task list MUST include work for each affected owned layer; validation
    work is mandatory whenever user-facing behavior, visual output, tokens, or
    contracts change.
-4. Pull requests MUST be reviewed against source-of-truth ownership, lifecycle
+5. Pull requests MUST be reviewed against source-of-truth ownership, lifecycle
    completeness, and parity metadata completeness, not only against runtime code.
-5. Release readiness for a component or pattern requires synced contract,
+6. Release readiness for a component or pattern requires synced contract,
    tokens or assets, pen baseline, implementation, docs or preview coverage, and
    validation evidence for the changed surface.
 
@@ -176,4 +184,4 @@ Compliance rules:
 4. Any discovered drift between `spec/`, tokens, `pen/`, implementation, docs,
    or Storybook MUST be treated as a tracked defect until resolved.
 
-**Version**: 1.3.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-31
+**Version**: 1.4.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-31

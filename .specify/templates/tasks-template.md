@@ -28,6 +28,8 @@ they MUST still include the relevant verification task.
 - **Foundation assets**: `packages/foundation/`
 - **Tokens**: `packages/tokens/`
 - **React implementation**: `packages/react/`
+- **React primitives**: `packages/react/src/primitives/`
+- **React public components**: `packages/react/src/components/`
 - **Other platform implementations**: `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`
 - **Visual baselines**: `pen/`
 - **Contracts and parity metadata**: `spec/`
@@ -40,6 +42,9 @@ they MUST still include the relevant verification task.
   artifacts, implementation, docs/previews, and validation.
 - Include parity metadata tasks whenever platform expectations, lag, or
   exceptions change.
+- When React implementation changes, include explicit tasks for primitive-layer
+  and public-component-layer updates when both are affected, and record any
+  Radix adoption or native-element decision in the relevant task descriptions.
 - Treat docs and Storybook as separate delivery surfaces when either one is
   user-visible for the changed artifact.
 - Reference exact file paths in every task description.

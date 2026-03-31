@@ -22,6 +22,8 @@ packages/
   foundation/            Brand and shared foundation assets
   tokens/                Design token sources and build outputs
   react/                 React implementation package
+    src/primitives/      Low-level/headless React building blocks
+    src/components/      Public tokenized React components
   swiftui/               SwiftUI implementation root
   kotlin/                Kotlin implementation root
   windows/               Windows implementation root
@@ -67,6 +69,10 @@ tools/
   roots for implementation, `apps/docs/` and Storybook for communication
 - Prefer semantic naming over raw-value naming in tokens, specs, and docs
 - Update validation alongside user-facing or contract changes
+- In React, keep `src/primitives/` for low-level/headless behavior and
+  `src/components/` for public tokenized APIs
+- Use Radix UI only when a React primitive needs non-trivial headless behavior;
+  prefer native semantic HTML when it already satisfies the contract
 
 ## Recent Changes
 

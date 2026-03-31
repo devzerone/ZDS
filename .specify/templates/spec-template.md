@@ -105,7 +105,7 @@
 
 ### Delivery Surface Updates
 
-- **Implementation Packages**: [List impacted paths under `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`, or state "None"]
+- **Implementation Packages**: [List impacted paths under `packages/react/src/primitives/`, `packages/react/src/components/`, `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`, or state "None"]
 - **Docs / Preview Surfaces**: [List impacted paths under `apps/docs/` and `.storybook/`, or state "None"]
 - **Validation Artifacts**: [List impacted paths under `testing/` or related validation scripts, or state "None"]
 
@@ -113,6 +113,7 @@
 
 - **Parity Impact**: [Describe whether the feature changes shared parity expectations]
 - **Approved Exceptions**: [List any planned platform exceptions with rationale, or state "None"]
+- **Primitive / Headless Strategy**: [State whether the change belongs in React primitives, public components, or both, and whether native HTML or Radix is used]
 
 ### Key Entities *(include if feature involves data)*
 
