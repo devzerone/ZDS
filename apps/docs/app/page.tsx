@@ -1,92 +1,91 @@
 import Link from "next/link";
-import { siteNav } from "../components/navigation/site-nav";
 
 export default function HomePage() {
-  const sections = siteNav.filter((section) => section.label !== "Resources");
-
   return (
     <div className="docs-page">
       <section className="docs-hero docs-hero--home">
-        <span className="docs-eyebrow">Design system docs</span>
-        <h1>A calm source of truth for tokens, components, and implementation.</h1>
+        <span className="docs-eyebrow">Introduction</span>
+        <h1>Fast, consistent design system docs for teams building real interfaces.</h1>
         <p>
-          ZDS 문서는 overview에서 foundation을 이해하고, component reference에서 계약과 사용 원칙을 확인한 뒤,
-          필요할 때만 Storybook preview로 넘어가는 흐름을 기준으로 설계했습니다.
+          ZDS brings tokens, component guidance, implementation references, and preview links into one calm
+          editorial surface. Start here when you want the system explained before you open Storybook.
         </p>
       </section>
 
-      <section className="docs-card-grid docs-card-grid--three">
+      <section className="docs-panel">
+        <h2>ZDS 소개</h2>
+        <p>
+          ZDS는 디자인 토큰, 컴포넌트 계약, Pencil 기준선, 구현 레퍼런스, 문서와 프리뷰를 한 저장소에서
+          연결하는 디자인 시스템 모노레포입니다.
+        </p>
+        <p>
+          문서는 먼저 개념과 기준을 설명하고, 그 다음에 컴포넌트와 프리뷰로 이동하도록 설계됩니다. 그래서
+          팀은 무엇을 써야 하는지보다 먼저 왜 이렇게 써야 하는지를 이해할 수 있습니다.
+        </p>
+      </section>
+
+      <section className="docs-card-grid docs-card-grid--three docs-card-grid--compact">
         <article className="docs-card">
-          <strong>Foundation</strong>
-          <p>semantic token 구조와 theme 해석, naming 규칙을 한 문서 흐름에서 먼저 읽습니다.</p>
+          <strong>Source of truth</strong>
+          <p>Spec, tokens, pen, implementation, docs</p>
         </article>
         <article className="docs-card">
-          <strong>Components</strong>
-          <p>Button 페이지에서 anatomy, variant, parity, source reference를 함께 확인합니다.</p>
+          <strong>Review flow</strong>
+          <p>Docs first, Storybook second</p>
         </article>
         <article className="docs-card docs-card--accent">
-          <strong>Preview</strong>
-          <p>Storybook은 인터랙션 검토용으로만 연결하고, canonical guidance는 docs에 남깁니다.</p>
+          <strong>Team language</strong>
+          <p>Principles, naming, and hierarchy stay aligned.</p>
         </article>
       </section>
 
       <section className="docs-split">
         <div className="docs-stack">
           <article className="docs-panel">
-            <span className="docs-eyebrow">Start here</span>
-            <h2>Docs should explain the system before the playground asks you to experiment.</h2>
-            <p>
-              overview page에서 목적과 token language를 이해하고, Button 문서에서 상태와 접근성을 읽은 다음
-              interactive story로 넘어가는 것이 기본 흐름입니다.
-            </p>
-            <div className="docs-actions">
-              <Link className="preview-link" href="/components/button">
-                버튼 문서 보기
-              </Link>
-              <a className="docs-text-link" href="/storybook/index.html?path=/story/components-button--playground">
-                Storybook preview 열기
-              </a>
-            </div>
-            <p className="docs-inline-note">Reference flow: Overview -&gt; Button docs -&gt; Storybook preview</p>
+            <h2>핵심 기능</h2>
+            <ul className="docs-bullet-list">
+              <li>계약, 토큰, pen, React 구현을 같은 흐름으로 연결합니다.</li>
+              <li>Storybook은 상호작용 검토에 집중하고, docs는 canonical guidance를 담당합니다.</li>
+              <li>parity와 source-of-truth 경계를 명확히 관리해 drift를 줄입니다.</li>
+              <li>팀이 빠르게 공통 언어를 익힐 수 있도록 설명형 문서를 우선합니다.</li>
+            </ul>
           </article>
 
           <article className="docs-panel docs-panel--muted">
-            <span className="docs-panel__label">Release workflow</span>
-            <p>
-              validate tokens, build docs, build Storybook, then publish static artifacts. 문서 셸은 안정적으로
-              유지하고 reference component만 확장합니다.
-            </p>
+            <h2>적합한 프로젝트</h2>
+            <ul className="docs-bullet-list">
+              <li>일관된 UI와 토큰 체계가 필요한 제품 팀</li>
+              <li>React 기반 문서와 프리뷰를 함께 운영해야 하는 조직</li>
+              <li>디자인-개발 협업에서 기준선과 계약을 함께 관리하려는 팀</li>
+            </ul>
           </article>
-
-          <section className="docs-panel">
-            <div className="docs-section-heading">
-              <span>Overview</span>
-              <h2>바로 들어가기</h2>
-            </div>
-            <div className="docs-link-list">
-              {sections.flatMap((section) => section.entries).map((entry) => (
-                <Link className="docs-list-item" href={entry.href} key={entry.href}>
-                  <div>
-                    <strong>{entry.label}</strong>
-                    <p>{entry.description}</p>
-                  </div>
-                  <span>열기</span>
-                </Link>
-              ))}
-            </div>
-          </section>
         </div>
 
         <aside className="docs-rail">
           <article className="docs-rail-card">
-            <span>Popular entries</span>
-            <p>Button</p>
-            <p>Token foundation</p>
-            <p>Theme toggle guidance</p>
+            <span>On this page</span>
+            <p>ZDS 소개</p>
+            <p>핵심 기능</p>
+            <p>적합한 프로젝트</p>
           </article>
           <article className="docs-rail-card docs-rail-card--accent">
-            <span>Preview policy</span>
-            <p>Storybook은 controlled playground로 두고, canonical usage story는 docs 셸에 남깁니다.</p>
+            <span>Popular entry points</span>
+            <p>Design principles</p>
+            <p>Installation</p>
+            <p>Button</p>
+            <p>Theme guidance</p>
+          </article>
+          <article className="docs-rail-card docs-rail-card--solid">
+            <span>Review policy</span>
+            <p>
+              Open Storybook only when you need interaction checks. Read docs first for shared language, hierarchy,
+              and source-of-truth ownership.
+            </p>
+            <div className="docs-actions">
+              <Link className="preview-link" href="/components/button">
+                Components 열기
+              </Link>
+            </div>
           </article>
         </aside>
       </section>
