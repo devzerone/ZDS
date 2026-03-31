@@ -5,15 +5,15 @@ import DocsProse from "../../../components/prose/DocsProse";
 
 const requiredStates = ["default", "disabled", "loading", "focus", "hover", "pressed"];
 const propertyGuide = [
-  ["Variant", "Use primary once per section. Secondary and tertiary stay supportive, and destructive must always signal risk."],
-  ["Size", "Small fits dense surfaces, medium is the default, and large is reserved for roomy moments or hero actions."],
-  ["State", "Default, hover, focus, pressed, loading, and disabled should read as one coherent family rather than six separate styles."]
+  ["Variant", "Primary는 한 섹션에 한 번만 사용하고, Secondary와 Tertiary는 이를 보조해야 합니다. Destructive는 항상 위험한 결과를 분명하게 드러내야 합니다."],
+  ["Size", "Small은 밀도 높은 화면에, Medium은 기본 선택에, Large는 여유 있는 화면이나 히어로 액션에 적합합니다."],
+  ["State", "Default, Hover, Focus, Pressed, Loading, Disabled는 서로 분리된 스타일이 아니라 하나의 일관된 계열로 읽혀야 합니다."]
 ] as const;
 
 const propsTable = [
   ["variant", "primary | secondary | tertiary | destructive"],
   ["size", "small | medium | large"],
-  ["disabled / loading", "Boolean flags that preserve the same action hierarchy while changing availability."]
+  ["disabled / loading", "액션의 위계를 유지한 채 사용 가능 여부만 바꾸는 불리언 플래그입니다."]
 ] as const;
 
 export default function ButtonDocsPage() {
@@ -22,8 +22,8 @@ export default function ButtonDocsPage() {
       <section className="docs-hero docs-hero--component">
         <h1>Button</h1>
         <p>
-          Buttons let people trigger the most important action in a flow. Keep one dominant action per section and
-          use quieter variants for supporting work.
+          Button은 화면에서 가장 중요한 액션을 실행할 때 사용하는 기본 컴포넌트입니다. 한 섹션에는 하나의
+          대표 액션만 두고, 보조 작업은 더 조용한 variant로 분리합니다.
         </p>
         <div className="docs-pill-row">
           <span className="docs-pill">Default action</span>
@@ -36,8 +36,7 @@ export default function ButtonDocsPage() {
           <article className="docs-panel">
             <h2>Preview</h2>
             <p>
-              Use the default example to verify hierarchy first, then compare variants, sizes, and states without
-              changing the action label.
+              기본 예제로 위계를 먼저 확인한 뒤, 액션 라벨은 유지한 채 variant, 크기, 상태 차이를 비교합니다.
             </p>
             <div className="docs-sandbox-card">
               <div className="docs-sandbox-head">
@@ -73,11 +72,11 @@ export default function ButtonDocsPage() {
 
           <article className="docs-panel">
             <h2>Examples</h2>
-            <p>Combine icon support and hierarchy carefully so the label remains the first thing people scan.</p>
+            <p>아이콘 지원과 위계를 함께 사용할 때도, 사용자가 가장 먼저 읽는 것은 항상 라벨이어야 합니다.</p>
             <div className="docs-preview-canvas">
               <ButtonPreviewSandbox mode="row" />
               <div className="docs-preview-meta">
-                <span>Icon support / mixed hierarchy</span>
+                <span>아이콘 지원 / 혼합 위계</span>
                 <span className="docs-preview-chip">Examples</span>
               </div>
             </div>
@@ -85,7 +84,7 @@ export default function ButtonDocsPage() {
 
           <article className="docs-panel">
             <h2>Props Table</h2>
-            <p>Use the contract as the primary reference and keep the React API aligned with the same naming used in spec.</p>
+            <p>계약 문서를 1차 기준으로 삼고, React API 이름도 spec과 Storybook에서 사용하는 용어와 맞춰 유지합니다.</p>
             <div className="docs-props-table">
               <div className="docs-props-row docs-props-row--head">
                 <strong>Prop</strong>
@@ -125,7 +124,7 @@ export default function ButtonDocsPage() {
 
           <article className="docs-rail-card docs-rail-card--solid">
             <span>Next step</span>
-            <p>Open Storybook for args and interaction review, then return here for canonical usage guidance.</p>
+            <p>args와 상호작용 검토는 Storybook에서 확인하고, canonical guidance는 다시 docs로 돌아와 읽습니다.</p>
             <PreviewLink href="/storybook/index.html?path=/story/components-button--playground" label="Button preview 열기" />
           </article>
 
