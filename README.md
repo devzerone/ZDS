@@ -61,7 +61,7 @@ tools/                   저장소 자동화 및 설정 보조
 - Button tokens: [button.json](/home/choiho/zerone/ZDS/packages/tokens/data/components/button.json)
 - Button pen: [button.pen](/home/choiho/zerone/ZDS/pen/components/button/button.pen)
 - Docs pen: [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/docs/design-system-docs.pen)
-- React Button: [Button.tsx](/home/choiho/zerone/ZDS/packages/react/components/button/Button.tsx)
+- React Button: [Button.tsx](/home/choiho/zerone/ZDS/packages/react/src/components/button/Button.tsx)
 
 ## 시작하기
 
@@ -136,8 +136,8 @@ pnpm validate:docs-system
 관련 파일:
 - [button.spec.json](/home/choiho/zerone/ZDS/spec/components/button/button.spec.json)
 - [button.md](/home/choiho/zerone/ZDS/apps/docs/content/components/button.mdx)
-- [Button.stories.tsx](/home/choiho/zerone/ZDS/packages/react/components/button/Button.stories.tsx)
-- [Button.test.tsx](/home/choiho/zerone/ZDS/packages/react/components/button/Button.test.tsx)
+- [Button.stories.tsx](/home/choiho/zerone/ZDS/packages/react/src/components/button/Button.stories.tsx)
+- [Button.test.tsx](/home/choiho/zerone/ZDS/packages/react/src/components/button/Button.test.tsx)
 
 ## 브랜드 자산
 

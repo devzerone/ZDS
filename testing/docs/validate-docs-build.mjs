@@ -11,7 +11,7 @@ const requiredRefs = [
   "spec/components/button/button.spec.json",
   "packages/tokens/data/components/button.json",
   "pen/components/button/button.pen",
-  "packages/react/components/button/Button.tsx"
+  "packages/react/src/components/button/Button.tsx"
 ];
 
 const errors = [];

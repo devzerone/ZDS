@@ -119,7 +119,7 @@ export default function ButtonDocsPage() {
               <li><code>spec/components/button/button.spec.json</code></li>
               <li><code>packages/tokens/data/components/button.json</code></li>
               <li><code>pen/components/button/button.pen</code></li>
-              <li><code>packages/react/components/button/Button.tsx</code></li>
+              <li><code>packages/react/src/components/button/Button.tsx</code></li>
             </ul>
           </article>
 
