@@ -31,7 +31,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Confirm the feature stays within ZDS design-system scope and names every
+  repository path it will touch.
+- Confirm source-of-truth ownership remains intact across `spec/`,
+  `packages/tokens/`, `pen/`, implementation packages, docs, Storybook, and
+  `testing/`.
+- Confirm docs and Storybook impacts are identified for every user-consumable
+  component, pattern, or foundation artifact.
+- Confirm parity metadata updates or explicit "no parity change" rationale for
+  impacted platform surfaces.
+- Confirm validation coverage changes are planned for every contract, token,
+  visual, accessibility, docs, or preview behavior change.
 
 ## Project Structure
 
@@ -50,45 +60,38 @@ specs/[###-feature]/
 ### Source Code (repository root)
 <!--
   ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
+  for this feature. Keep only the paths relevant to the planned change set and
+  extend them with concrete files or subdirectories when helpful.
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+apps/
+└── docs/                # Official docs site (Next.js App Router, MDX content)
+.storybook/             # Storybook preview configuration
+packages/
+├── foundation/         # Brand and shared foundation assets
+├── tokens/             # Token sources, build scripts, generated outputs
+├── react/              # React implementation package
+├── swiftui/            # SwiftUI implementation surface or placeholder
+├── kotlin/             # Kotlin implementation surface or placeholder
+└── windows/            # Windows implementation surface or placeholder
+pen/
+├── components/         # Pencil component baselines
+├── docs/               # Pencil docs baselines
+└── patterns/           # Pencil pattern baselines
+spec/
+├── components/         # Publishable component contracts
+├── patterns/           # Publishable pattern contracts
+└── metadata/parity/    # Shared parity and exception metadata
+testing/
+├── tokens/             # Token validation
+├── spec/               # Contract validation
+├── docs/               # Docs and Storybook validation
+├── accessibility/      # Accessibility review artifacts
+└── visual/             # Visual review artifacts
+tools/
+├── config/             # Repo automation config
+└── scripts/            # Repo automation scripts
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real

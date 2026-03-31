@@ -1,253 +1,179 @@
 <!--
 Sync Impact Report
-- Version change: 1.1.0 -> 1.2.0
+- Version change: 1.2.0 -> 1.3.0
 - Modified principles:
-  - Principle slot 1 -> I. Repository Identity
-  - Principle slot 2 -> II. Source-of-Truth Hierarchy
-  - Principle slot 3 -> III. Token Architecture
-  - Principle slot 4 -> IV. Contract-First Artifact Lifecycle
-  - Principle slot 5 -> V. Cross-Platform Parity and Controlled Exceptions
+  - I. Repository Identity -> I. Repository Scope and Artifact Topology
+  - II. Source-of-Truth Hierarchy -> II. Source-of-Truth Chain and Promotion Rules
+  - III. Token Architecture -> III. Token and Asset Architecture
+  - IV. Contract-First Artifact Lifecycle -> IV. Contract-to-Preview Delivery Lifecycle
+  - V. Cross-Platform Parity and Controlled Exceptions -> V. Platform Parity and Exception Metadata
 - Added sections:
-  - Naming Rules
-  - Operational Rules
-  - Governance
+  - Repository Topology
+  - Delivery Workflow
 - Removed sections:
-  - None
+  - Operational Rules
+  - Naming Rules
 - Templates requiring updates:
   - ✅ updated: .specify/templates/plan-template.md
   - ✅ updated: .specify/templates/spec-template.md
   - ✅ updated: .specify/templates/tasks-template.md
-  - ⚠ pending: .specify/templates/agent-file-template.md
-  - ⚠ pending: .specify/templates/commands/*.md (directory not present in this repository)
+  - ✅ updated: README.md
+  - ✅ updated: AGENTS.md
+  - ⚠ pending: .specify/templates/commands/*.md (directory not present in this repository; active command files live under .claude/commands/)
 - Deferred TODOs:
   - None
 -->
 # ZDS Constitution
 
-This document defines mandatory operating rules for the ZDS design system
-monorepo. These rules are binding for design, engineering, review, and release.
+This constitution defines binding operating rules for the ZDS design system
+monorepo. These rules govern every spec, token, preview, implementation,
+documentation page, validation script, and platform handoff in this repository.
 
 ## Core Principles
 
-### I. Repository Identity
-This repository MUST exist only to define, document, implement, and verify a
-single cross-platform design system. It MUST NOT contain product business logic,
-application runtime logic, backend logic, device runtime logic, or app-specific
-state, service, or feature behavior outside UI system scope.
+### I. Repository Scope and Artifact Topology
+ZDS MUST exist only to define, document, implement, validate, and distribute the
+design system itself. Repository contents MUST stay inside design-system scope:
+component contracts, parity metadata, foundation assets, design tokens, Pencil
+baselines, platform UI packages, docs surfaces, Storybook previews, and
+supporting validation or automation tooling.
 
-Repository contents MUST be limited to foundation assets, token definitions,
-component and pattern specifications, `.pen` visual references, platform UI
-packages, documentation, and validation tooling. Platform-specific product code
-MUST live outside this repository.
+The repository topology is authoritative. Shared artifacts MUST live in their
+owned locations: `spec/` for publishable contracts and parity metadata,
+`packages/tokens/` for token sources and generated token outputs,
+`packages/foundation/` for brand and shared foundation assets, `pen/` for visual
+baselines, `packages/react/` plus other platform package roots for implementation,
+`apps/docs/` for official documentation, `.storybook/` for preview configuration,
+`testing/` for validation, and `tools/` for repository automation. Product
+features, backend logic, app-specific state, and consumer runtime code MUST NOT
+be added here.
 
-### II. Source-of-Truth Hierarchy
-This repository defines four non-substitutable source-of-truth layers:
+### II. Source-of-Truth Chain and Promotion Rules
+ZDS has a mandatory source-of-truth chain:
 
-1. JSON Spec is the only authority for component contract, variants, sizes,
-   states, slots, interaction rules, accessibility requirements, behavior
-   expectations, platform exceptions, parity expectations, and lifecycle
-   metadata.
-2. Design Tokens are the only authority for visual values, including color,
-   spacing, typography, radius, elevation, opacity, motion, duration, easing,
-   stroke, border width, icon size, semantic theme values, and component token
-   values.
-3. `.pen` files are the only authority for visual composition, anatomy, states,
-   themed appearance, pattern assembly, and visual comparison baselines.
-4. Platform UI packages are the only authority for platform-native API shape,
-   rendering translation, interaction translation, and framework-specific
-   implementation details.
+1. `spec/` defines contract, roles, states, accessibility rules, parity intent,
+   and approved exceptions.
+2. `packages/tokens/data/` defines reusable visual values and semantic meaning.
+3. `pen/` defines visual composition, anatomy, and review baselines.
+4. Platform packages translate the contract into framework-native code.
+5. `apps/docs/` and Storybook expose the approved system to humans.
 
-No layer MAY replace another layer. No implementation MAY invent contract outside
-spec. No visual style MAY bypass tokens. No visual component MAY exist without
-corresponding spec and `.pen` artifacts. No implementation MAY treat only one of
-spec, tokens, or `.pen` as sufficient input. Every released implementation MUST
-conform to the intersection of spec, tokens, and `.pen`.
+No downstream layer MAY promote itself to an upstream authority. Docs and
+Storybook explain the system but MUST NOT define contract or visual values.
+Implementations MUST NOT invent variants, states, or token values that are not
+already represented in spec, tokens, or approved parity metadata. Every merged
+change touching a user-facing component or pattern MUST keep all affected
+upstream sources in sync.
 
-### III. Token Architecture
-All reusable visual decisions MUST be encoded as tokens. Token architecture MUST
-follow a strict hierarchy:
+### III. Token and Asset Architecture
+All reusable visual decisions MUST be expressed as tokens or owned foundation
+assets before they are consumed by implementations. Token architecture MUST
+follow the progression from primitive values to semantic values to component-
+level values. Raw palette values MAY exist as source material, but shared UI
+implementations MUST consume semantic or component tokens by default.
 
-1. Primitive or raw tokens define base values.
-2. Semantic tokens define UI meaning and role.
-3. Component tokens define final component-level visual contracts.
+`packages/foundation/` is the only home for reusable brand or shared foundation
+assets such as logos, icons, and future illustration primitives. `packages/tokens/`
+is the only home for reusable design values. Platform packages, docs, and
+Storybook MUST NOT embed hard-coded brand assets or repeated visual constants
+when a foundation asset or token should exist instead. If a reusable visual
+decision cannot yet be modeled cleanly, the gap MUST be tracked as a design-
+system defect or as an explicitly documented temporary exception.
 
-This hierarchy MUST apply to color, typography, spacing, radius, elevation,
-opacity, motion, duration, easing, stroke, border width, icon size, and layout
-size.
+### IV. Contract-to-Preview Delivery Lifecycle
+Every official component, pattern, or foundation surface MUST move through a
+complete lifecycle before it is considered done:
 
-Palette or raw tokens MUST be treated as low-level foundation inputs. Product UI
-and component implementations MUST NOT consume palette tokens directly except in
-documented foundation or token-composition layers. Semantic tokens MUST be the
-default consumption layer for UI meaning. Component tokens MUST reference
-semantic tokens unless a documented exception exists. Hard-coded reusable visual
-values in implementation are prohibited unless the exception is explicitly
-documented in spec or parity metadata.
+1. Contract or foundation intent is recorded in `spec/` or other owned metadata.
+2. Required tokens or foundation assets are added or confirmed.
+3. `pen/` baselines are created or updated.
+4. Platform implementation work is added in the relevant package roots.
+5. Official docs in `apps/docs/` and interactive previews in Storybook are added
+   or updated when the artifact is user-consumable.
+6. Validation is added or updated in `testing/` and related scripts.
+7. Parity metadata and known exceptions are recorded when more than one platform
+   surface exists or is planned.
 
-Any reusable visual decision that cannot be expressed as a token MUST be treated
-as a system design defect until resolved or explicitly exempted.
+Skipping an owned layer is prohibited when that layer is part of the feature's
+contract. A component change is incomplete if code ships without updated source
+artifacts, previews, docs, or validation that the contract now requires.
 
-### IV. Contract-First Artifact Lifecycle
-Every component and pattern MUST begin with a JSON spec before implementation.
-Spec-less implementation is prohibited. The required lifecycle is:
+### V. Platform Parity and Exception Metadata
+Parity in ZDS means preserved contract, semantics, states, accessibility
+expectations, and design intent across supported platform surfaces. It does not
+mean pixel-for-pixel equality across renderers.
 
-1. Spec proposal
-2. Token requirements defined
-3. `.pen` visual definition created
-4. Documentation draft created
-5. Platform implementation added
-6. Tests added
-7. Parity status recorded
-8. Release eligibility checked
+`packages/react/` is the current production implementation surface. The presence
+of `packages/swiftui/`, `packages/kotlin/`, and `packages/windows/` means parity
+planning MUST already be represented in shared contracts and metadata even if
+those package roots are still placeholders. `apps/docs/` and Storybook are
+communication surfaces, not independent parity platforms. Framework consumers
+such as Next.js or shell environments such as Tauri MAY add integration-specific
+adapters, but those consumers MUST NOT fork the shared design language.
 
-An item that has not completed this lifecycle MUST NOT be marked done.
-Visual approval without `.pen` is prohibited. Release without token mapping is
-prohibited.
+Any platform difference MUST be recorded in shared metadata before merge. Hidden
+divergence is a defect. Temporary lag is allowed only when parity metadata names
+the missing capability, the affected platform, the user impact, and the intended
+follow-up release or removal condition.
 
-Repository structure MUST preserve separation of concerns between foundation,
-spec, pen, platform implementations, docs, and testing. Each layer MUST NOT
-carry responsibilities that belong to another layer.
+## Repository Topology
 
-### V. Cross-Platform Parity and Controlled Exceptions
-Parity in this repository means contract equivalence and design intent
-preservation across platforms. It does NOT mean pixel-perfect duplication.
+1. `apps/docs/` MUST contain the official documentation experience and any
+   repository-owned MDX or markdown content that explains the system.
+2. `.storybook/` MUST configure interactive preview behavior for supported React
+   stories and MUST stay aligned with the same public contracts documented in
+   `apps/docs/`.
+3. `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, and
+   `packages/windows/` MUST remain implementation roots only; contract or token
+   ownership MUST NOT migrate into them.
+4. `spec/components/`, `spec/patterns/`, and `spec/metadata/parity/` MUST hold
+   publishable component, pattern, and parity metadata respectively.
+5. `testing/` MUST reflect the validation strategy by artifact type such as
+   tokens, specs, docs, accessibility, and visual review.
+6. `tools/` MUST contain repository automation or configuration support and MUST
+   NOT become a backdoor place to redefine design-system contract.
 
-React, Tauri, SwiftUI, Kotlin Compose, and Windows Native UI implementations
-MUST preserve the same role, state model, semantic meaning, accessibility
-expectations, and interaction contract unless a documented exception exists.
-Platform-native differences in typography, rendering, accessibility convention,
-input modality, or desktop/mobile behavior MAY exist only when they preserve the
-defined design intent.
+## Delivery Workflow
 
-Silent divergence is prohibited. If a platform cannot satisfy the shared
-contract, the team MUST either amend the contract or document the exception in
-spec and parity metadata before merge. Unrecorded platform differences are
-defects.
-
-Next.js MUST NOT be treated as a first-class parity platform. Next.js is a React
-consumer environment. React UI packages in this repository MUST be usable from
-Next.js when they stay within documented React execution boundaries. Next.js-
-specific routing, server integration, image handling, and runtime composition
-MUST be handled by the consuming Next.js application or by explicit adapters,
-not by redefining the design system contract.
-
-Tauri MUST NOT be treated as an independent design language. Tauri is a React
-consumer environment with desktop shell integration needs. General components
-such as Button, Input, or Dialog MUST NOT fork into a Tauri-only visual
-language. Shell integration concerns such as window control, menu wiring, tray
-integration, filesystem bridges, global shortcuts, and app-specific desktop
-layout orchestration MUST be implemented in the consuming Tauri application, not
-as mandatory design-system-owned structure in this repository.
-
-## Operational Rules
-
-1. Architecture
-   Foundation, spec, pen, platform implementations, docs, and testing MUST be
-   stored as separate concerns. Cross-layer duplication of authority is
-   prohibited.
-2. Documentation
-   Every foundation artifact, component, and pattern MUST include documentation
-   covering purpose, anatomy, variants, states, accessibility, token
-   dependencies, and platform differences.
-3. Testing
-   The repository MUST provide verifiable checks for token correctness, spec
-   correctness, parity tracking, visual regression, and accessibility
-   requirements. A component without tests is not releasable.
-4. Naming
-   Semantic names MUST take precedence over raw visual names. Names for the same
-   component MUST align across spec, tokens, `.pen`, docs, and implementations.
-   Tokens MUST NOT encode platform names, implementation names, or theme-state
-   hacks such as `iosButtonBlue`, `reactSidebarPadding`, or `gray200Hover`.
-5. New Components
-   A new component MUST NOT be considered official until spec, token mapping,
-   `.pen`, documentation, and at least one platform implementation exist.
-6. Existing Component Changes
-   Any change to an existing component MUST update spec, token mapping, `.pen`,
-   docs, affected platform implementations, and parity metadata in the same
-   change set.
-7. Breaking Changes
-   Breaking changes MUST be declared explicitly and MUST NOT merge without
-   updated documentation, release notes, and migration guidance.
-8. Platform Lag
-   Platform implementations MAY temporarily lag only if parity metadata records
-   the exact gap, affected contract surface, owning platform, target remediation
-   release, and user impact. Unbounded lag is prohibited.
-9. Experimental Scope
-   Experimental components or patterns MUST be isolated from stable artifacts and
-   MUST NOT implicitly alter stable contracts, tokens, or naming semantics.
-10. Done Criteria
-    A component is done only when spec, token mapping, `.pen`, documentation,
-    at least one platform implementation, tests, and recorded parity status all
-    exist. If any item is missing, the component is not done.
-11. React Consumer Strategy
-    React is the reusable UI implementation layer for JavaScript consumers.
-    Consumer-specific runtime concerns MUST be layered outside the shared React
-    contract when they do not change the design-system meaning.
-12. Next.js Consumption
-    Next.js support MUST be treated as React consumption, not as a separate
-    parity platform. Server or client execution boundaries, routing concerns, and
-    framework integrations MAY be handled by adapters, but they MUST NOT create a
-    separate design language or token namespace.
-13. Tauri Consumption
-    Tauri support MUST be treated as application-side consumption of shared React
-    UI plus app-owned desktop shell integration. This repository MUST NOT require
-    a dedicated Tauri shell-integration structure for concerns better owned by
-    the consuming application.
-
-## Naming Rules
-
-1. General Rules
-   Names MUST express role, intent, state, hierarchy, or contract meaning before
-   raw appearance. Shared names MUST remain consistent across spec, tokens,
-   `.pen`, docs, and platform implementations.
-2. Token Rules
-   Tokens MUST NOT contain platform names, framework names, renderer names,
-   product names, or local implementation details. Tokens MUST NOT encode theme
-   handling as ad hoc suffixes when the same distinction belongs in semantic or
-   component-token structure.
-3. Component Rules
-   Component names MUST be stable system names, not product feature names. Slot,
-   variant, size, and state names MUST come from the component contract and MUST
-   NOT diverge by platform.
-4. Required Pattern
-   Prefer names such as `surface.primary`, `text.muted`,
-   `color.fg.neutral-muted`, `action.primary.background`, and
-   `button.primary.background`.
-5. Prohibited Pattern
-   Names such as `gray200Hover`, `iosButtonBlue`, `reactSidebarPadding`,
-   `cardBorderLightMode`, and `windowsPrimaryTextColor` are prohibited because
-   they encode raw values, platform identity, or implementation leakage instead
-   of system meaning.
-6. Enforcement
-   Reviewers MUST reject names that expose platform meaning where shared system
-   meaning exists. Renames required for constitutional compliance MUST be treated
-   as mandatory cleanup, not optional polish.
+1. Every feature plan MUST name the exact repository paths it will modify across
+   spec, tokens, pen, implementations, docs, previews, and validation.
+2. Every feature spec MUST list source-of-truth updates, downstream delivery
+   surfaces, and any parity exceptions or confirm that none are needed.
+3. Every task list MUST include work for each affected owned layer; validation
+   work is mandatory whenever user-facing behavior, visual output, tokens, or
+   contracts change.
+4. Pull requests MUST be reviewed against source-of-truth ownership, lifecycle
+   completeness, and parity metadata completeness, not only against runtime code.
+5. Release readiness for a component or pattern requires synced contract,
+   tokens or assets, pen baseline, implementation, docs or preview coverage, and
+   validation evidence for the changed surface.
 
 ## Governance
 
-This constitution supersedes local practice, review preference, and undocumented
-team convention. Every plan, spec, task list, pull request, and release review
-MUST include a constitution compliance check.
+This constitution supersedes undocumented team habits and local review
+preferences. Every plan, spec, task list, pull request, and release review MUST
+explicitly check constitutional compliance.
 
 Amendment rules:
 
-1. Amendments MUST update this file and any affected templates in the same
-   change.
-2. Amendments that add or materially expand binding rules require a MINOR
-   version increment.
-3. Amendments that remove, weaken, or redefine existing binding rules require a
-   MAJOR version increment.
+1. Amendments MUST update this file and every affected dependent template or
+   guidance document in the same change set.
+2. Amendments that add a new binding rule or materially expand repository scope
+   require a MINOR version increment.
+3. Amendments that remove, weaken, or redefine an existing binding rule require
+   a MAJOR version increment.
 4. Amendments that only clarify wording without changing enforcement require a
    PATCH version increment.
 
 Compliance rules:
 
-1. Reviewers MUST reject changes that violate repository identity, source of
-   truth hierarchy, token architecture, lifecycle requirements, or parity rules.
-2. Releases MUST block components that fail done criteria, hide parity status,
-   or rely on undocumented exceptions.
-3. Exceptions MAY be merged only when recorded in spec and parity metadata with
-   justification, scope, and expiration or remediation criteria.
-4. Hidden divergence, undocumented raw values, or spec-less implementations MUST
-   be treated as defects and tracked to closure.
+1. Reviewers MUST reject changes that violate source-of-truth ownership, skip a
+   required lifecycle artifact, or hide parity differences.
+2. Releases MUST block artifacts whose required docs, preview coverage, or
+   validation updates are missing.
+3. Exceptions MAY be merged only when they are documented in shared metadata
+   with scope, justification, and a follow-up condition.
+4. Any discovered drift between `spec/`, tokens, `pen/`, implementation, docs,
+   or Storybook MUST be treated as a tracked defect until resolved.
 
-**Version**: 1.2.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-30
+**Version**: 1.3.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-31

@@ -95,6 +95,25 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+## Artifact Impact & Parity *(mandatory)*
+
+### Source-of-Truth Updates
+
+- **Spec Artifacts**: [List files under `spec/` that will be created or updated, or state "None"]
+- **Token / Foundation Artifacts**: [List files under `packages/tokens/` or `packages/foundation/`, or state "None"]
+- **Pencil Baselines**: [List files under `pen/`, or state "None"]
+
+### Delivery Surface Updates
+
+- **Implementation Packages**: [List impacted paths under `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`, or state "None"]
+- **Docs / Preview Surfaces**: [List impacted paths under `apps/docs/` and `.storybook/`, or state "None"]
+- **Validation Artifacts**: [List impacted paths under `testing/` or related validation scripts, or state "None"]
+
+### Platform Parity & Exceptions
+
+- **Parity Impact**: [Describe whether the feature changes shared parity expectations]
+- **Approved Exceptions**: [List any planned platform exceptions with rationale, or state "None"]
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]

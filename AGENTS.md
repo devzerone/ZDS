@@ -1,37 +1,81 @@
 # ZDS Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-03-30
+Auto-generated from all feature plans. Last updated: 2026-03-31
 
 ## Active Technologies
-- JSON token artifacts in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, dedicated token package conventions (002-define-design-tokens)
-- Repository files under `packages/tokens/data/`, `apps/docs/foundation/`, and `testing/tokens/` (002-define-design-tokens)
-- JSON specification artifacts, JSON token artifacts, Markdown documentation, and React 19 component package conventions in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, `@zds/tokens` package, `@zds/react` peer dependency contract on React 19 and React DOM 19 (003-button-component)
-- repository files under `specs/003-button-component/`, `packages/tokens/data/`, `packages/react/components/`, `apps/docs/components/`, `testing/spec/`, `testing/accessibility/`, and `testing/visual/` (003-button-component)
-- TypeScript 5.9, React 19.2, Markdown/MDX documentation assets, JSON design-system artifacts in a pnpm monorepo + Next.js App Router for `apps/docs`, Storybook for React component preview, pnpm workspace, Turbo repo orchestration, `@zds/react` component exports, existing spec and token validation scripts (004-next-docs-storybook)
-- repository files under `apps/docs/`, `.storybook/` or `apps/storybook/` planning scope, `packages/react/components/`, `spec/`, `pen/`, `packages/tokens/data/`, `testing/`, and `.github/workflows/` (004-next-docs-storybook)
 
-- (001-monorepo-structure)
+- TypeScript 5.9, React 19.2, Next.js App Router, MDX, Storybook, pnpm workspace,
+  and Turbo repo orchestration
+- JSON component contracts under `spec/`, JSON design tokens under
+  `packages/tokens/data/`, Pencil baselines under `pen/`, and validation scripts
+  under `testing/`
+- Workspace packages `@zds/tokens`, `@zds/react`, `@zds/foundation`, and
+  placeholder platform roots for SwiftUI, Kotlin, and Windows parity planning
 
 ## Project Structure
 
 ```text
-src/
-tests/
+apps/
+  docs/                  Official documentation site
+.storybook/              Storybook preview configuration
+packages/
+  foundation/            Brand and shared foundation assets
+  tokens/                Design token sources and build outputs
+  react/                 React implementation package
+  swiftui/               SwiftUI implementation root
+  kotlin/                Kotlin implementation root
+  windows/               Windows implementation root
+pen/
+  components/            Pencil component baselines
+  docs/                  Pencil docs baselines
+  patterns/              Pencil pattern baselines
+spec/
+  components/            Publishable component contracts
+  patterns/              Publishable pattern contracts
+  metadata/parity/       Shared parity and exception metadata
+specs/                   Feature planning artifacts
+testing/
+  docs/                  Docs and Storybook validation
+  spec/                  Contract validation
+  tokens/                Token validation
+  accessibility/         Accessibility review artifacts
+  visual/                Visual review artifacts
+tools/
+  config/                Repo automation config
+  scripts/               Repo automation scripts
 ```
 
 ## Commands
 
-# Add commands for 
+- `pnpm build`
+- `pnpm dev`
+- `pnpm clean`
+- `pnpm docs:dev`
+- `pnpm docs:build`
+- `pnpm storybook`
+- `pnpm storybook:build`
+- `pnpm validate:tokens`
+- `pnpm validate:button-spec`
+- `pnpm test:button-react`
+- `pnpm validate:button`
+- `pnpm validate:docs-system`
 
 ## Code Style
 
-: Follow standard conventions
+- Keep design-system source-of-truth ownership intact: `spec/` for contracts,
+  `packages/tokens/` for reusable values, `pen/` for visual baselines, package
+  roots for implementation, `apps/docs/` and Storybook for communication
+- Prefer semantic naming over raw-value naming in tokens, specs, and docs
+- Update validation alongside user-facing or contract changes
 
 ## Recent Changes
-- 004-next-docs-storybook: Added TypeScript 5.9, React 19.2, Markdown/MDX documentation assets, JSON design-system artifacts in a pnpm monorepo + Next.js App Router for `apps/docs`, Storybook for React component preview, pnpm workspace, Turbo repo orchestration, `@zds/react` component exports, existing spec and token validation scripts
-- 004-next-docs-storybook: Added TypeScript 5.9, React 19.2, Markdown/MDX documentation assets, JSON design-system artifacts in a pnpm monorepo + Next.js App Router for `apps/docs`, Storybook for React component preview, pnpm workspace, Turbo repo orchestration, `@zds/react` component exports, existing spec and token validation scripts
-- 003-button-component: Added JSON specification artifacts, JSON token artifacts, Markdown documentation, and React 19 component package conventions in a pnpm monorepo workspace + pnpm workspace, Turbo repo orchestration, `@zds/tokens` package, `@zds/react` peer dependency contract on React 19 and React DOM 19
 
+- 004-next-docs-storybook: Added Next.js docs, Storybook previews, and docs
+  validation workflows
+- 003-button-component: Added Button contract, React implementation, docs, and
+  validation coverage
+- 002-define-design-tokens: Added token source files, token schemas, and token
+  validation tooling
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->

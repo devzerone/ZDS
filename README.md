@@ -12,6 +12,7 @@ ZDS는 토큰, 컴포넌트 계약, Pencil 기준선, React 구현, 문서 사�
 - Next.js 기반 docs 사이트
 - Storybook 기반 컴포넌트 프리뷰
 - `.pen` 기준선 자산
+- parity 메타데이터와 향후 플랫폼 구현용 패키지 루트
 
 ## 구조
 
@@ -22,16 +23,22 @@ packages/
   foundation/            브랜드 자산과 foundation 공용 에셋
   tokens/                디자인 토큰 패키지
   react/                 React 컴포넌트 구현
+  swiftui/               SwiftUI 구현 루트
+  kotlin/                Kotlin 구현 루트
+  windows/               Windows 구현 루트
+.storybook/              Storybook 설정
 pen/
   components/            컴포넌트 Pencil 기준선
   docs/                  문서 UI Pencil 기준선
 spec/
   components/            배포 가능한 컴포넌트 계약(JSON spec)
+  metadata/parity/       플랫폼 parity / exception 메타데이터
 specs/                   feature 단위 작업 문서(spec-kit 산출물)
 testing/
   docs/                  docs/storybook 검증
   spec/                  계약 검증
   tokens/                토큰 검증
+tools/                   저장소 자동화 및 설정 보조
 ```
 
 ## Source Of Truth
@@ -39,17 +46,15 @@ testing/
 컴포넌트는 아래 순서로 이해하면 됩니다.
 
 1. `spec/`
-   컴포넌트 API와 상태, parity, 계약 정의
-2. `packages/tokens/`
-   시맨틱 토큰과 컴포넌트 토큰
+   컴포넌트 계약, parity 의도, 예외 메타데이터
+2. `packages/tokens/`, `packages/foundation/`
+   시맨틱/컴포넌트 토큰과 재사용 foundation 자산
 3. `pen/`
    시각 기준선
-4. `packages/foundation/`
-   브랜드 로고와 foundation 공용 에셋
-5. `packages/react/`
-   실제 React 구현
-6. `apps/docs/`
-   공식 문서 경험
+4. `packages/react/`, `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`
+   플랫폼 구현 계층
+5. `apps/docs/`, `Storybook`
+   설명과 프리뷰 계층
 
 대표 예시:
 - Button contract: [button.spec.json](/home/choiho/zerone/ZDS/spec/components/button/button.spec.json)
@@ -112,6 +117,9 @@ pnpm validate:docs-system
 - `Storybook`
   variant, size, state, args 기반 인터랙티브 검토
 
+둘 다 사용자-facing surface지만 source of truth 는 아닙니다. 계약은 `spec/`,
+시각 값은 `packages/tokens/`, 시각 기준선은 `pen/` 에서 먼저 정의해야 합니다.
+
 문서 기준선은 [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/docs/design-system-docs.pen) 에 있습니다. 현재 docs 홈과 `Button` 상세 페이지 구조가 들어 있고, 컬러는 foundation semantic token에 맞춘 Pencil 변수로 연결돼 있습니다.
 
 ## 현재 구현된 컴포넌트
@@ -158,6 +166,7 @@ pnpm validate:docs-system
 4. `packages/react/`에 구현과 테스트 추가
 5. `apps/docs/`와 Storybook 연결
 6. validation 스크립트와 CI에 연결
+7. parity 메타데이터가 바뀌면 `spec/metadata/parity/` 갱신
 
 ## 참고
 
