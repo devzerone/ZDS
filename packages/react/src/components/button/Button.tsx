@@ -5,6 +5,7 @@ import { spacing } from "@zds/tokens/spacing";
 import { radius } from "@zds/tokens/radius";
 import { typography } from "@zds/tokens/typography";
 import { buttonTokens } from "@zds/tokens/components/button";
+import { PrimitiveButton } from "../../primitives/button";
 
 export type ButtonVariant = keyof typeof buttonTokens.variants;
 export type ButtonSize = keyof typeof buttonTokens.sizes;
@@ -131,7 +132,7 @@ export function getButtonRenderModel(input: {
   };
 }
 
-function renderIcon(icon: ReactNode, iconSize: number, position: "leading" | "trailing") {
+function renderSizedIcon(icon: ReactNode, iconSize: number, position: "leading" | "trailing") {
   if (!icon) {
     return null;
   }
@@ -219,16 +220,22 @@ export function Button({
   }, [disabled, focusVisible, labelStyle, loading, pressed, sizeTokens, stateTokens, style]);
 
   return (
-    <button
+    <PrimitiveButton
       {...rest}
-      type={type}
       disabled={disabled || loading}
-      aria-busy={loading || undefined}
-      data-zds-component="button"
-      data-zds-variant={variant}
-      data-zds-size={size}
-      data-zds-state={state}
+      leadingIcon={renderSizedIcon(leadingIcon, sizeTokens.iconSize, "leading")}
+      loading={loading}
+      loadingIndicator={
+        <span style={{ display: "inline-flex", alignItems: "center" }}>
+          ...
+        </span>
+      }
+      size={size}
+      state={state}
       style={computedStyle}
+      trailingIcon={renderSizedIcon(trailingIcon, sizeTokens.iconSize, "trailing")}
+      type={type}
+      variant={variant}
       onMouseEnter={(event) => {
         setHovered(true);
         onMouseEnter?.(event);
@@ -256,16 +263,8 @@ export function Button({
         onBlur?.(event);
       }}
     >
-      {renderIcon(leadingIcon, sizeTokens.iconSize, "leading")}
-      <span data-zds-slot="label">{children}</span>
-      {loading ? (
-        <span aria-hidden="true" data-zds-slot="loading-indicator" style={{ display: "inline-flex", alignItems: "center" }}>
-          ...
-        </span>
-      ) : (
-        renderIcon(trailingIcon, sizeTokens.iconSize, "trailing")
-      )}
-    </button>
+      {children}
+    </PrimitiveButton>
   );
 }
 
