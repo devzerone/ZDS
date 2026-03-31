@@ -1,16 +1,21 @@
 import Link from "next/link";
+import DocsRail, { DocsRailCard } from "../../components/docs/DocsRail";
 
 export default function FoundationPage() {
   return (
     <div className="docs-page">
       <section className="docs-hero docs-hero--component">
         <span className="docs-eyebrow">Foundation</span>
-        <h1>공통 토큰과 디자인 언어의 기초를 먼저 읽습니다.</h1>
+        <h1>Read the shared token language before the component contract.</h1>
         <p>
           Foundation 문서는 component 문서보다 먼저 읽히는 기준 레이어입니다. semantic token 구조, naming
-          원칙, light and dark theme 해석을 먼저 이해하고 나면 component-level usage를 훨씬 일관되게 볼 수
+          원칙, light and dark theme 해석을 먼저 이해하고 나면 component-level usage를 훨씬 일관되게 읽을 수
           있습니다.
         </p>
+        <div className="docs-pill-row">
+          <span className="docs-pill">Semantic tokens</span>
+          <span className="docs-pill">Theme interpretation</span>
+        </div>
       </section>
 
       <section className="docs-card-grid docs-card-grid--three">
@@ -31,8 +36,7 @@ export default function FoundationPage() {
       <section className="docs-split">
         <div className="docs-stack">
           <article className="docs-panel">
-            <span className="docs-eyebrow">Reading flow</span>
-            <h2>Token language를 이해한 뒤 component contract를 읽는 순서를 권장합니다.</h2>
+            <h2>Reading flow</h2>
             <p>
               Button 같은 개별 component는 foundation token에 기대고 있기 때문에, foundation을 먼저 이해하면
               variant와 state 해석이 훨씬 빨라집니다.
@@ -46,20 +50,31 @@ export default function FoundationPage() {
               </Link>
             </div>
           </article>
+
+          <article className="docs-panel docs-panel--muted">
+            <h2>What you will learn</h2>
+            <ul className="docs-bullet-list">
+              <li>raw palette와 semantic token의 역할 분리</li>
+              <li>light / dark에서 semantic meaning을 유지하는 방식</li>
+              <li>component mapping이 foundation 위에 얇게 쌓여야 하는 이유</li>
+            </ul>
+          </article>
         </div>
 
-        <aside className="docs-rail">
-          <article className="docs-rail-card">
-            <span>What lives here</span>
+        <DocsRail>
+          <DocsRailCard title="What lives here">
             <p>palette family</p>
             <p>semantic token structure</p>
             <p>theme mapping guidance</p>
-          </article>
-          <article className="docs-rail-card docs-rail-card--accent">
-            <span>Source</span>
+          </DocsRailCard>
+          <DocsRailCard title="On this page" tone="accent">
+            <p>Reading flow</p>
+            <p>What you will learn</p>
+          </DocsRailCard>
+          <DocsRailCard title="Source" tone="solid">
             <p>foundation token 문서는 component별 API보다 위에 있는 공통 언어층입니다.</p>
-          </article>
-        </aside>
+          </DocsRailCard>
+        </DocsRail>
       </section>
     </div>
   );

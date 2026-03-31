@@ -47,14 +47,14 @@ export default function FoundationTokensPage() {
   return (
     <div className="docs-page">
       <section className="docs-hero docs-hero--component">
-        <h1>Foundation tokens</h1>
+        <h1>Tokens</h1>
         <p>
-          ZDS token layer는 raw palette, semantic meaning, component mapping 순서로 읽히도록 설계합니다.
-          구현에서는 semantic token을 우선 소비하고, 문서에서는 그 의미와 사용 맥락을 먼저 설명합니다.
+          Tokens는 디자인 시스템 전체가 같은 의미를 공유하도록 만드는 기반 레이어입니다. 구현에서는 raw
+          palette보다 semantic token을 먼저 읽고, 문서에서는 그 이유와 소비 기준을 먼저 설명합니다.
         </p>
         <div className="docs-pill-row">
+          <span className="docs-pill">Semantic layer</span>
           <span className="docs-pill">Light / dark aware</span>
-          <span className="docs-pill">Semantic first</span>
         </div>
       </section>
 
@@ -63,8 +63,8 @@ export default function FoundationTokensPage() {
           <article className="docs-panel">
             <h2>Overview</h2>
             <p>
-              Foundation tokens는 컴포넌트보다 먼저 읽히는 기준 레이어입니다. 토큰 문서를 먼저 이해하면
-              컴포넌트 문서에서 variant와 state를 해석하는 속도가 훨씬 빨라집니다.
+              Foundation / Tokens 페이지는 컴포넌트보다 먼저 읽는 기준 문서입니다. 이 레이어를 이해하면
+              variant, state, theme가 왜 그런 이름과 역할을 갖는지 훨씬 빠르게 해석할 수 있습니다.
             </p>
           </article>
 
@@ -114,12 +114,6 @@ export default function FoundationTokensPage() {
             <p>토큰 문서를 읽을 때 계속 확인하게 되는 운영 규칙입니다.</p>
             <DocsPropsTable columns={["Topic", "Description"]} rows={tokenTable} />
           </article>
-
-          <article className="docs-panel">
-            <DocsProse>
-              <TokensContent />
-            </DocsProse>
-          </article>
         </div>
 
         <DocsRail>
@@ -148,6 +142,12 @@ export default function FoundationTokensPage() {
             <p><code>packages/tokens/data/components/core.json</code></p>
           </DocsRailCard>
         </DocsRail>
+      </section>
+
+      <section className="docs-panel">
+        <DocsProse>
+          <TokensContent />
+        </DocsProse>
       </section>
     </div>
   );

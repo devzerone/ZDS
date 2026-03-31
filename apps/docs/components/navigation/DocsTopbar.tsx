@@ -23,15 +23,18 @@ function getBreadcrumb(pathname: string) {
 export function DocsTopbar() {
   const currentPath = usePathname();
   const isComponents = currentPath.startsWith("/components");
-  const searchLabel = isComponents ? "Search components" : "Search documentation";
+  const isFoundation = currentPath.startsWith("/foundation");
+  const searchLabel = isComponents ? "Search components" : isFoundation ? "Search tokens" : "Search documentation";
+  const primaryLink = isFoundation ? "/foundation/tokens" : "/";
+  const primaryLabel = isFoundation ? "Foundation" : "Introduction";
 
   return (
     <header className="docs-topbar">
       <div className="docs-topbar__left">
         <span className="docs-topbar__crumb">{getBreadcrumb(currentPath)}</span>
         <nav aria-label="Docs section switcher" className="docs-topbar__switcher">
-          <Link className={`docs-topbar__switch-link${!isComponents ? " is-active" : ""}`} href="/">
-            Introduction
+          <Link className={`docs-topbar__switch-link${!isComponents ? " is-active" : ""}`} href={primaryLink}>
+            {primaryLabel}
           </Link>
           <Link className={`docs-topbar__switch-link${isComponents ? " is-active" : ""}`} href="/components/button">
             Components
