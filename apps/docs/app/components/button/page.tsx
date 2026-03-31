@@ -43,12 +43,14 @@ export default function ButtonDocsPage() {
               <span className="docs-tab">Code</span>
             </div>
             <div className="docs-preview-canvas">
-              <button className="docs-demo-button" type="button">
-                Save
-              </button>
+              <div className="docs-preview-stage">
+                <button className="docs-demo-button" type="button">
+                  Save
+                </button>
+              </div>
               <div className="docs-preview-meta">
                 <span>Primary / md / enabled</span>
-                <span className="docs-tab">React</span>
+                <span className="docs-preview-chip">React</span>
               </div>
             </div>
           </article>
@@ -68,13 +70,19 @@ export default function ButtonDocsPage() {
           <article className="docs-panel">
             <h2>Examples</h2>
             <p>Combine icon support and hierarchy carefully so the label remains the first thing people scan.</p>
-            <div className="docs-example-row">
-              <button className="docs-demo-button" type="button">
-                Continue
-              </button>
-              <button className="docs-demo-button docs-demo-button--secondary" type="button">
-                Add item
-              </button>
+            <div className="docs-preview-canvas">
+              <div className="docs-preview-stage docs-preview-stage--row">
+                <button className="docs-demo-button" type="button">
+                  Continue
+                </button>
+                <button className="docs-demo-button docs-demo-button--secondary" type="button">
+                  Add item
+                </button>
+              </div>
+              <div className="docs-preview-meta">
+                <span>Icon support / mixed hierarchy</span>
+                <span className="docs-preview-chip">Examples</span>
+              </div>
             </div>
           </article>
 

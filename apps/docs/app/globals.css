@@ -614,6 +614,22 @@ button {
   background: color-mix(in srgb, var(--docs-bg) 70%, white);
 }
 
+.docs-preview-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: 24px;
+  border: 1px solid var(--docs-border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--docs-bg) 82%, white), var(--docs-surface));
+}
+
+.docs-preview-stage--row {
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .docs-demo-button {
   display: inline-flex;
   align-items: center;
@@ -645,6 +661,19 @@ button {
 .docs-preview-meta {
   color: var(--docs-text-subtle);
   font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.docs-preview-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--docs-border);
+  background: var(--docs-surface);
+  color: var(--docs-text);
+  font-size: 0.76rem;
   font-weight: 600;
 }
 
