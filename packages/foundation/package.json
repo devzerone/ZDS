@@ -1,8 +1,17 @@
 {
   "name": "@zds/foundation",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "files": ["assets", "icons"],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-work:devzerone/ZDS.git"
+  },
   "exports": {
     "./assets/*": "./assets/*",
     "./icons/*": "./icons/*"

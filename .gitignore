@@ -9,6 +9,11 @@ coverage/
 .next/
 out/
 storybook-static/
+.build/
+DerivedData/
+.gradle/
+bin/
+obj/
 *.tsbuildinfo
 *.log
 

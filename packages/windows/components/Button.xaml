@@ -1,0 +1,37 @@
+<UserControl
+    x:Class="ZDS.Components.Button"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+      Review note: WinUI 3 preserves the shared variant, size, and state names.
+      PointerOver and Pressed map to the shared hover and pressed semantics.
+    -->
+    <Grid>
+        <Button x:Name="RootButton"
+                MinHeight="40"
+                HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock x:Name="LeadingIconSlot" Visibility="Collapsed" />
+                <TextBlock x:Name="LabelSlot" Text="Continue" />
+                <ProgressRing x:Name="LoadingIndicator"
+                              Width="16"
+                              Height="16"
+                              IsActive="False"
+                              Visibility="Collapsed" />
+                <TextBlock x:Name="TrailingIconSlot" Visibility="Collapsed" />
+            </StackPanel>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver" />
+                    <VisualState x:Name="Pressed" />
+                    <VisualState x:Name="Disabled" />
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="ParityStates">
+                    <VisualState x:Name="Focus" />
+                    <VisualState x:Name="Loading" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Button>
+    </Grid>
+</UserControl>
