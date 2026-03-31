@@ -33,7 +33,7 @@ const preview: Preview = {
         <div
           data-theme={isDark ? "dark" : "light"}
           style={{
-            minHeight: "100vh",
+            display: "inline-block",
             padding: "2rem",
             background: "var(--color-bg-canvas)",
             color: "var(--color-fg-primary)"
