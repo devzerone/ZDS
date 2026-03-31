@@ -1,5 +1,9 @@
 import ButtonContent from "../../../content/components/button.mdx";
 import ButtonPreviewSandbox from "../../../components/button/ButtonPreviewSandbox";
+import DocsPreviewCard from "../../../components/docs/DocsPreviewCard";
+import DocsPropsTable from "../../../components/docs/DocsPropsTable";
+import DocsPropertyList from "../../../components/docs/DocsPropertyList";
+import DocsRail, { DocsRailCard } from "../../../components/docs/DocsRail";
 import PreviewLink from "../../../components/preview-link/PreviewLink";
 import DocsProse from "../../../components/prose/DocsProse";
 
@@ -38,36 +42,14 @@ export default function ButtonDocsPage() {
             <p>
               기본 예제로 위계를 먼저 확인한 뒤, 액션 라벨은 유지한 채 variant, 크기, 상태 차이를 비교합니다.
             </p>
-            <div className="docs-sandbox-card">
-              <div className="docs-sandbox-head">
-                <div className="docs-sandbox-tabs">
-                  <span className="docs-sandbox-tab docs-sandbox-tab--active">Preview</span>
-                  <span className="docs-sandbox-tab">Code</span>
-                </div>
-                <div className="docs-sandbox-indicator" aria-hidden="true">
-                  <span />
-                </div>
-              </div>
-              <div className="docs-sandbox-body">
-                <ButtonPreviewSandbox mode="single" />
-              </div>
-              <div className="docs-preview-meta">
-                <span>Primary / md / enabled</span>
-                <span className="docs-preview-chip">React</span>
-              </div>
-            </div>
+            <DocsPreviewCard metaChip="React" metaLabel="Primary / md / enabled">
+              <ButtonPreviewSandbox mode="single" />
+            </DocsPreviewCard>
           </article>
 
           <article className="docs-panel">
             <h2>Property</h2>
-            <div className="docs-property-list">
-              {propertyGuide.map(([label, description]) => (
-                <div className="docs-property-item" key={label}>
-                  <strong>{label}</strong>
-                  <p>{description}</p>
-                </div>
-              ))}
-            </div>
+            <DocsPropertyList items={propertyGuide} />
           </article>
 
           <article className="docs-panel">
@@ -85,18 +67,7 @@ export default function ButtonDocsPage() {
           <article className="docs-panel">
             <h2>Props Table</h2>
             <p>계약 문서를 1차 기준으로 삼고, React API 이름도 spec과 Storybook에서 사용하는 용어와 맞춰 유지합니다.</p>
-            <div className="docs-props-table">
-              <div className="docs-props-row docs-props-row--head">
-                <strong>Prop</strong>
-                <strong>Description</strong>
-              </div>
-              {propsTable.map(([prop, description]) => (
-                <div className="docs-props-row" key={prop}>
-                  <span>{prop}</span>
-                  <span>{description}</span>
-                </div>
-              ))}
-            </div>
+            <DocsPropsTable columns={["Prop", "Description"]} rows={propsTable} />
           </article>
 
           <article className="docs-panel">
@@ -106,30 +77,29 @@ export default function ButtonDocsPage() {
           </article>
         </div>
 
-        <aside className="docs-rail">
-          <article className="docs-rail-card">
-            <span>Quick facts</span>
+        <DocsRail>
+          <DocsRailCard title="Quick facts">
             <p>Variants: primary, secondary, tertiary, destructive</p>
             <p>Sizes: small, medium, large</p>
             <p>States: {requiredStates.join(", ")}</p>
-          </article>
+          </DocsRailCard>
 
-          <article className="docs-rail-card docs-rail-card--accent">
-            <span>On this page</span>
+          <DocsRailCard title="On this page" tone="accent">
             <p>Preview</p>
             <p>Property</p>
             <p>Examples</p>
             <p>Props table</p>
-          </article>
+          </DocsRailCard>
 
-          <article className="docs-rail-card docs-rail-card--solid">
-            <span>Next step</span>
+          <DocsRailCard
+            title="Next step"
+            tone="solid"
+            footer={<PreviewLink href="/storybook/index.html?path=/story/components-button--playground" label="Button preview 열기" />}
+          >
             <p>args와 상호작용 검토는 Storybook에서 확인하고, canonical guidance는 다시 docs로 돌아와 읽습니다.</p>
-            <PreviewLink href="/storybook/index.html?path=/story/components-button--playground" label="Button preview 열기" />
-          </article>
+          </DocsRailCard>
 
-          <article className="docs-rail-card">
-            <span>Implementation</span>
+          <DocsRailCard title="Implementation">
             <p>Source references stay aligned across spec, tokens, pen, React, and Storybook.</p>
             <ul className="source-list">
               <li><code>spec/components/button/button.spec.json</code></li>
@@ -137,8 +107,8 @@ export default function ButtonDocsPage() {
               <li><code>pen/components/button/button.pen</code></li>
               <li><code>packages/react/src/components/button/Button.tsx</code></li>
             </ul>
-          </article>
-        </aside>
+          </DocsRailCard>
+        </DocsRail>
       </section>
     </div>
   );

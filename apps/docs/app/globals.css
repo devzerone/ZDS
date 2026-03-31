@@ -758,6 +758,36 @@ button {
   font-size: 0.78rem;
 }
 
+.docs-token-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.docs-token-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--docs-border);
+  border-radius: 16px;
+  background: var(--docs-surface);
+}
+
+.docs-token-card strong {
+  font-size: 0.88rem;
+}
+
+.docs-token-card p {
+  margin: 0;
+}
+
+.docs-token-swatch {
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--docs-border) 75%, transparent);
+}
+
 .source-list {
   display: grid;
   gap: 8px;
@@ -843,7 +873,8 @@ button {
 
   .docs-split,
   .docs-card-grid--two,
-  .docs-card-grid--four {
+  .docs-card-grid--four,
+  .docs-token-grid {
     grid-template-columns: 1fr;
   }
 
