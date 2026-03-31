@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteNav } from "../components/navigation/site-nav";
 
 export default function HomePage() {
@@ -39,9 +40,9 @@ export default function HomePage() {
               interactive story로 넘어가는 것이 기본 흐름입니다.
             </p>
             <div className="docs-actions">
-              <a className="preview-link" href="/components/button">
+              <Link className="preview-link" href="/components/button">
                 버튼 문서 보기
-              </a>
+              </Link>
               <a className="docs-text-link" href="/storybook/index.html?path=/story/components-button--playground">
                 Storybook preview 열기
               </a>
@@ -64,13 +65,13 @@ export default function HomePage() {
             </div>
             <div className="docs-link-list">
               {sections.flatMap((section) => section.entries).map((entry) => (
-                <a className="docs-list-item" href={entry.href} key={entry.href}>
+                <Link className="docs-list-item" href={entry.href} key={entry.href}>
                   <div>
                     <strong>{entry.label}</strong>
                     <p>{entry.description}</p>
                   </div>
                   <span>열기</span>
-                </a>
+                </Link>
               ))}
             </div>
           </section>

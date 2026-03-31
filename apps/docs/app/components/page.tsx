@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PreviewLink from "../../components/preview-link/PreviewLink";
 
 export default function ComponentsPage() {
@@ -22,9 +23,9 @@ export default function ComponentsPage() {
               playground로 이동하는 흐름을 기준으로 삼습니다.
             </p>
             <div className="docs-actions">
-              <a className="preview-link" href="/components/button">
+              <Link className="preview-link" href="/components/button">
                 Button 문서 보기
-              </a>
+              </Link>
               <PreviewLink href="/storybook/index.html?path=/story/components-button--playground" label="Button preview 열기" />
             </div>
           </article>

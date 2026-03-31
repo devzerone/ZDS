@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function FoundationPage() {
   return (
     <div className="docs-page">
@@ -36,12 +38,12 @@ export default function FoundationPage() {
               variant와 state 해석이 훨씬 빨라집니다.
             </p>
             <div className="docs-actions">
-              <a className="preview-link" href="/foundation/tokens">
+              <Link className="preview-link" href="/foundation/tokens">
                 Token 문서 보기
-              </a>
-              <a className="docs-text-link" href="/components/button">
+              </Link>
+              <Link className="docs-text-link" href="/components/button">
                 Button 문서로 이동
-              </a>
+              </Link>
             </div>
           </article>
         </div>

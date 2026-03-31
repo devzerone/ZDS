@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logoDark from "../../../../packages/foundation/assets/brand/zds-logo-dark-transparent.png";
 import logoLight from "../../../../packages/foundation/assets/brand/zds-logo-light-transparent.png";
@@ -15,13 +16,13 @@ export function DocsSidebar() {
   return (
     <aside className="docs-sidebar">
       <div className="docs-sidebar__header">
-        <a className="docs-brand" href="/">
+        <Link className="docs-brand" href="/">
           <Image alt="ZDS logo" className="docs-brand__mark" priority src={logoSrc} />
           <div className="docs-brand__copy">
             <strong>Zero Design System</strong>
             <span>공통 디자인 언어와 컴포넌트 기준선</span>
           </div>
-        </a>
+        </Link>
       </div>
       <nav aria-label="Design system documentation">
         {siteNav.map((section) => (
@@ -29,15 +30,22 @@ export function DocsSidebar() {
             <ul className="docs-nav-list">
               {section.entries.map((entry) => (
                 <li key={entry.href}>
-                  <a
-                    className={`docs-nav-link${currentPath === entry.href ? " is-active" : ""}`}
-                    href={entry.href}
-                    target={entry.href.startsWith("/storybook/") ? "_blank" : undefined}
-                    rel={entry.href.startsWith("/storybook/") ? "noreferrer" : undefined}
-                  >
-                    <span>{entry.label}</span>
-                    <small>{entry.description}</small>
-                  </a>
+                  {entry.href.startsWith("/storybook/") ? (
+                    <a
+                      className={`docs-nav-link${currentPath === entry.href ? " is-active" : ""}`}
+                      href={entry.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>{entry.label}</span>
+                      <small>{entry.description}</small>
+                    </a>
+                  ) : (
+                    <Link className={`docs-nav-link${currentPath === entry.href ? " is-active" : ""}`} href={entry.href}>
+                      <span>{entry.label}</span>
+                      <small>{entry.description}</small>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -9,6 +9,10 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag"
+  },
+  async viteFinal(config) {
+    config.base = "/ZDS/";
+    return config;
   }
 };
 

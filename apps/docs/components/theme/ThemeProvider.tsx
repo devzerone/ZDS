@@ -13,6 +13,12 @@ type ThemeContextValue = {
 const STORAGE_KEY = "zds-docs-theme";
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+function resolveTheme(): ThemeMode {
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return stored === "light" || stored === "dark" ? stored : systemDark ? "dark" : "light";
+}
+
 function applyTheme(theme: ThemeMode) {
   document.documentElement.dataset.theme = theme;
 }
@@ -21,12 +27,14 @@ export function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setThemeState] = useState<ThemeMode>("light");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = stored === "light" || stored === "dark" ? stored : systemDark ? "dark" : "light";
+    const initial = resolveTheme();
     setThemeState(initial);
     applyTheme(initial);
   }, []);
+
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
 
   const value = useMemo<ThemeContextValue>(
     () => ({
@@ -34,13 +42,11 @@ export function ThemeProvider({ children }: PropsWithChildren) {
       setTheme: (nextTheme) => {
         setThemeState(nextTheme);
         window.localStorage.setItem(STORAGE_KEY, nextTheme);
-        applyTheme(nextTheme);
       },
       toggleTheme: () => {
         const nextTheme = theme === "light" ? "dark" : "light";
         setThemeState(nextTheme);
         window.localStorage.setItem(STORAGE_KEY, nextTheme);
-        applyTheme(nextTheme);
       }
     }),
     [theme]
