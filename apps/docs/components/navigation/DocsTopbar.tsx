@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import DocsSearch from "./DocsSearch";
 import ThemeToggle from "./ThemeToggle";
 
 function getBreadcrumb(pathname: string) {
@@ -42,9 +43,7 @@ export function DocsTopbar() {
         </nav>
       </div>
       <div className="docs-topbar__actions">
-        <div className="docs-search-shell" aria-label="Search shortcut">
-          <span>{searchLabel}</span>
-        </div>
+        <DocsSearch label={searchLabel} />
         <ThemeToggle />
       </div>
     </header>

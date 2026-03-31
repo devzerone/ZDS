@@ -3,11 +3,12 @@ import ButtonPreviewSandbox from "../../../components/button/ButtonPreviewSandbo
 import DocsPreviewCard from "../../../components/docs/DocsPreviewCard";
 import DocsPropsTable from "../../../components/docs/DocsPropsTable";
 import DocsPropertyList from "../../../components/docs/DocsPropertyList";
+import DocsOnThisPage from "../../../components/docs/DocsOnThisPage";
 import DocsRail, { DocsRailCard } from "../../../components/docs/DocsRail";
 import PreviewLink from "../../../components/preview-link/PreviewLink";
 import DocsProse from "../../../components/prose/DocsProse";
 
-const requiredStates = ["default", "disabled", "loading", "focus", "hover", "pressed"];
+const requiredStates = ["default", "hover", "pressed", "focus", "disabled", "loading"];
 const propertyGuide = [
   ["Variant", "Primary는 한 섹션에 한 번만 사용하고, Secondary와 Tertiary는 이를 보조해야 합니다. Destructive는 항상 위험한 결과를 분명하게 드러내야 합니다."],
   ["Size", "Small은 밀도 높은 화면에, Medium은 기본 선택에, Large는 여유 있는 화면이나 히어로 액션에 적합합니다."],
@@ -37,22 +38,22 @@ export default function ButtonDocsPage() {
 
       <section className="docs-split">
         <div className="docs-stack">
-          <article className="docs-panel">
+          <article className="docs-panel" id="preview">
             <h2>Preview</h2>
             <p>
               기본 예제로 위계를 먼저 확인한 뒤, 액션 라벨은 유지한 채 variant, 크기, 상태 차이를 비교합니다.
             </p>
-            <DocsPreviewCard metaChip="React" metaLabel="Primary / md / enabled">
+            <DocsPreviewCard metaChip="React" metaLabel="Primary / medium / default">
               <ButtonPreviewSandbox mode="single" />
             </DocsPreviewCard>
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="property">
             <h2>Property</h2>
             <DocsPropertyList items={propertyGuide} />
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="examples">
             <h2>Examples</h2>
             <p>아이콘 지원과 위계를 함께 사용할 때도, 사용자가 가장 먼저 읽는 것은 항상 라벨이어야 합니다.</p>
             <div className="docs-preview-canvas">
@@ -64,7 +65,7 @@ export default function ButtonDocsPage() {
             </div>
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="props-table">
             <h2>Props Table</h2>
             <p>계약 문서를 1차 기준으로 삼고, React API 이름도 spec과 Storybook에서 사용하는 용어와 맞춰 유지합니다.</p>
             <DocsPropsTable columns={["Prop", "Description"]} rows={propsTable} />
@@ -84,12 +85,7 @@ export default function ButtonDocsPage() {
             <p>States: {requiredStates.join(", ")}</p>
           </DocsRailCard>
 
-          <DocsRailCard title="On this page" tone="accent">
-            <p>Preview</p>
-            <p>Property</p>
-            <p>Examples</p>
-            <p>Props table</p>
-          </DocsRailCard>
+          <DocsOnThisPage />
 
           <DocsRailCard
             title="Next step"

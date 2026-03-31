@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DocsOnThisPage from "../../components/docs/DocsOnThisPage";
 import DocsRail, { DocsRailCard } from "../../components/docs/DocsRail";
 
 export default function FoundationPage() {
@@ -35,7 +36,7 @@ export default function FoundationPage() {
 
       <section className="docs-split">
         <div className="docs-stack">
-          <article className="docs-panel">
+          <article className="docs-panel" id="reading-flow">
             <h2>Reading flow</h2>
             <p>
               Button 같은 개별 component는 foundation token에 기대고 있기 때문에, foundation을 먼저 이해하면
@@ -51,7 +52,7 @@ export default function FoundationPage() {
             </div>
           </article>
 
-          <article className="docs-panel docs-panel--muted">
+          <article className="docs-panel docs-panel--muted" id="what-you-will-learn">
             <h2>What you will learn</h2>
             <ul className="docs-bullet-list">
               <li>raw palette와 semantic token의 역할 분리</li>
@@ -67,10 +68,7 @@ export default function FoundationPage() {
             <p>semantic token structure</p>
             <p>theme mapping guidance</p>
           </DocsRailCard>
-          <DocsRailCard title="On this page" tone="accent">
-            <p>Reading flow</p>
-            <p>What you will learn</p>
-          </DocsRailCard>
+          <DocsOnThisPage />
           <DocsRailCard title="Source" tone="solid">
             <p>foundation token 문서는 component별 API보다 위에 있는 공통 언어층입니다.</p>
           </DocsRailCard>

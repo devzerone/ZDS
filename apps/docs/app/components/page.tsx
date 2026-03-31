@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DocsOnThisPage from "../../components/docs/DocsOnThisPage";
 import PreviewLink from "../../components/preview-link/PreviewLink";
 
 export default function ComponentsPage() {
@@ -15,7 +16,7 @@ export default function ComponentsPage() {
 
       <section className="docs-split">
         <div className="docs-stack">
-          <article className="docs-panel">
+          <article className="docs-panel" id="reference-component">
             <span className="docs-eyebrow">Reference component</span>
             <h2>Button은 docs, spec, token, pen, React를 연결하는 기준선입니다.</h2>
             <p>
@@ -47,6 +48,7 @@ export default function ComponentsPage() {
         </div>
 
         <aside className="docs-rail">
+          <DocsOnThisPage />
           <article className="docs-rail-card">
             <span>Available now</span>
             <p>Button</p>

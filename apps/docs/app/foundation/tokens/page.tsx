@@ -2,6 +2,7 @@ import DocsProse from "../../../components/prose/DocsProse";
 import TokensContent from "../../../content/foundation/tokens.mdx";
 import DocsPropsTable from "../../../components/docs/DocsPropsTable";
 import DocsPropertyList from "../../../components/docs/DocsPropertyList";
+import DocsOnThisPage from "../../../components/docs/DocsOnThisPage";
 import DocsRail, { DocsRailCard } from "../../../components/docs/DocsRail";
 
 const tokenHierarchy = [
@@ -60,7 +61,7 @@ export default function FoundationTokensPage() {
 
       <section className="docs-split">
         <div className="docs-stack">
-          <article className="docs-panel">
+          <article className="docs-panel" id="overview">
             <h2>Overview</h2>
             <p>
               Foundation / Tokens 페이지는 컴포넌트보다 먼저 읽는 기준 문서입니다. 이 레이어를 이해하면
@@ -68,12 +69,12 @@ export default function FoundationTokensPage() {
             </p>
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="hierarchy">
             <h2>Hierarchy</h2>
             <DocsPropertyList items={tokenHierarchy} />
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="theme-interpretation">
             <h2>Theme interpretation</h2>
             <p>
               같은 semantic 의미는 light와 dark에서 유지되고, 실제 참조 palette step만 달라집니다. 그래서
@@ -95,7 +96,7 @@ export default function FoundationTokensPage() {
             </div>
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="examples">
             <h2>Examples</h2>
             <p>자주 보게 되는 semantic token 예시입니다. 실제 구현에서는 raw palette 대신 이런 의미 계층을 우선 소비합니다.</p>
             <div className="docs-token-grid">
@@ -109,7 +110,7 @@ export default function FoundationTokensPage() {
             </div>
           </article>
 
-          <article className="docs-panel">
+          <article className="docs-panel" id="reference-table">
             <h2>Reference table</h2>
             <p>토큰 문서를 읽을 때 계속 확인하게 되는 운영 규칙입니다.</p>
             <DocsPropsTable columns={["Topic", "Description"]} rows={tokenTable} />
@@ -123,13 +124,7 @@ export default function FoundationTokensPage() {
             <p>English token ids, Korean explanation</p>
           </DocsRailCard>
 
-          <DocsRailCard title="On this page" tone="accent">
-            <p>Overview</p>
-            <p>Hierarchy</p>
-            <p>Theme interpretation</p>
-            <p>Examples</p>
-            <p>Reference table</p>
-          </DocsRailCard>
+          <DocsOnThisPage />
 
           <DocsRailCard title="Rule of thumb" tone="solid">
             <p>UI surface에서는 raw palette를 직접 쓰지 말고 semantic token을 먼저 소비합니다.</p>

@@ -139,6 +139,33 @@ export const Loading: Story = {
   }
 };
 
+export const Hover: Story = {
+  args: {
+    previewState: "hover"
+  },
+  parameters: {
+    docsUrl: "/components/button"
+  }
+};
+
+export const Focus: Story = {
+  args: {
+    previewState: "focus"
+  },
+  parameters: {
+    docsUrl: "/components/button"
+  }
+};
+
+export const Pressed: Story = {
+  args: {
+    previewState: "pressed"
+  },
+  parameters: {
+    docsUrl: "/components/button"
+  }
+};
+
 export const Small: Story = {
   args: {
     size: "small"

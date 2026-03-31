@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DocsOnThisPage from "../components/docs/DocsOnThisPage";
 
 export default function HomePage() {
   return (
@@ -12,7 +13,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="docs-panel">
+      <section className="docs-panel" id="zds-overview">
         <h2>ZDS 소개</h2>
         <p>
           ZDS는 디자인 토큰, 컴포넌트 계약, Pencil 기준선, 구현 레퍼런스, 문서와 프리뷰를 한 저장소에서
@@ -41,7 +42,7 @@ export default function HomePage() {
 
       <section className="docs-split">
         <div className="docs-stack">
-          <article className="docs-panel">
+          <article className="docs-panel" id="key-capabilities">
             <h2>핵심 기능</h2>
             <ul className="docs-bullet-list">
               <li>계약, 토큰, pen, React 구현을 같은 흐름으로 연결합니다.</li>
@@ -51,7 +52,7 @@ export default function HomePage() {
             </ul>
           </article>
 
-          <article className="docs-panel docs-panel--muted">
+          <article className="docs-panel docs-panel--muted" id="good-fit-projects">
             <h2>적합한 프로젝트</h2>
             <ul className="docs-bullet-list">
               <li>일관된 UI와 토큰 체계가 필요한 제품 팀</li>
@@ -62,12 +63,7 @@ export default function HomePage() {
         </div>
 
         <aside className="docs-rail">
-          <article className="docs-rail-card">
-            <span>On this page</span>
-            <p>ZDS 소개</p>
-            <p>핵심 기능</p>
-            <p>적합한 프로젝트</p>
-          </article>
+          <DocsOnThisPage />
           <article className="docs-rail-card docs-rail-card--accent">
             <span>Popular entry points</span>
             <p>Design principles</p>
