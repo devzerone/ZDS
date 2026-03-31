@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2026-03-31
 
 ## Active Technologies
+- TypeScript 5.9, React 19.2, Next.js 15 App Router, MDX, JSON contracts, JSON design tokens, Markdown planning artifacts + pnpm workspace, Turbo repo orchestration, `@zds/tokens`, `@zds/react`, existing docs shell components, Storybook 10 preview pipeline (006-breadcrumb-component)
+- repository files under `specs/006-breadcrumb-component/`, `spec/components/breadcrumb/`, `packages/tokens/data/components/`, `pen/components/breadcrumb/`, `packages/react/src/primitives/breadcrumb/`, `packages/react/src/components/breadcrumb/`, `apps/docs/`, and `testing/` (006-breadcrumb-component)
 
 - TypeScript 5.9, React 19.2, Next.js App Router, MDX, Storybook, pnpm workspace,
   and Turbo repo orchestration
@@ -32,9 +34,9 @@ pen/
   docs/                  Pencil docs baselines
   patterns/              Pencil pattern baselines
 spec/
-  components/            Publishable component contracts
-  patterns/              Publishable pattern contracts
-  metadata/parity/       Shared parity and exception metadata
+  components/            Publishable component contracts and component-scoped parity metadata
+  patterns/              Publishable pattern contracts and pattern-scoped parity metadata
+  metadata/parity/       Shared parity registries, rollups, and cross-artifact exception metadata
 specs/                   Feature planning artifacts
 testing/
   docs/                  Docs and Storybook validation
@@ -75,12 +77,12 @@ tools/
   prefer native semantic HTML when it already satisfies the contract
 
 ## Recent Changes
+- 006-breadcrumb-component: Added TypeScript 5.9, React 19.2, Next.js 15 App Router, MDX, JSON contracts, JSON design tokens, Markdown planning artifacts + pnpm workspace, Turbo repo orchestration, `@zds/tokens`, `@zds/react`, existing docs shell components, Storybook 10 preview pipeline
 
 - 004-next-docs-storybook: Added Next.js docs, Storybook previews, and docs
   validation workflows
 - 003-button-component: Added Button contract, React implementation, docs, and
   validation coverage
-- 002-define-design-tokens: Added token source files, token schemas, and token
   validation tooling
 
 <!-- MANUAL ADDITIONS START -->

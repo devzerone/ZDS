@@ -65,6 +65,13 @@ tools/                   저장소 자동화 및 설정 보조
 - Docs pen: [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/docs/design-system-docs.pen)
 - React Button: [Button.tsx](/home/choiho/zerone/ZDS/packages/react/src/components/button/Button.tsx)
 
+React에서 스타일 포함 컴포넌트를 바로 쓰고 싶다면:
+
+```tsx
+import "@zds/react/styles.css";
+import { Breadcrumb } from "@zds/react/breadcrumb";
+```
+
 ## 시작하기
 
 필수 환경:
@@ -168,7 +175,7 @@ pnpm validate:docs-system
 4. `packages/react/`에 구현과 테스트 추가
 5. `apps/docs/`와 Storybook 연결
 6. validation 스크립트와 CI에 연결
-7. parity 메타데이터가 바뀌면 `spec/metadata/parity/` 갱신
+7. parity 메타데이터가 바뀌면 기본적으로 해당 컴포넌트나 패턴의 `spec/` 계약 파일을 갱신하고, 여러 아티팩트가 공유하는 parity 집계나 레지스트리가 필요한 경우에만 `spec/metadata/parity/`를 사용
 
 React 구현 원칙:
 - native semantic HTML로 충분한 경우에는 직접 primitive를 구현합니다.

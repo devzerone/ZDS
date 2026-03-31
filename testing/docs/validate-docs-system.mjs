@@ -2,28 +2,66 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = process.cwd();
-const spec = JSON.parse(readFileSync(resolve(root, "spec/components/button/button.spec.json"), "utf8"));
-const docsContent = readFileSync(resolve(root, "apps/docs/content/components/button.mdx"), "utf8");
-const storyFile = readFileSync(resolve(root, "packages/react/src/components/button/Button.stories.tsx"), "utf8");
-
 const errors = [];
+const surfaces = [
+  {
+    name: "button",
+    spec: JSON.parse(readFileSync(resolve(root, "spec/components/button/button.spec.json"), "utf8")),
+    docsContent: readFileSync(resolve(root, "apps/docs/content/components/button.mdx"), "utf8"),
+    storyFile: readFileSync(resolve(root, "packages/react/src/components/button/Button.stories.tsx"), "utf8"),
+    validate() {
+      for (const variant of Object.keys(this.spec.variants)) {
+        if (!this.docsContent.includes(variant) || !this.storyFile.includes(variant)) {
+          errors.push(`Button variant missing from docs or stories: ${variant}`);
+        }
+      }
 
-for (const variant of Object.keys(spec.variants)) {
-  if (!docsContent.includes(variant) || !storyFile.includes(variant)) {
-    errors.push(`Variant missing from docs or stories: ${variant}`);
-  }
-}
+      for (const state of Object.keys(this.spec.states)) {
+        if (!this.docsContent.includes(state) || !this.storyFile.includes(state)) {
+          errors.push(`Button state missing from docs or stories: ${state}`);
+        }
+      }
 
-for (const state of Object.keys(spec.states)) {
-  if (!docsContent.includes(state) || !storyFile.includes(state)) {
-    errors.push(`State missing from docs or stories: ${state}`);
-  }
-}
+      for (const size of Object.keys(this.spec.sizes)) {
+        if (!this.storyFile.includes(size)) {
+          errors.push(`Button size missing from stories: ${size}`);
+        }
+      }
+    }
+  },
+  {
+    name: "breadcrumb",
+    spec: JSON.parse(readFileSync(resolve(root, "spec/components/breadcrumb/breadcrumb.spec.json"), "utf8")),
+    docsContent: readFileSync(resolve(root, "apps/docs/content/components/breadcrumb.mdx"), "utf8"),
+    storyFile: readFileSync(resolve(root, "packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx"), "utf8"),
+    validate() {
+      for (const role of Object.keys(this.spec.items)) {
+        if (!this.docsContent.includes(role)) {
+          errors.push(`Breadcrumb role missing from docs: ${role}`);
+        }
+      }
 
-for (const size of Object.keys(spec.sizes)) {
-  if (!storyFile.includes(size)) {
-    errors.push(`Size missing from stories: ${size}`);
+      for (const platform of Object.keys(this.spec.parity)) {
+        if (!this.docsContent.includes(platform)) {
+          errors.push(`Breadcrumb parity platform missing from docs: ${platform}`);
+        }
+      }
+
+      if (!this.docsContent.includes("collapse-middle")) {
+        errors.push("Breadcrumb docs must explain collapse-middle overflow behavior.");
+      }
+
+      for (const storyName of ["Playground", "SingleStep", "ConstrainedPath"]) {
+        if (!this.storyFile.includes(storyName)) {
+          errors.push(`Breadcrumb stories must include ${storyName}.`);
+        }
+      }
+    }
   }
+];
+
+for (const surface of surfaces) {
+  surface.validate();
 }
 
 if (errors.length > 0) {

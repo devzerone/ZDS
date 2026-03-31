@@ -25,6 +25,7 @@
       "radius": ["./dist/radius.d.ts"],
       "typography": ["./dist/typography.d.ts"],
       "components/button": ["./dist/components/button.d.ts"],
+      "components/breadcrumb": ["./dist/components/breadcrumb.d.ts"],
       "themes": ["./dist/themes.d.ts"]
     }
   },
@@ -61,6 +62,10 @@
     "./components/button": {
       "types": "./dist/components/button.d.ts",
       "default": "./dist/components/button.js"
+    },
+    "./components/breadcrumb": {
+      "types": "./dist/components/breadcrumb.d.ts",
+      "default": "./dist/components/breadcrumb.js"
     },
     "./themes": {
       "types": "./dist/themes.d.ts",

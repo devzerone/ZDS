@@ -12,7 +12,7 @@ export type SiteNavSection = {
 
 export const productTabs: SiteNavEntry[] = [
   { label: "Docs", href: "/", description: "Design system guidance" },
-  { label: "React", href: "/components/button", description: "React reference implementation" },
+  { label: "React", href: "/components", description: "React reference implementation" },
   { label: "AI Integration", href: "/foundation/tokens", description: "Spec and token context for AI tooling" },
   { label: "Breeze", href: "/components", description: "Interactive preview entry points" }
 ];
@@ -48,6 +48,11 @@ export const siteNav: SiteNavSection[] = [
         label: "Button",
         href: "/components/button",
         description: "Variants, states, accessibility, parity, and preview access."
+      },
+      {
+        label: "Breadcrumb",
+        href: "/components/breadcrumb",
+        description: "Hierarchy, constrained paths, accessibility, parity, and preview access."
       }
     ]
   },
@@ -59,6 +64,11 @@ export const siteNav: SiteNavSection[] = [
         label: "Storybook",
         href: "/storybook/index.html?path=/story/components-button--playground",
         description: "Interactive component preview"
+      },
+      {
+        label: "Breadcrumb preview",
+        href: "/storybook/index.html?path=/story/components-breadcrumb--playground",
+        description: "Interactive breadcrumb preview"
       }
     ]
   }

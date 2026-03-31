@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "name": "zds-breadcrumb",
+    "component": "breadcrumb",
+    "status": "draft",
+    "source": "006-breadcrumb-component"
+  },
+  "description": "Ordered navigation helper that reveals hierarchy and current location without turning decorative separators into targets.",
+  "items": {
+    "ancestor": {
+      "labelRequired": true,
+      "hrefAllowed": true,
+      "interactive": true,
+      "usageNotes": [
+        "Use for previous hierarchy levels that users may revisit.",
+        "Ancestor items may be rendered without href only when the source route is intentionally unavailable."
+      ]
+    },
+    "current": {
+      "labelRequired": true,
+      "hrefAllowed": false,
+      "interactive": false,
+      "usageNotes": [
+        "Always reserve the final breadcrumb item for the current page.",
+        "Do not style the current item like a normal navigation target."
+      ]
+    },
+    "collapsed-summary": {
+      "labelRequired": true,
+      "hrefAllowed": false,
+      "interactive": false,
+      "usageNotes": [
+        "Use only when constrained width forces the middle of the path to collapse.",
+        "The summary preserves path meaning but is not a dropdown trigger in v1."
+      ]
+    }
+  },
+  "separator": {
+    "styleName": "chevron",
+    "decorative": true,
+    "announcedBehavior": "Decorative sequence marker that should not become a primary navigation target",
+    "spacingRef": "space.100"
+  },
+  "overflowPolicy": {
+    "mode": "collapse-middle",
+    "preserveStart": true,
+    "preserveCurrent": true,
+    "minVisibleItems": 4,
+    "notes": [
+      "Prefer showing the first item, a collapsed summary, and the final two visible items when the path exceeds the configured threshold.",
+      "Single-step paths remain valid and should render without redundant decoration."
+    ]
+  },
+  "accessibility": {
+    "navigationLandmarkRequired": true,
+    "currentPageAnnounced": true,
+    "interactiveStepsFocusable": true,
+    "separatorDecorative": true,
+    "misusePatterns": [
+      "rendering the current page as an ordinary link",
+      "making separators keyboard targets",
+      "omitting visible breadcrumb labels",
+      "turning the collapsed summary into a dropdown trigger in the base contract"
+    ]
+  },
+  "parity": {
+    "react": {
+      "status": "ready",
+      "gap": "None planned for the initial reference release",
+      "owner": "design-system-web",
+      "remediationTarget": "006-breadcrumb-component"
+    },
+    "swiftui": {
+      "status": "not-started",
+      "gap": "Platform translation is deferred until the React reference and review baseline stabilize",
+      "owner": "design-system-ios",
+      "remediationTarget": "future-release"
+    },
+    "kotlin": {
+      "status": "not-started",
+      "gap": "Compose translation is deferred until the React reference and review baseline stabilize",
+      "owner": "design-system-android",
+      "remediationTarget": "future-release"
+    },
+    "windows": {
+      "status": "not-started",
+      "gap": "Windows translation is deferred until the React reference and review baseline stabilize",
+      "owner": "design-system-windows",
+      "remediationTarget": "future-release"
+    }
+  }
+}

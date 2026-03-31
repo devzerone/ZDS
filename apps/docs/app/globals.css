@@ -230,9 +230,40 @@ button {
 }
 
 .docs-topbar__crumb {
-  color: var(--docs-text-subtle);
+  min-width: 0;
+}
+
+.docs-topbar__crumb nav {
+  min-width: 0;
+}
+
+.docs-topbar__crumb ol {
+  gap: 0;
+}
+
+.docs-topbar__crumb li {
+  min-width: 0;
+}
+
+.docs-topbar__crumb [data-zds-role] {
   font-size: 0.82rem;
-  font-weight: 600;
+}
+
+.docs-topbar__crumb a[data-zds-role="ancestor"] {
+  color: var(--docs-text-subtle);
+  transition: color 120ms ease;
+}
+
+.docs-topbar__crumb a[data-zds-role="ancestor"]:hover {
+  color: var(--docs-text-muted);
+}
+
+.docs-topbar__crumb [data-zds-role="current"] {
+  color: var(--docs-text);
+}
+
+.docs-topbar__crumb [data-zds-slot="separator"] {
+  color: var(--docs-text-subtle);
 }
 
 .docs-topbar__switcher {

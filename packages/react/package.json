@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": false,
   "type": "module",
-  "files": ["dist"],
+  "files": ["dist", "styles.css"],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
@@ -20,10 +20,13 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./button": "./dist/button.js"
+    "./styles.css": "./styles.css",
+    "./button": "./dist/button.js",
+    "./breadcrumb": "./dist/breadcrumb.js"
   },
   "scripts": {
-    "build": "pnpm --filter @zds/tokens build && pnpm exec tsup"
+    "build": "pnpm --filter @zds/tokens build && pnpm exec tsup",
+    "generate:icons": "node ./scripts/generate-icons.mjs"
   },
   "peerDependencies": {
     "react": "^19",

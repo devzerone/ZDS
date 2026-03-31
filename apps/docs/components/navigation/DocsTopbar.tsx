@@ -2,27 +2,54 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Breadcrumb, type BreadcrumbItem } from "@zds/react/breadcrumb";
 import DocsSearch from "./DocsSearch";
 import ThemeToggle from "./ThemeToggle";
 
-function getBreadcrumb(pathname: string) {
+function getBreadcrumbItems(pathname: string): BreadcrumbItem[] {
   if (pathname === "/") {
-    return "Getting started / Introduction";
+    return [{ label: "Getting started" }, { label: "Introduction" }];
   }
 
-  if (pathname.startsWith("/components")) {
-    return "Components / Button";
+  if (pathname === "/components") {
+    return [{ label: "Components" }, { label: "Overview" }];
+  }
+
+  if (pathname.startsWith("/components/breadcrumb")) {
+    return [
+      { label: "Components", href: "/components" },
+      { label: "Breadcrumb" }
+    ];
+  }
+
+  if (pathname.startsWith("/components/button")) {
+    return [
+      { label: "Components", href: "/components" },
+      { label: "Button" }
+    ];
+  }
+
+  if (pathname === "/foundation") {
+    return [{ label: "Foundation" }, { label: "Overview" }];
+  }
+
+  if (pathname.startsWith("/foundation/tokens")) {
+    return [
+      { label: "Foundation", href: "/foundation" },
+      { label: "Tokens" }
+    ];
   }
 
   if (pathname.startsWith("/foundation")) {
-    return "Foundation / Tokens";
+    return [{ label: "Foundation" }, { label: "Overview" }];
   }
 
-  return "Getting started / Introduction";
+  return [{ label: "Getting started" }, { label: "Introduction" }];
 }
 
 export function DocsTopbar() {
   const currentPath = usePathname();
+  const breadcrumbItems = getBreadcrumbItems(currentPath);
   const isComponents = currentPath.startsWith("/components");
   const isFoundation = currentPath.startsWith("/foundation");
   const searchLabel = isComponents ? "Search components" : isFoundation ? "Search tokens" : "Search documentation";
@@ -32,12 +59,14 @@ export function DocsTopbar() {
   return (
     <header className="docs-topbar">
       <div className="docs-topbar__left">
-        <span className="docs-topbar__crumb">{getBreadcrumb(currentPath)}</span>
+        <div className="docs-topbar__crumb">
+          <Breadcrumb ariaLabel="Current documentation location" items={breadcrumbItems} />
+        </div>
         <nav aria-label="Docs section switcher" className="docs-topbar__switcher">
           <Link className={`docs-topbar__switch-link${!isComponents ? " is-active" : ""}`} href={primaryLink}>
             {primaryLabel}
           </Link>
-          <Link className={`docs-topbar__switch-link${isComponents ? " is-active" : ""}`} href="/components/button">
+          <Link className={`docs-topbar__switch-link${isComponents ? " is-active" : ""}`} href="/components">
             Components
           </Link>
         </nav>

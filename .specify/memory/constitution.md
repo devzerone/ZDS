@@ -1,8 +1,9 @@
 <!--
 Sync Impact Report
-- Version change: 1.3.0 -> 1.4.0
+- Version change: 1.4.0 -> 2.0.0
 - Modified principles:
   - V. Platform Parity and Exception Metadata
+  - Repository Topology
 - Added sections: None
 - Removed sections: None
 - Templates requiring updates:
@@ -115,7 +116,12 @@ the contract without extra headless machinery.
 Any platform difference MUST be recorded in shared metadata before merge. Hidden
 divergence is a defect. Temporary lag is allowed only when parity metadata names
 the missing capability, the affected platform, the user impact, and the intended
-follow-up release or removal condition.
+follow-up release or removal condition. By default, component-level parity
+metadata SHOULD live alongside the component contract in `spec/components/` or
+`spec/patterns/` so a single artifact can describe contract, accessibility, and
+platform readiness together. `spec/metadata/parity/` remains the reserved home
+for shared parity registries, cross-component rollups, or parity datasets that
+outgrow a single component or pattern contract.
 
 ## Repository Topology
 
@@ -131,8 +137,11 @@ follow-up release or removal condition.
    building blocks, and `packages/react/src/components/` MUST hold public
    tokenized component APIs that wrap those primitives when a primitive layer is
    needed.
-5. `spec/components/`, `spec/patterns/`, and `spec/metadata/parity/` MUST hold
-   publishable component, pattern, and parity metadata respectively.
+5. `spec/components/` and `spec/patterns/` MUST hold publishable component and
+   pattern contracts, including component- or pattern-scoped parity metadata
+   when that metadata is owned by a single artifact. `spec/metadata/parity/`
+   MUST remain available for shared parity registries, rollups, or exception
+   datasets that are not naturally owned by one component or pattern contract.
 6. `testing/` MUST reflect the validation strategy by artifact type such as
    tokens, specs, docs, accessibility, and visual review.
 7. `tools/` MUST contain repository automation or configuration support and MUST
@@ -184,4 +193,4 @@ Compliance rules:
 4. Any discovered drift between `spec/`, tokens, `pen/`, implementation, docs,
    or Storybook MUST be treated as a tracked defect until resolved.
 
-**Version**: 1.4.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-31
+**Version**: 2.0.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-03-31
