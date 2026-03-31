@@ -27,6 +27,11 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: "[17.0,18.0)"
+
       - name: Resolve version
         id: version
         shell: bash
@@ -38,7 +43,7 @@ jobs:
           fi
 
       - name: Pack WinUI 3 package
-        run: dotnet pack packages/windows/ZDS.Windows.csproj -c Release -o artifacts/windows /p:PackageVersion=${{ steps.version.outputs.value }}
+        run: msbuild packages/windows/ZDS.Windows.csproj /restore /t:Pack /p:Configuration=Release /p:Platform=x64 /p:PackageVersion=${{ steps.version.outputs.value }} /p:PackageOutputPath=artifacts/windows
 
       - name: Publish WinUI 3 package
         run: dotnet nuget push "artifacts/windows/*.nupkg" --source "https://nuget.pkg.github.com/devzerone/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
