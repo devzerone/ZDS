@@ -1,0 +1,8 @@
+{
+  "name": "@zds/swiftui",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "swift build"
+  }
+}

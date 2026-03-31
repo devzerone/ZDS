@@ -1,0 +1,8 @@
+{
+  "name": "@zds/windows",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "dotnet build ZDS.Windows.csproj"
+  }
+}

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ZDS.Components</RootNamespace>
+    <PackageId>ZDS.Windows</PackageId>
+    <Authors>devzerone</Authors>
+    <Company>devzerone</Company>
+    <Description>WinUI 3 parity package for the shared ZDS button contract.</Description>
+    <RepositoryUrl>https://github.com/devzerone/ZDS</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/devzerone/ZDS</PackageProjectUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <UseWinUI>true</UseWinUI>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="components/Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="components/Button.xaml.cs">
+      <DependentUpon>Button.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

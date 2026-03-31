@@ -1,0 +1,72 @@
+name: Publish JS Packages
+
+on:
+  push:
+    tags:
+      - "js-v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Semver version to publish"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME#js-v}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set package versions
+        run: |
+          pnpm --filter @zds/tokens exec npm pkg set version=${{ steps.version.outputs.value }}
+          pnpm --filter @zds/react exec npm pkg set version=${{ steps.version.outputs.value }}
+          pnpm --filter @zds/foundation exec npm pkg set version=${{ steps.version.outputs.value }}
+
+      - name: Validate publishable packages
+        run: pnpm validate:button
+
+      - name: Publish tokens
+        run: pnpm --filter @zds/tokens publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish foundation
+        run: pnpm --filter @zds/foundation publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish react
+        run: pnpm --filter @zds/react publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

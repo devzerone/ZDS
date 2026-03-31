@@ -1,0 +1,8 @@
+{
+  "name": "@zds/kotlin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "gradle --no-daemon -p . build"
+  }
+}

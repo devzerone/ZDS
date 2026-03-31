@@ -1,0 +1,49 @@
+name: Publish Windows Package
+
+on:
+  push:
+    tags:
+      - "windows-v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Semver version to publish"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: "[17.0,18.0)"
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        run: |
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME#windows-v}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pack WinUI 3 package
+        run: msbuild packages/windows/ZDS.Windows.csproj /restore /t:Pack /p:Configuration=Release /p:Platform=x64 /p:PackageVersion=${{ steps.version.outputs.value }} /p:PackageOutputPath=artifacts/windows
+
+      - name: Publish WinUI 3 package
+        run: dotnet nuget push "artifacts/windows/*.nupkg" --source "https://nuget.pkg.github.com/devzerone/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
