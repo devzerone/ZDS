@@ -605,6 +605,60 @@ button {
   color: var(--docs-accent);
 }
 
+.docs-sandbox-card {
+  overflow: hidden;
+  border: 1px solid var(--docs-border);
+  border-radius: 16px;
+  background: var(--docs-surface);
+}
+
+.docs-sandbox-head {
+  padding-top: 18px;
+  background: color-mix(in srgb, var(--docs-bg) 75%, white);
+}
+
+.docs-sandbox-tabs {
+  display: flex;
+  gap: 20px;
+  padding: 0 18px;
+}
+
+.docs-sandbox-tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--docs-text-subtle);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.docs-sandbox-tab--active {
+  color: var(--docs-text);
+}
+
+.docs-sandbox-indicator {
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+}
+
+.docs-sandbox-indicator span {
+  width: 60px;
+  height: 2px;
+  background: #2563eb;
+}
+
+.docs-sandbox-indicator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--docs-border);
+}
+
+.docs-sandbox-body {
+  background: var(--docs-surface);
+}
+
 .docs-preview-canvas {
   display: grid;
   gap: 18px;
@@ -642,6 +696,7 @@ button {
   color: var(--docs-text-subtle);
   font-size: 0.78rem;
   font-weight: 600;
+  padding: 0 18px 18px;
 }
 
 .docs-preview-chip {

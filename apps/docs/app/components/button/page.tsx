@@ -39,12 +39,19 @@ export default function ButtonDocsPage() {
               Use the default example to verify hierarchy first, then compare variants, sizes, and states without
               changing the action label.
             </p>
-            <div className="docs-tab-row">
-              <span className="docs-tab docs-tab--active">Preview</span>
-              <span className="docs-tab">Code</span>
-            </div>
-            <div className="docs-preview-canvas">
-              <ButtonPreviewSandbox mode="single" />
+            <div className="docs-sandbox-card">
+              <div className="docs-sandbox-head">
+                <div className="docs-sandbox-tabs">
+                  <span className="docs-sandbox-tab docs-sandbox-tab--active">Preview</span>
+                  <span className="docs-sandbox-tab">Code</span>
+                </div>
+                <div className="docs-sandbox-indicator" aria-hidden="true">
+                  <span />
+                </div>
+              </div>
+              <div className="docs-sandbox-body">
+                <ButtonPreviewSandbox mode="single" />
+              </div>
               <div className="docs-preview-meta">
                 <span>Primary / md / enabled</span>
                 <span className="docs-preview-chip">React</span>
