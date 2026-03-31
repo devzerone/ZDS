@@ -22,14 +22,14 @@
             </StackPanel>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal" />
-                    <VisualState x:Name="PointerOver" />
-                    <VisualState x:Name="Pressed" />
-                    <VisualState x:Name="Disabled" />
+                    <VisualState x:Name="StateNormal" />
+                    <VisualState x:Name="StatePointerOver" />
+                    <VisualState x:Name="StatePressed" />
+                    <VisualState x:Name="StateDisabled" />
                 </VisualStateGroup>
                 <VisualStateGroup x:Name="ParityStates">
-                    <VisualState x:Name="Focus" />
-                    <VisualState x:Name="Loading" />
+                    <VisualState x:Name="StateFocusVisible" />
+                    <VisualState x:Name="StateLoading" />
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
         </Button>
