@@ -630,26 +630,6 @@ button {
   gap: 16px;
 }
 
-.docs-demo-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 0 16px;
-  border: 0;
-  border-radius: 10px;
-  background: #2563eb;
-  color: white;
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.docs-demo-button--secondary {
-  border: 1px solid var(--docs-border);
-  background: var(--docs-surface);
-  color: var(--docs-text);
-}
-
 .docs-preview-meta,
 .docs-example-row {
   display: flex;

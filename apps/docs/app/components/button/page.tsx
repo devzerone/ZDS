@@ -1,4 +1,5 @@
 import ButtonContent from "../../../content/components/button.mdx";
+import ButtonPreviewSandbox from "../../../components/button/ButtonPreviewSandbox";
 import PreviewLink from "../../../components/preview-link/PreviewLink";
 import DocsProse from "../../../components/prose/DocsProse";
 
@@ -43,11 +44,7 @@ export default function ButtonDocsPage() {
               <span className="docs-tab">Code</span>
             </div>
             <div className="docs-preview-canvas">
-              <div className="docs-preview-stage">
-                <button className="docs-demo-button" type="button">
-                  Save
-                </button>
-              </div>
+              <ButtonPreviewSandbox mode="single" />
               <div className="docs-preview-meta">
                 <span>Primary / md / enabled</span>
                 <span className="docs-preview-chip">React</span>
@@ -71,14 +68,7 @@ export default function ButtonDocsPage() {
             <h2>Examples</h2>
             <p>Combine icon support and hierarchy carefully so the label remains the first thing people scan.</p>
             <div className="docs-preview-canvas">
-              <div className="docs-preview-stage docs-preview-stage--row">
-                <button className="docs-demo-button" type="button">
-                  Continue
-                </button>
-                <button className="docs-demo-button docs-demo-button--secondary" type="button">
-                  Add item
-                </button>
-              </div>
+              <ButtonPreviewSandbox mode="row" />
               <div className="docs-preview-meta">
                 <span>Icon support / mixed hierarchy</span>
                 <span className="docs-preview-chip">Examples</span>
