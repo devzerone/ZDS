@@ -13,7 +13,7 @@ expectations for the ZDS button component after parity expansion beyond React.
 | Documentation | Public explanation of parity status, approved exceptions, and platform support boundaries | `apps/docs/content/components/button.mdx`, `apps/docs/app/components/button/page.tsx` |
 | React Implementation | Existing reference implementation aligned to the shared contract | `packages/react/src/components/button/`, `packages/react/src/primitives/button/` |
 | Native Platform Implementations | First platform-owned button surfaces for SwiftUI, Kotlin, and Windows | `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/` |
-| Validation | Contract, docs, accessibility, visual, and parity consistency checks | `testing/spec/`, `testing/docs/`, `testing/accessibility/`, `testing/visual/` |
+| Validation | Contract, docs, accessibility, visual, and parity consistency checks | `testing/spec/`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/` |
 
 ## Shared Naming Contract
 

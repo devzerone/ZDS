@@ -54,7 +54,7 @@
 
 ### Validation for User Story 1
 
-- [X] T016 [P] [US1] Add docs validation for route rendering, canonical content ownership, source refs, and required button state coverage in /home/choiho/zerone/ZDS/testing/docs/validate-docs-build.mjs
+- [X] T016 [P] [US1] Add docs validation for route rendering, canonical content ownership, source refs, and required button state coverage in /home/choiho/zerone/ZDS/testing/docs-system/validate-docs-build.mjs
 - [X] T017 [P] [US1] Add canonical foundation token docs content in /home/choiho/zerone/ZDS/apps/docs/content/foundation/tokens.mdx
 - [X] T018 [P] [US1] Add canonical button docs content in /home/choiho/zerone/ZDS/apps/docs/content/components/button.mdx
 
@@ -81,8 +81,8 @@
 
 ### Validation for User Story 2
 
-- [X] T027 [P] [US2] Add Storybook build verification for the button preview surface in /home/choiho/zerone/ZDS/testing/docs/validate-storybook-build.mjs
-- [X] T028 [P] [US2] Add Storybook validation for docs backlinks, required state coverage, and token/spec source refs in /home/choiho/zerone/ZDS/testing/docs/validate-preview-links.mjs
+- [X] T027 [P] [US2] Add Storybook build verification for the button preview surface in /home/choiho/zerone/ZDS/testing/docs-system/validate-storybook-build.mjs
+- [X] T028 [P] [US2] Add Storybook validation for docs backlinks, required state coverage, and token/spec source refs in /home/choiho/zerone/ZDS/testing/docs-system/validate-preview-links.mjs
 
 ### Implementation for User Story 2
 
@@ -104,8 +104,8 @@
 
 ### Validation for User Story 3
 
-- [X] T034 [P] [US3] Add a combined docs-system validation entrypoint covering docs build, Storybook build, variant/size/state alignment, link integrity, and token/spec refs in /home/choiho/zerone/ZDS/testing/docs/validate-docs-system.mjs
-- [X] T035 [P] [US3] Add documentation for local docs-system verification steps in /home/choiho/zerone/ZDS/testing/docs/README.md
+- [X] T034 [P] [US3] Add a combined docs-system validation entrypoint covering docs build, Storybook build, variant/size/state alignment, link integrity, and token/spec refs in /home/choiho/zerone/ZDS/testing/docs-system/validate-docs-system.mjs
+- [X] T035 [P] [US3] Add documentation for local docs-system verification steps in /home/choiho/zerone/ZDS/testing/docs-system/README.md
 
 ### Implementation for User Story 3
 
@@ -167,7 +167,7 @@
 
 ```bash
 # Launch docs-source preparation together:
-Task: "Add docs build verification for route rendering in testing/docs/validate-docs-build.mjs"
+Task: "Add docs build verification for route rendering in testing/docs-system/validate-docs-build.mjs"
 Task: "Add docs content source records for foundation tokens in apps/docs/content/foundation/tokens.mdx"
 Task: "Add docs content source records for button guidance in apps/docs/content/components/button.mdx"
 ```
@@ -178,8 +178,8 @@ Task: "Add docs content source records for button guidance in apps/docs/content/
 
 ```bash
 # Launch preview verification tasks together:
-Task: "Add Storybook build verification in testing/docs/validate-storybook-build.mjs"
-Task: "Add preview validation for docs backlinks, required state coverage, and token/spec refs in testing/docs/validate-preview-links.mjs"
+Task: "Add Storybook build verification in testing/docs-system/validate-storybook-build.mjs"
+Task: "Add preview validation for docs backlinks, required state coverage, and token/spec refs in testing/docs-system/validate-preview-links.mjs"
 ```
 
 ---

@@ -19,7 +19,7 @@
 
 - [X] T001 Confirm the parity feature path map in `spec/components/button/button.spec.json`, `packages/tokens/data/components/button.json`, `pen/components/button/button.pen`, `packages/react/src/components/button/`, `packages/react/src/primitives/button/`, `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/`, `apps/docs/content/components/button.mdx`, `apps/docs/app/components/button/page.tsx`, and `testing/`
 - [X] T002 Create button parity scaffold files in `packages/swiftui/components/Button.swift`, `packages/kotlin/components/Button.kt`, `packages/windows/components/Button.xaml`, and `packages/windows/components/Button.xaml.cs`
-- [X] T003 [P] Create parity validation scaffold updates in `testing/spec/validate-button-spec.mjs`, `testing/docs/validate-docs-system.mjs`, `testing/accessibility/button-accessibility-checklist.md`, and `testing/visual/button-visual-checklist.md`
+- [X] T003 [P] Create parity validation scaffold updates in `testing/spec/validate-button-spec.mjs`, `testing/docs-system/validate-docs-system.mjs`, `testing/accessibility/button-accessibility-checklist.md`, and `testing/visual/button-visual-checklist.md`
 
 ---
 
@@ -33,7 +33,7 @@
 - [X] T005 Update shared button token guidance for cross-platform consumption in `packages/tokens/data/components/button.json`
 - [X] T006 [P] Add parity baseline annotations and review areas to `pen/components/button/button.pen`
 - [X] T007 [P] Extend button spec validation for platform profiles, readiness states, and exception completeness in `testing/spec/validate-button-spec.mjs`
-- [X] T008 [P] Extend docs validation plumbing for parity status consistency in `testing/docs/validate-docs-system.mjs` and `testing/docs/validate-docs-build.mjs`
+- [X] T008 [P] Extend docs validation plumbing for parity status consistency in `testing/docs-system/validate-docs-system.mjs` and `testing/docs-system/validate-docs-build.mjs`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in priority order or in parallel if staffed
 
@@ -76,14 +76,14 @@
 ### Validation for User Story 2 ⚠️
 
 - [X] T021 [P] [US2] Add validation for parity readiness fields, owner metadata, and remediation targets in `testing/spec/validate-button-spec.mjs`
-- [X] T022 [P] [US2] Add documentation parity consistency checks in `testing/docs/validate-docs-system.mjs` and `testing/docs/validate-preview-links.mjs`
+- [X] T022 [P] [US2] Add documentation parity consistency checks in `testing/docs-system/validate-docs-system.mjs` and `testing/docs-system/validate-preview-links.mjs`
 
 ### Implementation for User Story 2
 
 - [X] T023 [US2] Update platform readiness profiles, gap summaries, owners, and remediation targets in `spec/components/button/button.spec.json`
 - [X] T024 [US2] Document platform support status, approved exceptions, and review guidance in `apps/docs/content/components/button.mdx` and `apps/docs/app/components/button/page.tsx`
 - [X] T026 [US2] Add parity-oriented annotation or comparison frames for platform readiness review in `pen/components/button/button.pen`
-- [X] T027 [US2] Verify User Story 2 independently with the required validation commands covering `testing/spec/validate-button-spec.mjs`, `testing/docs/validate-docs-system.mjs`, and `testing/docs/validate-preview-links.mjs`
+- [X] T027 [US2] Verify User Story 2 independently with the required validation commands covering `testing/spec/validate-button-spec.mjs`, `testing/docs-system/validate-docs-system.mjs`, and `testing/docs-system/validate-preview-links.mjs`
 
 **Checkpoint**: At this point, User Stories 1 and 2 should both work independently
 
@@ -99,14 +99,14 @@
 
 - [X] T028 [P] [US3] Extend spec validation to detect missing platform states, unsupported variants, and undocumented exceptions in `testing/spec/validate-button-spec.mjs`
 - [X] T029 [P] [US3] Extend visual and accessibility review criteria for cross-platform state and exception comparison in `testing/visual/button-visual-checklist.md` and `testing/accessibility/button-accessibility-checklist.md`
-- [X] T030 [P] [US3] Add docs/build verification for parity review content and source references in `testing/docs/validate-docs-build.mjs`
+- [X] T030 [P] [US3] Add docs/build verification for parity review content and source references in `testing/docs-system/validate-docs-build.mjs`
 
 ### Implementation for User Story 3
 
 - [X] T031 [US3] Refine the shared contract with explicit exception records and state expectation notes that support automated parity checks in `spec/components/button/button.spec.json`
 - [X] T032 [US3] Update platform implementation review notes alongside `packages/swiftui/components/Button.swift`, `packages/kotlin/components/Button.kt`, `packages/windows/components/Button.xaml`, and `packages/windows/components/Button.xaml.cs` so validation evidence maps to the shared contract
 - [X] T033 [US3] Update the official button docs with parity review workflow and exception interpretation guidance in `apps/docs/content/components/button.mdx`
-- [X] T034 [US3] Verify User Story 3 independently with the required validation commands covering `testing/spec/validate-button-spec.mjs`, `testing/docs/validate-docs-build.mjs`, `testing/accessibility/button-accessibility-checklist.md`, and `testing/visual/button-visual-checklist.md`
+- [X] T034 [US3] Verify User Story 3 independently with the required validation commands covering `testing/spec/validate-button-spec.mjs`, `testing/docs-system/validate-docs-build.mjs`, `testing/accessibility/button-accessibility-checklist.md`, and `testing/visual/button-visual-checklist.md`
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -119,7 +119,7 @@
 - [X] T035 [P] Finalize any package export or workspace script updates needed for cross-platform button parity in `package.json`, `packages/react/package.json`, and other relevant package manifests under `packages/`
 - [X] T036 [P] Perform final docs alignment for parity terminology in `apps/docs/content/components/button.mdx` and `apps/docs/app/components/button/page.tsx`
 - [X] T037 Validate final parity metadata completeness and artifact synchronization across `spec/components/button/button.spec.json`, `packages/tokens/data/components/button.json`, `pen/components/button/button.pen`, `packages/react/src/components/button/`, `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/`, `apps/docs/`, and `testing/`
-- [X] T038 Run the required validation commands from the quickstart flow for the full feature across `testing/spec/`, `testing/docs/`, `testing/accessibility/`, `testing/visual/`, and package-level button tests
+- [X] T038 Run the required validation commands from the quickstart flow for the full feature across `testing/spec/`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/`, and package-level button tests
 
 ---
 
@@ -177,7 +177,7 @@ Task: "Implement the first Windows button surface in packages/windows/components
 ```bash
 # Launch User Story 2 validation work together:
 Task: "Add validation for parity readiness fields, owner metadata, and remediation targets in testing/spec/validate-button-spec.mjs"
-Task: "Add documentation parity consistency checks in testing/docs/validate-docs-system.mjs and testing/docs/validate-preview-links.mjs"
+Task: "Add documentation parity consistency checks in testing/docs-system/validate-docs-system.mjs and testing/docs-system/validate-preview-links.mjs"
 
 # Launch user-facing parity communication work on separate files:
 Task: "Document platform support status in apps/docs/content/components/button.mdx and apps/docs/app/components/button/page.tsx"
@@ -192,7 +192,7 @@ Task: "Add parity-oriented annotation or comparison frames in pen/components/but
 # Launch User Story 3 validation work together:
 Task: "Extend spec validation to detect missing platform states, unsupported variants, and undocumented exceptions in testing/spec/validate-button-spec.mjs"
 Task: "Extend visual and accessibility review criteria in testing/visual/button-visual-checklist.md and testing/accessibility/button-accessibility-checklist.md"
-Task: "Add docs/build verification for parity review content in testing/docs/validate-docs-build.mjs"
+Task: "Add docs/build verification for parity review content in testing/docs-system/validate-docs-build.mjs"
 ```
 
 ---

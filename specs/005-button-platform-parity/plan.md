@@ -44,7 +44,7 @@ contract를 중심으로 parity metadata를 강화하고, component token 소비
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
 - [x] Work stays within ZDS design-system scope and names every planned repository path.
-      Planned paths: `spec/components/button/button.spec.json`, `packages/tokens/data/components/button.json`, `pen/components/button/button.pen`, `packages/react/src/components/button/`, `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/`, `apps/docs/content/components/button.mdx`, `apps/docs/app/components/button/page.tsx`, and `testing/spec/`, `testing/docs/`, `testing/accessibility/`, `testing/visual/`.
+      Planned paths: `spec/components/button/button.spec.json`, `packages/tokens/data/components/button.json`, `pen/components/button/button.pen`, `packages/react/src/components/button/`, `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/`, `apps/docs/content/components/button.mdx`, `apps/docs/app/components/button/page.tsx`, and `testing/spec/`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/`.
 - [x] Source-of-truth ownership remains intact across spec, tokens, pen, implementation packages, docs, and testing.
       The JSON contract remains authoritative; downstream layers only translate or explain it.
 - [x] Docs impacts are identified for this user-consumable component.

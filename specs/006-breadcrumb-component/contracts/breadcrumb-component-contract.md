@@ -14,7 +14,7 @@ expectations for the ZDS breadcrumb component.
 | React Public Component | Tokenized breadcrumb API aligned to the shared contract | `packages/react/src/components/breadcrumb/` |
 | Documentation | Public explanation of breadcrumb purpose, path rules, overflow guidance, accessibility, and source references | `apps/docs/content/components/breadcrumb.mdx`, `apps/docs/app/components/breadcrumb/page.tsx` |
 | Storybook | Interactive preview of canonical breadcrumb combinations | `packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx` |
-| Validation | Contract, token, docs, accessibility, visual, and React behavior checks | `testing/spec/`, `testing/tokens/`, `testing/docs/`, `testing/accessibility/`, `testing/visual/`, `packages/react/src/components/breadcrumb/` |
+| Validation | Contract, token, docs, accessibility, visual, and React behavior checks | `testing/spec/`, `testing/tokens/`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/`, `packages/react/src/components/breadcrumb/` |
 
 ## Shared Semantics Contract
 

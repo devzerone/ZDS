@@ -34,7 +34,7 @@
 - [X] T006 [P] Create breadcrumb visual baseline frames for single-step, standard multi-step, and constrained-width review in `pen/components/breadcrumb/breadcrumb.pen`
 - [X] T007 [P] Extend shared token validation for breadcrumb component tokens in `testing/tokens/validate-tokens.mjs`
 - [X] T008 [P] Add breadcrumb spec validation for roles, overflow rules, accessibility flags, and parity profiles in `testing/spec/validate-breadcrumb-spec.mjs`
-- [X] T009 Configure docs and preview discovery plumbing for breadcrumb in `apps/docs/app/components/page.tsx`, `apps/docs/components/navigation/site-nav.ts`, `apps/docs/components/navigation/DocsTopbar.tsx`, `testing/docs/validate-docs-system.mjs`, `testing/docs/validate-docs-build.mjs`, and `testing/docs/validate-preview-links.mjs`
+- [X] T009 Configure docs and preview discovery plumbing for breadcrumb in `apps/docs/app/components/page.tsx`, `apps/docs/components/navigation/site-nav.ts`, `apps/docs/components/navigation/DocsTopbar.tsx`, `testing/docs-system/validate-docs-system.mjs`, `testing/docs-system/validate-docs-build.mjs`, and `testing/docs-system/validate-preview-links.mjs`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in priority order or in parallel if staffed
 
@@ -49,7 +49,7 @@
 ### Validation for User Story 1 ⚠️
 
 - [X] T010 [P] [US1] Add React behavior tests for ancestor links, current-page rendering, and label-required breadcrumb items in `packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`
-- [X] T011 [P] [US1] Extend docs and preview consistency checks for the canonical breadcrumb example in `testing/docs/validate-docs-system.mjs` and `testing/docs/validate-preview-links.mjs`
+- [X] T011 [P] [US1] Extend docs and preview consistency checks for the canonical breadcrumb example in `testing/docs-system/validate-docs-system.mjs` and `testing/docs-system/validate-preview-links.mjs`
 
 ### Implementation for User Story 1
 
@@ -58,7 +58,7 @@
 - [X] T014 [US1] Implement the tokenized public breadcrumb API and render model in `packages/react/src/components/breadcrumb/Breadcrumb.tsx`, `packages/react/src/components/breadcrumb/index.ts`, `packages/react/src/breadcrumb.ts`, and `packages/react/src/index.ts`
 - [X] T015 [P] [US1] Add canonical Storybook stories for standard breadcrumb paths in `packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx`
 - [X] T016 [US1] Build the docs preview sandbox and canonical docs page for the standard breadcrumb example in `apps/docs/components/breadcrumb/BreadcrumbPreviewSandbox.tsx`, `apps/docs/content/components/breadcrumb.mdx`, and `apps/docs/app/components/breadcrumb/page.tsx`
-- [X] T017 [US1] Verify User Story 1 independently with `pnpm validate:tokens`, `node testing/spec/validate-breadcrumb-spec.mjs`, `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`, `pnpm docs:build`, `node testing/docs/validate-preview-links.mjs`, and `node testing/docs/validate-docs-system.mjs`
+- [X] T017 [US1] Verify User Story 1 independently with `pnpm validate:tokens`, `node testing/spec/validate-breadcrumb-spec.mjs`, `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`, `pnpm docs:build`, `node testing/docs-system/validate-preview-links.mjs`, and `node testing/docs-system/validate-docs-system.mjs`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -73,7 +73,7 @@
 ### Validation for User Story 2 ⚠️
 
 - [X] T018 [P] [US2] Extend React and spec validation for constrained-width and collapsed-middle breadcrumb behavior in `packages/react/src/components/breadcrumb/Breadcrumb.test.tsx` and `testing/spec/validate-breadcrumb-spec.mjs`
-- [X] T019 [P] [US2] Extend visual review and docs-build validation for single-step and long-path examples in `testing/visual/breadcrumb-visual-checklist.md` and `testing/docs/validate-docs-build.mjs`
+- [X] T019 [P] [US2] Extend visual review and docs-build validation for single-step and long-path examples in `testing/visual/breadcrumb-visual-checklist.md` and `testing/docs-system/validate-docs-build.mjs`
 
 ### Implementation for User Story 2
 
@@ -81,7 +81,7 @@
 - [X] T021 [US2] Add breadcrumb token support for separator spacing, current-step emphasis, and constrained-width presentation in `packages/tokens/data/components/breadcrumb.json` and `packages/tokens/src/components/breadcrumb.ts`
 - [X] T022 [US2] Implement public breadcrumb handling for single-step and constrained-width paths in `packages/react/src/components/breadcrumb/Breadcrumb.tsx` and `packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx`
 - [X] T023 [US2] Expand `.pen` review baselines and docs examples for single-step, long-label, and constrained-width paths in `pen/components/breadcrumb/breadcrumb.pen`, `apps/docs/components/breadcrumb/BreadcrumbPreviewSandbox.tsx`, `apps/docs/content/components/breadcrumb.mdx`, and `apps/docs/app/components/breadcrumb/page.tsx`
-- [X] T024 [US2] Verify User Story 2 independently with `pnpm validate:tokens`, `node testing/spec/validate-breadcrumb-spec.mjs`, `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`, `pnpm docs:build`, and `node testing/docs/validate-docs-build.mjs`
+- [X] T024 [US2] Verify User Story 2 independently with `pnpm validate:tokens`, `node testing/spec/validate-breadcrumb-spec.mjs`, `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`, `pnpm docs:build`, and `node testing/docs-system/validate-docs-build.mjs`
 
 **Checkpoint**: At this point, User Stories 1 and 2 should both work independently
 
@@ -96,14 +96,14 @@
 ### Validation for User Story 3 ⚠️
 
 - [X] T025 [P] [US3] Extend React tests and breadcrumb spec validation for navigation landmark semantics, current-page announcement, and non-interactive separators in `packages/react/src/components/breadcrumb/Breadcrumb.test.tsx` and `testing/spec/validate-breadcrumb-spec.mjs`
-- [X] T026 [P] [US3] Add breadcrumb accessibility checklist coverage and docs consistency checks in `testing/accessibility/breadcrumb-accessibility-checklist.md` and `testing/docs/validate-docs-system.mjs`
+- [X] T026 [P] [US3] Add breadcrumb accessibility checklist coverage and docs consistency checks in `testing/accessibility/breadcrumb-accessibility-checklist.md` and `testing/docs-system/validate-docs-system.mjs`
 
 ### Implementation for User Story 3
 
 - [X] T027 [US3] Finalize accessibility rules and misuse patterns in `spec/components/breadcrumb/breadcrumb.spec.json`
 - [X] T028 [US3] Implement accessibility-focused breadcrumb semantics in `packages/react/src/primitives/breadcrumb/PrimitiveBreadcrumb.tsx` and `packages/react/src/components/breadcrumb/Breadcrumb.tsx`
 - [X] T029 [US3] Document accessibility behavior, keyboard expectations, and parity status in `apps/docs/content/components/breadcrumb.mdx`, `apps/docs/app/components/breadcrumb/page.tsx`, and `packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx`
-- [X] T030 [US3] Verify User Story 3 independently with `node testing/spec/validate-breadcrumb-spec.mjs`, `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`, `pnpm docs:build`, `node testing/docs/validate-docs-system.mjs`, and checklist review in `testing/accessibility/breadcrumb-accessibility-checklist.md`
+- [X] T030 [US3] Verify User Story 3 independently with `node testing/spec/validate-breadcrumb-spec.mjs`, `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`, `pnpm docs:build`, `node testing/docs-system/validate-docs-system.mjs`, and checklist review in `testing/accessibility/breadcrumb-accessibility-checklist.md`
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -160,7 +160,7 @@
 ```bash
 # Launch User Story 1 validation work together:
 Task: "Add React behavior tests in packages/react/src/components/breadcrumb/Breadcrumb.test.tsx"
-Task: "Extend docs and preview consistency checks in testing/docs/validate-docs-system.mjs and testing/docs/validate-preview-links.mjs"
+Task: "Extend docs and preview consistency checks in testing/docs-system/validate-docs-system.mjs and testing/docs-system/validate-preview-links.mjs"
 
 # Launch downstream communication work after the shared API is in place:
 Task: "Add canonical breadcrumb stories in packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx"
@@ -174,7 +174,7 @@ Task: "Build the docs preview sandbox and docs page in apps/docs/components/brea
 ```bash
 # Launch User Story 2 validation work together:
 Task: "Extend constrained-width validation in packages/react/src/components/breadcrumb/Breadcrumb.test.tsx and testing/spec/validate-breadcrumb-spec.mjs"
-Task: "Extend visual/docs-build validation in testing/visual/breadcrumb-visual-checklist.md and testing/docs/validate-docs-build.mjs"
+Task: "Extend visual/docs-build validation in testing/visual/breadcrumb-visual-checklist.md and testing/docs-system/validate-docs-build.mjs"
 
 # Launch presentation updates after overflow rules are locked:
 Task: "Add constrained-width token support in packages/tokens/data/components/breadcrumb.json"
@@ -188,7 +188,7 @@ Task: "Expand pen baseline and docs examples in pen/components/breadcrumb/breadc
 ```bash
 # Launch User Story 3 validation work together:
 Task: "Extend landmark/current-page/separator validation in packages/react/src/components/breadcrumb/Breadcrumb.test.tsx and testing/spec/validate-breadcrumb-spec.mjs"
-Task: "Add accessibility review coverage in testing/accessibility/breadcrumb-accessibility-checklist.md and testing/docs/validate-docs-system.mjs"
+Task: "Add accessibility review coverage in testing/accessibility/breadcrumb-accessibility-checklist.md and testing/docs-system/validate-docs-system.mjs"
 ```
 
 ---
@@ -217,7 +217,7 @@ Task: "Add accessibility review coverage in testing/accessibility/breadcrumb-acc
 2. After Foundational completion:
    Developer A: React primitive/public component work in `packages/react/src/primitives/breadcrumb/` and `packages/react/src/components/breadcrumb/`
    Developer B: Docs page, preview sandbox, and Storybook story work in `apps/docs/` and `packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx`
-   Developer C: Validation work in `testing/spec/`, `testing/docs/`, `testing/accessibility/`, and `testing/visual/`
+   Developer C: Validation work in `testing/spec/`, `testing/docs-system/`, `testing/accessibility/`, and `testing/visual/`
 
 ---
 

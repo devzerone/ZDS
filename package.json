@@ -11,7 +11,7 @@
     "storybook": "pnpm --filter @zds/tokens build && storybook dev -p 6006",
     "storybook:build": "pnpm --filter @zds/tokens build && storybook build --output-dir dist/storybook",
     "generate:icons": "pnpm --filter @zds/react generate:icons",
-    "validate:docs-system": "pnpm docs:build && node testing/docs/validate-docs-build.mjs && node testing/docs/validate-preview-links.mjs && node testing/docs/validate-docs-system.mjs",
+    "validate:docs-system": "pnpm docs:build && node testing/docs-system/validate-docs-build.mjs && node testing/docs-system/validate-preview-links.mjs && node testing/docs-system/validate-docs-system.mjs",
     "validate:tokens": "node testing/tokens/validate-tokens.mjs",
     "validate:button-spec": "node testing/spec/validate-button-spec.mjs",
     "test:button-react": "pnpm --filter @zds/tokens build && node --import tsx --test packages/react/src/components/button/Button.test.tsx",

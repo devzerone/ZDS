@@ -225,7 +225,7 @@ Examples of foundational tasks (adjust based on your project):
 ```bash
 # Launch all required validation work for User Story 1 together:
 Task: "Update contract validation in testing/spec/"
-Task: "Update docs or preview validation in testing/docs/"
+Task: "Update docs or preview validation in testing/docs-system/"
 
 # Launch source-of-truth updates for User Story 1 together:
 Task: "Update contract files in spec/"

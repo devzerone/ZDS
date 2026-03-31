@@ -14,7 +14,7 @@
 5. `packages/react/src/index.ts`, `packages/react/src/breadcrumb.ts`, `packages/react/package.json`, `packages/react/tsup.config.ts`에서 public export surface를 연결한다.
 6. `packages/react/src/components/breadcrumb/Breadcrumb.stories.tsx`와 docs preview sandbox를 만들어 canonical examples를 노출한다.
 7. `apps/docs/content/components/breadcrumb.mdx`, `apps/docs/app/components/breadcrumb/page.tsx`, `apps/docs/app/components/page.tsx`, `apps/docs/components/navigation/`를 업데이트해 breadcrumb를 discoverable하게 만든다.
-8. `testing/spec/validate-breadcrumb-spec.mjs`, `testing/tokens/validate-tokens.mjs`, `testing/docs/`, `testing/accessibility/`, `testing/visual/`, React tests를 업데이트한다.
+8. `testing/spec/validate-breadcrumb-spec.mjs`, `testing/tokens/validate-tokens.mjs`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/`, React tests를 업데이트한다.
 
 ## Implementation Checklist
 
@@ -48,9 +48,9 @@
 2. `node testing/spec/validate-breadcrumb-spec.mjs`
 3. `node --import tsx --test packages/react/src/components/breadcrumb/Breadcrumb.test.tsx`
 4. `pnpm docs:build`
-5. `node testing/docs/validate-docs-build.mjs`
-6. `node testing/docs/validate-preview-links.mjs`
-7. `node testing/docs/validate-docs-system.mjs`
+5. `node testing/docs-system/validate-docs-build.mjs`
+6. `node testing/docs-system/validate-preview-links.mjs`
+7. `node testing/docs-system/validate-docs-system.mjs`
 
 ## Handoff Note
 

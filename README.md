@@ -16,6 +16,10 @@ ZDS는 토큰, 컴포넌트 계약, Pencil 기준선, React 구현, 문서 사�
 
 ## 구조
 
+저장소를 볼 때는 "제품 구조"와 "운영 구조"를 나눠서 보면 훨씬 덜 복잡합니다.
+
+제품 구조:
+
 ```text
 apps/
   docs/                  Next.js App Router 문서 사이트
@@ -29,17 +33,47 @@ packages/
 .storybook/              Storybook 설정
 pen/
   components/            컴포넌트 Pencil 기준선
-  docs/                  문서 UI Pencil 기준선
+  site/                  문서 사이트 UI Pencil 기준선
 spec/
   components/            배포 가능한 컴포넌트 계약(JSON spec)
   metadata/parity/       플랫폼 parity / exception 메타데이터
 specs/                   feature 단위 작업 문서(spec-kit 산출물)
 testing/
-  docs/                  docs/storybook 검증
+  docs-system/           docs/storybook 시스템 검증
   spec/                  계약 검증
   tokens/                토큰 검증
 tools/                   저장소 자동화 및 설정 보조
 ```
+
+운영 구조:
+
+```text
+.agents/                 로컬 에이전트 스킬과 워크플로
+.claude/                 로컬 Claude 명령 설정
+.serena/                 Serena 로컬 작업 캐시와 메모리
+.specify/                spec-kit 템플릿과 자동화 스크립트
+.github/                 CI/CD 워크플로
+.storybook/              Storybook 루트 설정
+```
+
+탐색할 때 보통 무시해도 되는 디렉터리:
+
+```text
+node_modules/            의존성 설치 산출물
+dist/                    빌드 산출물
+.turbo/                  Turbo 캐시
+apps/docs/.next/         Next.js 빌드 산출물
+apps/docs/dist/          docs 정적 빌드 산출물
+packages/*/dist/         패키지 빌드 산출물
+```
+
+## 빠른 탐색 가이드
+
+- 새 컴포넌트를 추가할 때는 `spec/` -> `packages/tokens/` -> `pen/` -> `packages/react/` -> `apps/docs/` -> `testing/` 순서로 보면 됩니다.
+- 기존 컴포넌트 동작을 수정할 때는 `packages/react/src/components/`와 `packages/react/src/primitives/`를 먼저 보고, 계약이나 토큰 영향이 있으면 `spec/`과 `packages/tokens/`를 함께 봅니다.
+- docs 내용을 수정할 때는 `apps/docs/content/`와 `apps/docs/app/`을 보고, 레이아웃 기준선이 바뀌면 `pen/site/`도 같이 확인합니다.
+- 검증 흐름을 볼 때는 `testing/spec/`, `testing/tokens/`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/` 순으로 역할을 구분해서 보면 됩니다.
+- feature 배경과 의사결정 기록은 `specs/` 아래에서 찾습니다.
 
 ## Source Of Truth
 
@@ -62,7 +96,7 @@ tools/                   저장소 자동화 및 설정 보조
 - Button contract: [button.spec.json](/home/choiho/zerone/ZDS/spec/components/button/button.spec.json)
 - Button tokens: [button.json](/home/choiho/zerone/ZDS/packages/tokens/data/components/button.json)
 - Button pen: [button.pen](/home/choiho/zerone/ZDS/pen/components/button/button.pen)
-- Docs pen: [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/docs/design-system-docs.pen)
+- Docs UI baseline: [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/site/design-system-docs.pen)
 - React Button: [Button.tsx](/home/choiho/zerone/ZDS/packages/react/src/components/button/Button.tsx)
 
 React에서 스타일 포함 컴포넌트를 바로 쓰고 싶다면:
@@ -123,13 +157,17 @@ pnpm validate:docs-system
 
 - `apps/docs`
   공식 문서 앱. 여기서 말하는 docs는 이 Next.js 사이트를 뜻합니다.
+- `pen/site`
+  문서 사이트 UI 기준선입니다. 실제 문서 콘텐츠가 아니라 site shell과 page baseline에 가깝습니다.
+- `testing/docs-system`
+  문서/프리뷰 시스템 검증입니다. 문서 원고 저장소가 아니라 docs build, preview link, system alignment 검증 계층입니다.
 - `Storybook`
   variant, size, state, args 기반 인터랙티브 검토
 
 둘 다 사용자-facing surface지만 source of truth 는 아닙니다. 계약은 `spec/`,
 시각 값은 `packages/tokens/`, 시각 기준선은 `pen/` 에서 먼저 정의해야 합니다.
 
-문서 기준선은 [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/docs/design-system-docs.pen) 에 있습니다. 현재 docs 홈과 `Button` 상세 페이지 구조가 들어 있고, 컬러는 foundation semantic token에 맞춘 Pencil 변수로 연결돼 있습니다.
+문서 사이트 UI 기준선은 [design-system-docs.pen](/home/choiho/zerone/ZDS/pen/site/design-system-docs.pen) 에 있습니다. 현재 docs 홈과 `Button` 상세 페이지 구조가 들어 있고, 컬러는 foundation semantic token에 맞춘 Pencil 변수로 연결돼 있습니다.
 
 ## 현재 구현된 컴포넌트
 
@@ -188,4 +226,4 @@ React 구현 원칙:
 ## 참고
 
 - feature 작업 문서는 `specs/` 아래에 남깁니다.
-- docs UI를 먼저 손볼 때도, 가능하면 `pen/docs/` 기준선을 먼저 갱신한 뒤 코드에 반영하는 흐름을 권장합니다.
+- docs UI를 먼저 손볼 때도, 가능하면 `pen/site/` 기준선을 먼저 갱신한 뒤 코드에 반영하는 흐름을 권장합니다.
