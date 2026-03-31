@@ -89,7 +89,7 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T004 Create or update shared contract files in `spec/`
 - [ ] T005 [P] Create or update token or foundation asset files in `packages/tokens/` or `packages/foundation/`
 - [ ] T006 [P] Create or update Pencil baseline files in `pen/`
-- [ ] T007 Record parity metadata or approved exceptions in `spec/metadata/parity/`
+- [ ] T007 Record parity metadata or approved exceptions in the canonical `spec/` artifact, typically `spec/components/...`, `spec/patterns/...`, or a justified shared file under `spec/metadata/parity/`
 - [ ] T008 Configure docs or preview plumbing in `apps/docs/` or `.storybook/`
 - [ ] T009 Configure validation scripts or fixtures in `testing/` or `tools/`
 
@@ -117,7 +117,7 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T013 [P] [US1] Implement the user-facing change in the relevant package under `packages/`
 - [ ] T014 [US1] Update official docs content in `apps/docs/`
 - [ ] T015 [US1] Update Storybook stories or preview config in `.storybook/` or `packages/react/src/components/`
-- [ ] T016 [US1] Record any parity metadata changes in `spec/metadata/parity/`
+- [ ] T016 [US1] Record any parity metadata changes in the canonical `spec/` artifact for the changed component, pattern, or justified shared parity file
 - [ ] T017 [US1] Run and verify the required validation commands for user story 1
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
@@ -177,7 +177,7 @@ Examples of foundational tasks (adjust based on your project):
 
 - [ ] TXXX [P] Final docs and Storybook alignment updates in `apps/docs/` and `.storybook/`
 - [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Validate parity metadata completeness in `spec/metadata/parity/`
+- [ ] TXXX Validate parity metadata completeness in the canonical `spec/` artifact or justified shared file under `spec/metadata/parity/`
 - [ ] TXXX [P] Additional regression coverage in `testing/`
 - [ ] TXXX Run the required validation commands from `quickstart.md` or package scripts
 
@@ -225,7 +225,7 @@ Examples of foundational tasks (adjust based on your project):
 ```bash
 # Launch all required validation work for User Story 1 together:
 Task: "Update contract validation in testing/spec/"
-Task: "Update docs or preview validation in testing/docs/"
+Task: "Update docs or preview validation in testing/docs-system/"
 
 # Launch source-of-truth updates for User Story 1 together:
 Task: "Update contract files in spec/"

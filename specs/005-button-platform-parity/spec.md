@@ -90,7 +90,7 @@ QA와 컴포넌트 리뷰어는 버튼이 여러 플랫폼으로 확장된 뒤�
 
 - **Implementation Packages**: `packages/react/src/components/button/`, `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/`
 - **Docs / Preview Surfaces**: `apps/docs/content/components/button.mdx`, `apps/docs/app/components/button/page.tsx`
-- **Validation Artifacts**: `testing/spec/validate-button-spec.mjs`, `testing/docs/`, `testing/accessibility/`, `testing/visual/`, 플랫폼 parity 확인용 검증 스크립트 또는 체크리스트
+- **Validation Artifacts**: `testing/spec/validate-button-spec.mjs`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/`, 플랫폼 parity 확인용 검증 스크립트 또는 체크리스트
 
 ### Platform Parity & Exceptions
 

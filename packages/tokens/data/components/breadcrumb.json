@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "name": "zds-breadcrumb-component-tokens",
+    "component": "breadcrumb",
+    "source": "006-breadcrumb-component"
+  },
+  "layout": {
+    "itemGap": "space.050",
+    "separatorGap": "space.100",
+    "wrapGap": "space.100",
+    "paddingY": "space.050"
+  },
+  "typography": {
+    "itemLabel": "font.label.md",
+    "summaryLabel": "font.label.md"
+  },
+  "itemRoles": {
+    "ancestor": {
+      "foreground": "color.fg.secondary",
+      "interactiveForeground": "color.fg.secondary",
+      "focus": "color.accent.primary"
+    },
+    "current": {
+      "foreground": "color.fg.primary",
+      "emphasis": "color.fg.primary"
+    },
+    "collapsed-summary": {
+      "foreground": "color.fg.tertiary"
+    }
+  },
+  "separator": {
+    "foreground": "color.fg.tertiary"
+  }
+}

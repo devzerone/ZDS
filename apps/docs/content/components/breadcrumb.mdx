@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Breadcrumb"
+};
+
+# 브레드크럼프 컴포넌트 가이드
+
+브레드크럼프는 계층형 화면에서 현재 위치와 상위 경로를 함께 보여주는 ZDS의 공통
+탐색 보조 컴포넌트입니다.
+
+## Anatomy
+
+- `ancestor`: 상위 경로로 이동 가능한 이전 단계입니다.
+- `current`: 현재 위치를 나타내는 마지막 단계입니다.
+- `collapsed-summary`: 긴 경로에서 중간 단계를 요약하는 비상호작용 표시입니다.
+- `separator`: 순서를 드러내는 장식 요소이며 탐색 대상이 아닙니다.
+
+## Path rules
+
+- 마지막 항목은 항상 `current`입니다.
+- `ancestor`는 가능하면 링크를 가집니다.
+- 단일 단계 경로도 유효하며 불필요한 중복 표현 없이 보여야 합니다.
+
+## Overflow handling
+
+- 기본 overflow 전략은 `collapse-middle`입니다.
+- 긴 경로는 `collapsed-summary`로 중간 단계를 축약할 수 있습니다.
+- 축약 시에도 시작점과 현재 위치는 유지합니다.
+- base contract는 dropdown 기반 overflow navigator를 포함하지 않습니다.
+
+## Accessibility
+
+- 브레드크럼프는 navigation landmark로 노출되어야 합니다.
+- 키보드 탐색 대상은 interactive ancestor만 포함합니다.
+- `current`는 보조 기술에 현재 위치로 전달되어야 합니다.
+- `separator`는 장식 요소이므로 주요 읽기 흐름이나 포커스 대상이 되지 않아야 합니다.
+
+## Platform parity
+
+- `react`: `ready`
+- `swiftui`: `not-started`
+- `kotlin`: `not-started`
+- `windows`: `not-started`

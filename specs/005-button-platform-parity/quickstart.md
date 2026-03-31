@@ -13,7 +13,7 @@
 4. `apps/docs/content/components/button.mdx`와 `apps/docs/app/components/button/page.tsx`에 플랫폼별 지원 범위와 예외를 반영한다.
 5. `packages/react/src/components/button/`와 필요 시 `packages/react/src/primitives/button/`에서 기존 React 기준선을 parity 관점으로 정리한다.
 6. `packages/swiftui/components/`, `packages/kotlin/components/`, `packages/windows/components/`에 shared contract를 따르는 첫 버튼 구현 또는 scaffold를 추가한다.
-7. `testing/spec/`, `testing/docs/`, `testing/accessibility/`, `testing/visual/`에 parity 확인 흐름과 누락 감지 기준을 추가한다.
+7. `testing/spec/`, `testing/docs-system/`, `testing/accessibility/`, `testing/visual/`에 parity 확인 흐름과 누락 감지 기준을 추가한다.
 
 ## Implementation Checklist
 

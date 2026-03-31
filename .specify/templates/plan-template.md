@@ -86,9 +86,9 @@ pen/
 ├── docs/               # Pencil docs baselines
 └── patterns/           # Pencil pattern baselines
 spec/
-├── components/         # Publishable component contracts
-├── patterns/           # Publishable pattern contracts
-└── metadata/parity/    # Shared parity and exception metadata
+├── components/         # Publishable component contracts and component-scoped parity metadata
+├── patterns/           # Publishable pattern contracts and pattern-scoped parity metadata
+└── metadata/parity/    # Shared parity registries, rollups, or cross-artifact exception metadata
 testing/
 ├── tokens/             # Token validation
 ├── spec/               # Contract validation

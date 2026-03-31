@@ -1,0 +1,782 @@
+{
+  "version": "2.9",
+  "children": [
+    {
+      "id": "breadcrumb-baseline-board",
+      "type": "frame",
+      "name": "Breadcrumb Visual Baseline",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 1360,
+      "fill": "#F8F9FB",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 32,
+      "children": [
+        {
+          "id": "header",
+          "type": "frame",
+          "layout": "vertical",
+          "width": "fill_container",
+          "gap": 8,
+          "children": [
+            {
+              "id": "title",
+              "type": "text",
+              "content": "Breadcrumb Visual Baseline",
+              "fill": "#171B24",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "700"
+            },
+            {
+              "id": "subtitle",
+              "type": "text",
+              "content": "Standard, single-step, long-label, constrained, and dark-surface breadcrumb references in one review board.",
+              "fill": "#515967",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "400"
+            }
+          ]
+        },
+        {
+          "id": "row-1",
+          "type": "frame",
+          "layout": "horizontal",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "id": "standard-card",
+              "type": "frame",
+              "layout": "vertical",
+              "width": "fill_container",
+              "gap": 14,
+              "padding": 20,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E4E8EE"
+              },
+              "children": [
+                {
+                  "id": "standard-title",
+                  "type": "text",
+                  "content": "Standard path",
+                  "fill": "#171B24",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "standard-note",
+                  "type": "text",
+                  "content": "Canonical multi-step hierarchy with lighter ancestor links and a stronger current page.",
+                  "fill": "#69707D",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "400"
+                },
+                {
+                  "id": "standard-trail",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "standard-ancestor-1",
+                      "type": "text",
+                      "content": "Workspace",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "standard-separator-1",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "standard-ancestor-2",
+                      "type": "text",
+                      "content": "Settings",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "standard-separator-2",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "standard-current",
+                      "type": "text",
+                      "content": "Members",
+                      "fill": "#171B24",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "single-card",
+              "type": "frame",
+              "layout": "vertical",
+              "width": "fill_container",
+              "gap": 14,
+              "padding": 20,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E4E8EE"
+              },
+              "children": [
+                {
+                  "id": "single-title",
+                  "type": "text",
+                  "content": "Single-step path",
+                  "fill": "#171B24",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "single-note",
+                  "type": "text",
+                  "content": "Valid path with no redundant separators and only the current page visible.",
+                  "fill": "#69707D",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "400"
+                },
+                {
+                  "id": "single-trail",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "single-current",
+                      "type": "text",
+                      "content": "Billing",
+                      "fill": "#171B24",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "constrained-card",
+              "type": "frame",
+              "layout": "vertical",
+              "width": "fill_container",
+              "gap": 14,
+              "padding": 20,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E4E8EE"
+              },
+              "children": [
+                {
+                  "id": "constrained-title",
+                  "type": "text",
+                  "content": "Constrained width",
+                  "fill": "#171B24",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "constrained-note",
+                  "type": "text",
+                  "content": "Middle hierarchy collapses to a summary while the start and current steps stay readable.",
+                  "fill": "#69707D",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "400"
+                },
+                {
+                  "id": "constrained-trail",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "constrained-start",
+                      "type": "text",
+                      "content": "Workspace",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "constrained-separator-1",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "constrained-summary",
+                      "type": "text",
+                      "content": "...",
+                      "fill": "#8A92A0",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "constrained-separator-2",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "constrained-ancestor",
+                      "type": "text",
+                      "content": "Permission policies",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "constrained-separator-3",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "constrained-current",
+                      "type": "text",
+                      "content": "Review changes",
+                      "fill": "#171B24",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "row-2",
+          "type": "frame",
+          "layout": "horizontal",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "id": "long-label-card",
+              "type": "frame",
+              "layout": "vertical",
+              "width": "fill_container",
+              "gap": 14,
+              "padding": 20,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E4E8EE"
+              },
+              "children": [
+                {
+                  "id": "long-label-title",
+                  "type": "text",
+                  "content": "Long labels",
+                  "fill": "#171B24",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "long-label-note",
+                  "type": "text",
+                  "content": "Verbose IA labels still need a readable rhythm before any collapse policy applies.",
+                  "fill": "#69707D",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "400"
+                },
+                {
+                  "id": "long-label-trail",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "long-label-ancestor-1",
+                      "type": "text",
+                      "content": "Organization directory",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "long-label-separator-1",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "long-label-ancestor-2",
+                      "type": "text",
+                      "content": "Partner billing contacts",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "long-label-separator-2",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "long-label-current",
+                      "type": "text",
+                      "content": "Quarterly renewal summary",
+                      "fill": "#171B24",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "deep-path-card",
+              "type": "frame",
+              "layout": "vertical",
+              "width": "fill_container",
+              "gap": 14,
+              "padding": 20,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#E4E8EE"
+              },
+              "children": [
+                {
+                  "id": "deep-path-title",
+                  "type": "text",
+                  "content": "Deep hierarchy review",
+                  "fill": "#171B24",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "deep-path-note",
+                  "type": "text",
+                  "content": "A second collapsed example helps compare summary readability against a denser enterprise path.",
+                  "fill": "#69707D",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "400"
+                },
+                {
+                  "id": "deep-path-trail",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "deep-path-start",
+                      "type": "text",
+                      "content": "Console",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "deep-path-separator-1",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "deep-path-summary",
+                      "type": "text",
+                      "content": "...",
+                      "fill": "#8A92A0",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "deep-path-separator-2",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "deep-path-ancestor",
+                      "type": "text",
+                      "content": "Usage policy",
+                      "fill": "#69707D",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "deep-path-separator-3",
+                      "type": "text",
+                      "content": ">",
+                      "fill": "#A4ACB9",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "id": "deep-path-current",
+                      "type": "text",
+                      "content": "Retention exceptions",
+                      "fill": "#171B24",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "role-legend-card",
+          "type": "frame",
+          "layout": "vertical",
+          "width": "fill_container",
+          "gap": 12,
+          "padding": 20,
+          "fill": "#FFFFFF",
+          "cornerRadius": 16,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#E4E8EE"
+          },
+          "children": [
+            {
+              "id": "role-legend-title",
+              "type": "text",
+              "content": "Role styling key",
+              "fill": "#171B24",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "id": "role-legend-row",
+              "type": "frame",
+              "layout": "horizontal",
+              "width": "fill_container",
+              "gap": 20,
+              "children": [
+                {
+                  "id": "legend-ancestor",
+                  "type": "text",
+                  "content": "Ancestor",
+                  "fill": "#69707D",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "id": "legend-separator",
+                  "type": "text",
+                  "content": "Separator",
+                  "fill": "#A4ACB9",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "id": "legend-summary",
+                  "type": "text",
+                  "content": "Collapsed summary",
+                  "fill": "#8A92A0",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "id": "legend-current",
+                  "type": "text",
+                  "content": "Current page",
+                  "fill": "#171B24",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "row-3",
+          "type": "frame",
+          "layout": "horizontal",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "id": "dark-surface-card",
+              "type": "frame",
+              "layout": "vertical",
+              "width": "fill_container",
+              "gap": 14,
+              "padding": 20,
+              "fill": "#171B24",
+              "cornerRadius": 16,
+              "children": [
+                {
+                  "id": "dark-surface-title",
+                  "type": "text",
+                  "content": "Dark surface review",
+                  "fill": "#F8F9FB",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "id": "dark-surface-note",
+                  "type": "text",
+                  "content": "Check that ancestor, summary, separator, and current-page contrast still read as distinct roles on inverse surfaces.",
+                  "fill": "#D2D8E2",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "400"
+                },
+                {
+                  "id": "dark-surface-standard",
+                  "type": "frame",
+                  "layout": "vertical",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": 16,
+                  "fill": "#242A35",
+                  "cornerRadius": 12,
+                  "children": [
+                    {
+                      "id": "dark-standard-label",
+                      "type": "text",
+                      "content": "Standard path on dark",
+                      "fill": "#F8F9FB",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "id": "dark-standard-trail",
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "dark-standard-ancestor-1",
+                          "type": "text",
+                          "content": "Workspace",
+                          "fill": "#D2D8E2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-standard-separator-1",
+                          "type": "text",
+                          "content": ">",
+                          "fill": "#9AA3B2",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-standard-ancestor-2",
+                          "type": "text",
+                          "content": "Settings",
+                          "fill": "#D2D8E2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-standard-separator-2",
+                          "type": "text",
+                          "content": ">",
+                          "fill": "#9AA3B2",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-standard-current",
+                          "type": "text",
+                          "content": "Members",
+                          "fill": "#F8F9FB",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "dark-surface-constrained",
+                  "type": "frame",
+                  "layout": "vertical",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "padding": 16,
+                  "fill": "#242A35",
+                  "cornerRadius": 12,
+                  "children": [
+                    {
+                      "id": "dark-constrained-label",
+                      "type": "text",
+                      "content": "Collapsed path on dark",
+                      "fill": "#F8F9FB",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "id": "dark-constrained-trail",
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "dark-constrained-start",
+                          "type": "text",
+                          "content": "Console",
+                          "fill": "#D2D8E2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-constrained-separator-1",
+                          "type": "text",
+                          "content": ">",
+                          "fill": "#9AA3B2",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-constrained-summary",
+                          "type": "text",
+                          "content": "...",
+                          "fill": "#9AA3B2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-constrained-separator-2",
+                          "type": "text",
+                          "content": ">",
+                          "fill": "#9AA3B2",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-constrained-ancestor",
+                          "type": "text",
+                          "content": "Usage policy",
+                          "fill": "#D2D8E2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-constrained-separator-3",
+                          "type": "text",
+                          "content": ">",
+                          "fill": "#9AA3B2",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "id": "dark-constrained-current",
+                          "type": "text",
+                          "content": "Retention exceptions",
+                          "fill": "#F8F9FB",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -113,6 +113,7 @@
 
 - **Parity Impact**: [Describe whether the feature changes shared parity expectations]
 - **Approved Exceptions**: [List any planned platform exceptions with rationale, or state "None"]
+- **Parity Metadata Location**: [Name the canonical parity metadata location, typically the same `spec/components/...` or `spec/patterns/...` artifact unless a shared file under `spec/metadata/parity/` is justified]
 - **Primitive / Headless Strategy**: [State whether the change belongs in React primitives, public components, or both, and whether native HTML or Radix is used]
 
 ### Key Entities *(include if feature involves data)*

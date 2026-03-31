@@ -5,5 +5,6 @@ export { default as radius } from "../data/radius/core.json";
 export { default as typography } from "../data/typography/core.json";
 export { default as coreComponents } from "../data/components/core.json";
 export { default as buttonTokens } from "../data/components/button.json";
+export { default as breadcrumbTokens } from "../data/components/breadcrumb.json";
 export { default as lightTheme } from "../data/themes/light.json";
 export { default as darkTheme } from "../data/themes/dark.json";

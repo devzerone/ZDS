@@ -8,6 +8,7 @@ const files = {
   semantic: resolve(root, "packages/tokens/data/color/semantic.json"),
   components: resolve(root, "packages/tokens/data/components/core.json"),
   buttonComponents: resolve(root, "packages/tokens/data/components/button.json"),
+  breadcrumbComponents: resolve(root, "packages/tokens/data/components/breadcrumb.json"),
   typography: resolve(root, "packages/tokens/data/typography/core.json"),
   spacing: resolve(root, "packages/tokens/data/spacing/core.json"),
   radius: resolve(root, "packages/tokens/data/radius/core.json"),
@@ -60,6 +61,7 @@ const palette = loadJson("palette", files.palette);
 const semantic = loadJson("semantic", files.semantic);
 const components = loadJson("components", files.components);
 const buttonComponents = loadJson("button components", files.buttonComponents);
+const breadcrumbComponents = loadJson("breadcrumb components", files.breadcrumbComponents);
 const typography = loadJson("typography", files.typography);
 const spacing = loadJson("spacing", files.spacing);
 const radius = loadJson("radius", files.radius);
@@ -170,6 +172,39 @@ if (buttonComponents?.sizes) {
     }
     if (!typographyKeys.has(sizeMap.labelTypography)) {
       errors.push(`Button size ${sizeName} must reference an existing typography token`);
+    }
+  }
+}
+
+if (breadcrumbComponents) {
+  const semanticKeys = new Set(Object.keys(semantic?.tokens ?? {}));
+  const spacingKeys = new Set(Object.keys(spacing?.tokens ?? {}));
+  const typographyKeys = new Set(Object.keys(typography?.tokens ?? {}));
+
+  for (const [roleName, roleMap] of Object.entries(breadcrumbComponents.itemRoles ?? {})) {
+    if (!ensureEnglishLike(roleName)) {
+      errors.push(`Breadcrumb role name must be English-like: ${roleName}`);
+    }
+    for (const tokenRef of Object.values(roleMap)) {
+      if (typeof tokenRef !== "string" || !semanticKeys.has(tokenRef)) {
+        errors.push(`Breadcrumb role ${roleName} must reference existing semantic tokens`);
+      }
+    }
+  }
+
+  if (breadcrumbComponents.separator?.foreground && !semanticKeys.has(breadcrumbComponents.separator.foreground)) {
+    errors.push("Breadcrumb separator token must reference an existing semantic token");
+  }
+
+  for (const tokenRef of Object.values(breadcrumbComponents.layout ?? {})) {
+    if (typeof tokenRef !== "string" || !spacingKeys.has(tokenRef)) {
+      errors.push("Breadcrumb layout tokens must reference existing spacing tokens");
+    }
+  }
+
+  for (const tokenRef of Object.values(breadcrumbComponents.typography ?? {})) {
+    if (typeof tokenRef !== "string" || !typographyKeys.has(tokenRef)) {
+      errors.push("Breadcrumb typography tokens must reference existing typography tokens");
     }
   }
 }
