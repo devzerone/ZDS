@@ -150,5 +150,56 @@
       "owner": "design-system-windows",
       "remediationTarget": "future-release"
     }
+  },
+  "tokenDelivery": {
+    "sourceArtifacts": {
+      "spec": "spec/components/button/button.spec.json",
+      "componentTokens": "packages/tokens/data/components/button.json",
+      "componentExports": "packages/tokens/src/components/button.ts",
+      "generatorEntry": "packages/tokens/scripts/build-platform-tokens.mjs"
+    },
+    "generatedArtifacts": {
+      "swiftui": [
+        "packages/tokens/generated/swiftui/ZDSFoundationTokens.swift",
+        "packages/tokens/generated/swiftui/ZDSButtonTokens.swift"
+      ],
+      "kotlin": [
+        "packages/tokens/generated/kotlin/ZDSFoundationTokens.kt",
+        "packages/tokens/generated/kotlin/ZDSButtonTokens.kt"
+      ],
+      "windows": [
+        "packages/tokens/generated/windows/FoundationTokens.xaml",
+        "packages/tokens/generated/windows/ButtonTokens.xaml"
+      ]
+    },
+    "nativeConsumers": {
+      "swiftui": ["packages/swiftui/components/Button.swift"],
+      "kotlin": ["packages/kotlin/components/Button.kt"],
+      "windows": [
+        "packages/windows/components/Button.xaml",
+        "packages/windows/components/Button.xaml.cs"
+      ]
+    },
+    "manualEditBoundaries": {
+      "generatedArtifacts": "Do not manually edit packages/tokens/generated/*; regenerate with pnpm generate:platform-tokens.",
+      "nativeSyncDirectories": "Do not manually edit package-local generated sync directories such as Generated/ or .generated/; they are refreshed during native package builds.",
+      "consumerCode": "Native Button consumer files may be edited to wire generated artifacts into the platform component surface."
+    },
+    "validationCommands": [
+      "pnpm generate:platform-tokens",
+      "pnpm validate:tokens",
+      "pnpm validate:native"
+    ]
+  },
+  "nativeRepresentationFallback": {
+    "policy": "explicit-parity-exception-or-unsupported-until-approved",
+    "recordLocation": "component-scoped parity metadata in spec/components/button/button.spec.json",
+    "requiredAction": "Record a shared parity exception before merge whenever a token category or semantic state has no approved native representation.",
+    "allowedFallback": "Treat the capability as unsupported until an approved native representation exists.",
+    "currentExceptions": {
+      "swiftui": ["hover", "pressed"],
+      "kotlin": ["hover", "pressed"],
+      "windows": []
+    }
   }
 }

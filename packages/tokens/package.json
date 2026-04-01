@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": false,
   "type": "module",
-  "files": ["dist"],
+  "files": ["dist", "generated"],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
@@ -67,13 +67,17 @@
       "types": "./dist/components/breadcrumb.d.ts",
       "default": "./dist/components/breadcrumb.js"
     },
+    "./generated/swiftui": "./generated/swiftui/ZDSButtonTokens.swift",
+    "./generated/kotlin": "./generated/kotlin/ZDSButtonTokens.kt",
+    "./generated/windows": "./generated/windows/ButtonTokens.xaml",
     "./themes": {
       "types": "./dist/themes.d.ts",
       "default": "./dist/themes.js"
     }
   },
   "scripts": {
-    "build": "pnpm build:tokens-css && node ./scripts/build-package.mjs",
-    "build:tokens-css": "node ./scripts/build-tokens-css.mjs"
+    "build": "pnpm build:tokens-css && pnpm build:platform-tokens && node ./scripts/build-package.mjs",
+    "build:tokens-css": "node ./scripts/build-tokens-css.mjs",
+    "build:platform-tokens": "node ./scripts/build-platform-tokens.mjs"
   }
 }

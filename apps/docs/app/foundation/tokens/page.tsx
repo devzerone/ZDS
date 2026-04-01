@@ -41,7 +41,27 @@ const tokenExamples = [
 const tokenTable = [
   ["naming", "토큰 식별자는 영어로 유지하고 설명 문장은 한국어로 제공합니다."],
   ["consumption", "UI 구현에서는 raw palette보다 semantic token을 먼저 소비합니다."],
-  ["theme", "light / dark는 같은 semantic 의미를 유지한 채 참조 step만 바뀝니다."]
+  ["theme", "light / dark는 같은 semantic 의미를 유지한 채 참조 step만 바뀝니다."],
+  ["native-delivery", "native package는 packages/tokens/generated 아래의 platform-native artifact를 소비합니다."]
+] as const;
+
+const platformUsage = [
+  [
+    "React",
+    "npm 패키지 설치 후 토큰 CSS를 한 번 연결하고 Button, Breadcrumb 같은 컴포넌트를 바로 import해서 사용합니다."
+  ],
+  [
+    "SwiftUI",
+    "Swift Package Manager로 ZDSSwiftUI를 추가한 뒤 ZDSButton을 화면에 배치합니다. 생성된 Swift 토큰은 패키지 내부에서 이미 연결됩니다."
+  ],
+  [
+    "Kotlin",
+    "Maven package인 dev.zerone.zds:zds-kotlin을 추가한 뒤 zdsButtonStyle 같은 API로 Compose 또는 뷰 레이어에서 스타일 값을 소비합니다."
+  ],
+  [
+    "Windows",
+    "NuGet package인 ZDS.Windows를 추가한 뒤 Button 컨트롤과 generated ResourceDictionary를 사용해 WinUI 화면에 적용합니다."
+  ]
 ] as const;
 
 export default function FoundationTokensPage() {
@@ -115,6 +135,33 @@ export default function FoundationTokensPage() {
             <p>토큰 문서를 읽을 때 계속 확인하게 되는 운영 규칙입니다.</p>
             <DocsPropsTable columns={["Topic", "Description"]} rows={tokenTable} />
           </article>
+
+          <article className="docs-panel" id="native-token-delivery">
+            <h2>Native token delivery</h2>
+            <p>
+              Native token delivery는 shared JSON source를 한 번 normalize한 뒤, SwiftUI, Kotlin, Windows가 각자
+              platform-native artifact를 소비하도록 연결하는 경로입니다.
+            </p>
+            <DocsPropertyList
+              items={[
+                ["spec/components/button/button.spec.json", "Button contract와 parity metadata, fallback policy를 정의합니다."],
+                ["packages/tokens/scripts/build-platform-tokens.mjs", "공통 normalization과 platform artifact generation entrypoint입니다."],
+                ["packages/tokens/generated/swiftui/ZDSButtonTokens.swift", "SwiftUI generated artifact ownership root입니다."],
+                ["packages/tokens/generated/kotlin/ZDSButtonTokens.kt", "Kotlin generated artifact ownership root입니다."],
+                ["packages/tokens/generated/windows/ButtonTokens.xaml", "Windows generated artifact ownership root입니다."],
+                ["specs/007-native-token-delivery/quickstart.md", "review와 regeneration 순서를 설명합니다."]
+              ]}
+            />
+          </article>
+
+          <article className="docs-panel" id="platform-consumption">
+            <h2>Platform consumption</h2>
+            <p>
+              사용자 입장에서는 각 플랫폼 패키지를 설치한 뒤 공용 semantic contract를 따르는 API를 그대로 사용하면
+              됩니다. generated artifact 연결은 패키지 내부 책임으로 숨겨집니다.
+            </p>
+            <DocsPropertyList items={platformUsage} />
+          </article>
         </div>
 
         <DocsRail>
@@ -135,6 +182,15 @@ export default function FoundationTokensPage() {
             <p><code>packages/tokens/data/color/semantic.json</code></p>
             <p><code>packages/tokens/data/themes/light.json</code></p>
             <p><code>packages/tokens/data/components/core.json</code></p>
+            <p><code>packages/tokens/generated/swiftui/ZDSButtonTokens.swift</code></p>
+            <p><code>packages/tokens/generated/kotlin/ZDSButtonTokens.kt</code></p>
+            <p><code>packages/tokens/generated/windows/ButtonTokens.xaml</code></p>
+          </DocsRailCard>
+
+          <DocsRailCard title="Validation commands" tone="solid">
+            <p><code>pnpm generate:platform-tokens</code></p>
+            <p><code>pnpm validate:tokens</code></p>
+            <p><code>pnpm validate:native</code></p>
           </DocsRailCard>
         </DocsRail>
       </section>

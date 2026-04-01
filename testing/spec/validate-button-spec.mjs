@@ -81,6 +81,51 @@ if (spec) {
       }
     }
   }
+
+  const generatedArtifacts = spec.tokenDelivery?.generatedArtifacts;
+  const nativeConsumers = spec.tokenDelivery?.nativeConsumers;
+  const manualEditBoundaries = spec.tokenDelivery?.manualEditBoundaries;
+  const validationCommands = spec.tokenDelivery?.validationCommands;
+
+  if (!generatedArtifacts?.swiftui?.includes("packages/tokens/generated/swiftui/ZDSButtonTokens.swift")) {
+    errors.push("Button spec must document the SwiftUI generated button artifact path");
+  }
+  if (!generatedArtifacts?.kotlin?.includes("packages/tokens/generated/kotlin/ZDSButtonTokens.kt")) {
+    errors.push("Button spec must document the Kotlin generated button artifact path");
+  }
+  if (!generatedArtifacts?.windows?.includes("packages/tokens/generated/windows/ButtonTokens.xaml")) {
+    errors.push("Button spec must document the Windows generated button artifact path");
+  }
+
+  if (!nativeConsumers?.swiftui?.includes("packages/swiftui/components/Button.swift")) {
+    errors.push("Button spec must document the SwiftUI consumer path");
+  }
+  if (!nativeConsumers?.kotlin?.includes("packages/kotlin/components/Button.kt")) {
+    errors.push("Button spec must document the Kotlin consumer path");
+  }
+  if (!nativeConsumers?.windows?.includes("packages/windows/components/Button.xaml.cs")) {
+    errors.push("Button spec must document the Windows consumer path");
+  }
+
+  for (const key of ["generatedArtifacts", "nativeSyncDirectories", "consumerCode"]) {
+    if (!manualEditBoundaries?.[key]) {
+      errors.push(`Button spec must describe manual edit boundary: ${key}`);
+    }
+  }
+
+  for (const command of ["pnpm generate:platform-tokens", "pnpm validate:tokens", "pnpm validate:native"]) {
+    if (!validationCommands?.includes(command)) {
+      errors.push(`Button spec must include validation command: ${command}`);
+    }
+  }
+
+  const fallback = spec.nativeRepresentationFallback;
+  if (fallback?.policy !== "explicit-parity-exception-or-unsupported-until-approved") {
+    errors.push("Button spec must declare the native representation fallback policy");
+  }
+  if (!fallback?.requiredAction || !fallback?.allowedFallback || !fallback?.recordLocation) {
+    errors.push("Button spec must document fallback action, allowed fallback, and record location");
+  }
 }
 
 if (spec && tokens) {

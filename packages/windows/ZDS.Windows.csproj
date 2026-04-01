@@ -22,6 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include=".generated/FoundationTokens.xaml">
+      <Link>Generated/FoundationTokens.xaml</Link>
+    </Page>
+    <Page Include=".generated/ButtonTokens.xaml">
+      <Link>Generated/ButtonTokens.xaml</Link>
+    </Page>
     <Page Include="components/Button.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

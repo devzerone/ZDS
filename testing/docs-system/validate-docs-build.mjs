@@ -12,6 +12,23 @@ if (!existsSync(docsDist)) {
 
 const docsSurfaces = [
   {
+    name: "foundation-tokens",
+    contentPath: resolve(root, "apps/docs/content/foundation/tokens.mdx"),
+    pagePath: resolve(root, "apps/docs/app/foundation/tokens/page.tsx"),
+    requiredTerms: [
+      "native token delivery",
+      "packages/tokens/generated/swiftui/ZDSButtonTokens.swift",
+      "packages/tokens/generated/kotlin/ZDSButtonTokens.kt",
+      "packages/tokens/generated/windows/ButtonTokens.xaml",
+      "pnpm generate:platform-tokens"
+    ],
+    requiredRefs: [
+      "spec/components/button/button.spec.json",
+      "packages/tokens/scripts/build-platform-tokens.mjs",
+      "specs/007-native-token-delivery/quickstart.md"
+    ]
+  },
+  {
     name: "button",
     contentPath: resolve(root, "apps/docs/content/components/button.mdx"),
     pagePath: resolve(root, "apps/docs/app/components/button/page.tsx"),

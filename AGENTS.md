@@ -6,6 +6,8 @@ Auto-generated from all feature plans. Last updated: 2026-03-31
 - TypeScript 5.9, React 19.2, Next.js 15 App Router, MDX, JSON contracts, JSON design tokens, Markdown planning artifacts + pnpm workspace, Turbo repo orchestration, `@zds/tokens`, `@zds/react`, existing docs shell components, Storybook 10 preview pipeline (006-breadcrumb-component)
 - repository files under `specs/006-breadcrumb-component/`, `spec/components/breadcrumb/`, `packages/tokens/data/components/`, `pen/components/breadcrumb/`, `packages/react/src/primitives/breadcrumb/`, `packages/react/src/components/breadcrumb/`, `apps/docs/`, and `testing/` (006-breadcrumb-component)
 - Shared repository conventions: JSON component contracts under `spec/`, JSON design tokens under `packages/tokens/data/`, Pencil baselines under `pen/`, validation scripts under `testing/`, and workspace packages `@zds/tokens`, `@zds/react`, `@zds/foundation`, plus placeholder platform roots for SwiftUI, Kotlin, and Windows parity planning
+- TypeScript 5.9 build scripts, JSON token sources, Swift 5.9 package surface, Kotlin 2.0/JVM 17 package surface, and .NET 8 WinUI package surface + pnpm workspace, Turbo repo orchestration, `@zds/tokens`, existing JSON token files in `packages/tokens/data/`, native package roots in `packages/swiftui/`, `packages/kotlin/`, and `packages/windows/` (007-native-token-delivery)
+- repository files under `specs/007-native-token-delivery/`, `packages/tokens/`, `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`, `apps/docs/`, and `testing/` (007-native-token-delivery)
 
 ## Project Structure
 
@@ -82,11 +84,11 @@ Operations structure
   prefer native semantic HTML when it already satisfies the contract
 
 ## Recent Changes
+- 007-native-token-delivery: Added TypeScript 5.9 build scripts, JSON token sources, Swift 5.9 package surface, Kotlin 2.0/JVM 17 package surface, and .NET 8 WinUI package surface + pnpm workspace, Turbo repo orchestration, `@zds/tokens`, existing JSON token files in `packages/tokens/data/`, native package roots in `packages/swiftui/`, `packages/kotlin/`, and `packages/windows/`
 - 006-breadcrumb-component: Added TypeScript 5.9, React 19.2, Next.js 15 App Router, MDX, JSON contracts, JSON design tokens, Markdown planning artifacts + pnpm workspace, Turbo repo orchestration, `@zds/tokens`, `@zds/react`, existing docs shell components, Storybook 10 preview pipeline
 
 - 004-next-docs-storybook: Added Next.js docs, Storybook previews, and docs
   validation workflows
-- 003-button-component: Added Button contract, React implementation, docs, and
   validation coverage
   validation tooling
 

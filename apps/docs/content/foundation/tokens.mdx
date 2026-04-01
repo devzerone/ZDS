@@ -26,3 +26,110 @@ export const meta = {
 - 라이트 테마는 neutral 기반 읽기성과 brand 중심 강조를 기본으로 합니다.
 - 다크 테마는 깊은 neutral surface 위에 밝은 foreground와 완화된 brand/emphasis를 배치합니다.
 - 같은 semantic 의미는 두 테마에서 유지되고, 실제 참조 step만 달라집니다.
+
+## Native token delivery
+
+native token delivery는 shared JSON token source를 platform-native artifact로 연결하는 공식 경로입니다.
+
+- source of truth: `spec/components/button/button.spec.json`
+- generation entry: `packages/tokens/scripts/build-platform-tokens.mjs`
+- generated SwiftUI artifact: `packages/tokens/generated/swiftui/ZDSButtonTokens.swift`
+- generated Kotlin artifact: `packages/tokens/generated/kotlin/ZDSButtonTokens.kt`
+- generated Windows artifact: `packages/tokens/generated/windows/ButtonTokens.xaml`
+- consumer surfaces: `packages/swiftui/components/Button.swift`, `packages/kotlin/components/Button.kt`, `packages/windows/components/Button.xaml.cs`
+- workflow command: `pnpm generate:platform-tokens`
+- review guide: `specs/007-native-token-delivery/quickstart.md`
+
+generated artifact는 `packages/tokens/generated/`가 ownership root이며, native package의 `Generated/` 또는 `.generated/` 같은 sync 디렉터리는 build hook이 동기화하는 소비 전용 산출물입니다.
+
+## 플랫폼별 사용법
+
+이 섹션은 native validation이 모두 통과했다고 가정한 사용자용 소비 경로를 설명합니다. 핵심 원칙은 같습니다. 사용자는 플랫폼 패키지를 설치하고 public API만 사용하며, generated token artifact 연결은 패키지 내부 구현으로 숨겨집니다.
+
+### React
+
+React 사용자는 스타일이 적용된 컴포넌트를 바로 소비할 수 있습니다.
+
+```tsx
+pnpm add @zds/react @zds/tokens
+```
+
+```tsx
+import "@zds/tokens/css";
+import { Button, Breadcrumb } from "@zds/react";
+
+export function Example() {
+  return <Button variant="primary">Save</Button>;
+}
+```
+
+- `@zds/react`는 public component API를 제공합니다.
+- `@zds/tokens`는 semantic token CSS entry를 제공합니다.
+- 앱에서는 토큰 CSS를 한 번만 전역으로 연결하면 됩니다.
+
+### SwiftUI
+
+SwiftUI 사용자는 Swift Package Manager로 `ZDSSwiftUI`를 추가하고 `ZDSButton`을 바로 사용할 수 있습니다.
+
+```swift
+import ZDSSwiftUI
+import SwiftUI
+
+struct ExampleView: View {
+  var body: some View {
+    ZDSButton(
+      label: "Continue",
+      variant: .primary,
+      size: .medium,
+      state: .default
+    ) {
+      print("Pressed")
+    }
+  }
+}
+```
+
+- 패키지 product 이름은 `ZDSSwiftUI`입니다.
+- 생성된 Swift 토큰은 패키지 내부 `Generated/` 소스에서 자동으로 연결됩니다.
+- 사용자는 별도 token 파일을 직접 import하지 않습니다.
+
+### Kotlin
+
+Kotlin 사용자는 GitHub Packages에서 `dev.zerone.zds:zds-kotlin`을 추가하고 public style API를 사용합니다.
+
+```kotlin
+import zds.button.ZDSButtonSize
+import zds.button.ZDSButtonState
+import zds.button.ZDSButtonVariant
+import zds.button.zdsButtonStyle
+
+val style = zdsButtonStyle(
+    variant = ZDSButtonVariant.PRIMARY,
+    size = ZDSButtonSize.MEDIUM,
+    state = ZDSButtonState.DEFAULT
+)
+```
+
+- artifact id는 `zds-kotlin`입니다.
+- 현재 public surface는 `Button` proof slice에 맞춘 style/model API를 제공합니다.
+- Compose나 Android view layer에서는 반환된 semantic style 값을 사용해 렌더링하면 됩니다.
+
+### Windows
+
+Windows 사용자는 NuGet으로 `ZDS.Windows`를 추가하고 WinUI 3에서 `Button` control을 사용합니다.
+
+```xml
+<Page
+    x:Class="ExampleApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:zds="using:ZDS.Components">
+    <Grid>
+        <zds:Button />
+    </Grid>
+</Page>
+```
+
+- package id는 `ZDS.Windows`입니다.
+- generated `FoundationTokens.xaml`과 `ButtonTokens.xaml`은 패키지 안에서 merge됩니다.
+- 사용자는 generated resource dictionary 경로를 직접 관리하지 않아도 됩니다.

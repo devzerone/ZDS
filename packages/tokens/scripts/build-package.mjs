@@ -14,5 +14,7 @@ await execFileAsync("pnpm", ["exec", "tsc", "-p", "tsconfig.build.json"], {
   cwd: packageDir
 });
 await mkdir(resolve(distDir, "data"), { recursive: true });
+await mkdir(resolve(distDir, "generated"), { recursive: true });
 await cp(resolve(packageDir, "data"), resolve(distDir, "data"), { recursive: true });
+await cp(resolve(packageDir, "generated"), resolve(distDir, "generated"), { recursive: true });
 await cp(resolve(packageDir, "tokens.css"), resolve(distDir, "tokens.css"));

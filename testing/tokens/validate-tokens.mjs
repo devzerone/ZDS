@@ -1,5 +1,6 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
+import { generatePlatformArtifacts } from "../../packages/tokens/scripts/build-platform-tokens.mjs";
 
 const root = process.cwd();
 
@@ -212,6 +213,23 @@ if (breadcrumbComponents) {
 for (const [name, json] of Object.entries({ typography, spacing, radius })) {
   if (!json?.tokens || Object.keys(json.tokens).length === 0) {
     errors.push(`${name} tokens must not be empty`);
+  }
+}
+
+const generatedArtifacts = await generatePlatformArtifacts();
+
+for (const [platform, artifactMap] of Object.entries(generatedArtifacts)) {
+  for (const [fileName, expectedContents] of Object.entries(artifactMap)) {
+    const artifactPath = resolve(root, "packages/tokens/generated", platform, fileName);
+    if (!existsSync(artifactPath)) {
+      errors.push(`Generated artifact missing: ${artifactPath}`);
+      continue;
+    }
+
+    const actualContents = readFileSync(artifactPath, "utf8");
+    if (actualContents !== expectedContents) {
+      errors.push(`Generated artifact is stale or manually edited: ${artifactPath}`);
+    }
   }
 }
 

@@ -2,33 +2,35 @@ name: Token Validation
 
 on:
   pull_request:
+    paths:
+      - "packages/tokens/**"
+      - "testing/tokens/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/token-validation.yml"
+      - ".github/workflows/reusable-pnpm-command.yml"
+      - ".github/actions/setup-pnpm/**"
   push:
     branches:
       - main
+    paths:
+      - "packages/tokens/**"
+      - "testing/tokens/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/token-validation.yml"
+      - ".github/workflows/reusable-pnpm-command.yml"
+      - ".github/actions/setup-pnpm/**"
+
+concurrency:
+  group: token-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate-tokens:
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/reusable-pnpm-command.yml
     permissions:
       contents: read
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.30.3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Validate design tokens
-        run: pnpm validate:tokens
+    with:
+      runner: ubuntu-latest
+      command: pnpm validate:tokens

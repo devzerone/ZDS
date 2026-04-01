@@ -37,6 +37,11 @@ export const siteNav: SiteNavSection[] = [
         label: "Tokens",
         href: "/foundation/tokens",
         description: "Semantic token structure, usage rules, and theme interpretation."
+      },
+      {
+        label: "Native delivery",
+        href: "/foundation/tokens",
+        description: "Generated platform artifact paths, consumer boundaries, and validation workflow."
       }
     ]
   },

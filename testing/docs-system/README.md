@@ -13,3 +13,4 @@
 - canonical docs backlink and preview link integrity
 - required button variant, size, and state coverage
 - shared spec and token source reference coverage
+- native token delivery path coverage across source, generated artifacts, consumers, and validation commands
