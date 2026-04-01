@@ -182,7 +182,7 @@
     },
     "manualEditBoundaries": {
       "generatedArtifacts": "Do not manually edit packages/tokens/generated/*; regenerate with pnpm generate:platform-tokens.",
-      "nativeSyncDirectories": "Do not manually edit package-local .generated directories; they are refreshed during native package builds.",
+      "nativeSyncDirectories": "Do not manually edit package-local generated sync directories such as Generated/ or .generated/; they are refreshed during native package builds.",
       "consumerCode": "Native Button consumer files may be edited to wire generated artifacts into the platform component surface."
     },
     "validationCommands": [

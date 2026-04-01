@@ -19,7 +19,12 @@ const renderers = {
 };
 
 function parseArgs(argv) {
-  const args = { platforms: Object.keys(renderers), syncConsumerRoot: null, validateConsumer: false };
+  const args = {
+    platforms: Object.keys(renderers),
+    syncConsumerRoot: null,
+    syncSubdir: ".generated",
+    validateConsumer: false
+  };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--platform") {
@@ -27,6 +32,9 @@ function parseArgs(argv) {
       index += 1;
     } else if (arg === "--sync-consumer-root") {
       args.syncConsumerRoot = resolve(process.cwd(), argv[index + 1]);
+      index += 1;
+    } else if (arg === "--sync-subdir") {
+      args.syncSubdir = argv[index + 1];
       index += 1;
     } else if (arg === "--validate-consumer") {
       args.validateConsumer = true;
@@ -47,8 +55,8 @@ async function writeArtifacts(platform, artifactMap) {
   return platformDir;
 }
 
-async function syncConsumer(platform, consumerRoot) {
-  const consumerGeneratedDir = resolve(consumerRoot, ".generated");
+async function syncConsumer(platform, consumerRoot, syncSubdir) {
+  const consumerGeneratedDir = resolve(consumerRoot, syncSubdir);
   const sourceDir = resolve(generatedDir, platform);
   await rm(consumerGeneratedDir, { recursive: true, force: true });
   await mkdir(consumerGeneratedDir, { recursive: true });
@@ -56,8 +64,8 @@ async function syncConsumer(platform, consumerRoot) {
   return consumerGeneratedDir;
 }
 
-async function validateConsumerSync(platform, consumerRoot) {
-  const consumerGeneratedDir = resolve(consumerRoot, ".generated");
+async function validateConsumerSync(platform, consumerRoot, syncSubdir) {
+  const consumerGeneratedDir = resolve(consumerRoot, syncSubdir);
   if (!existsSync(consumerGeneratedDir)) {
     throw new Error(`Missing synced consumer directory for ${platform}: ${consumerGeneratedDir}`);
   }
@@ -93,14 +101,14 @@ const artifactsByPlatform = await generatePlatformArtifacts(args.platforms);
 for (const platform of args.platforms) {
   await writeArtifacts(platform, artifactsByPlatform[platform]);
   if (args.syncConsumerRoot) {
-    await syncConsumer(platform, args.syncConsumerRoot);
+    await syncConsumer(platform, args.syncConsumerRoot, args.syncSubdir);
     if (args.validateConsumer) {
-      await validateConsumerSync(platform, args.syncConsumerRoot);
+      await validateConsumerSync(platform, args.syncConsumerRoot, args.syncSubdir);
     }
   }
 }
 
 console.log(`Generated platform token artifacts for: ${args.platforms.join(", ")}`);
 if (args.syncConsumerRoot) {
-  console.log(`Synced consumer artifacts to: ${resolve(args.syncConsumerRoot, ".generated")}`);
+  console.log(`Synced consumer artifacts to: ${resolve(args.syncConsumerRoot, args.syncSubdir)}`);
 }

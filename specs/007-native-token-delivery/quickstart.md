@@ -11,7 +11,7 @@
 1. `specs/007-native-token-delivery/spec.md`, `plan.md`, `research.md`에서 source ownership, generation path, validation boundary를 먼저 확정한다.
 2. `packages/tokens/data/`에서 native delivery에 필요한 foundation token과 component token 범위를 확인한다.
 3. `packages/tokens/scripts/`와 필요 시 `packages/tokens/src/`에서 shared token normalization 및 platform artifact generation 구조를 정의한다.
-4. `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`에서 generated artifact를 소비할 package boundary와 수동 편집 경계를 정한다. native package의 `.generated/` 디렉터리는 동기화 산출물이며 source of truth가 아니다.
+4. `packages/swiftui/`, `packages/kotlin/`, `packages/windows/`에서 generated artifact를 소비할 package boundary와 수동 편집 경계를 정한다. native package의 `Generated/` 또는 `.generated/` 같은 sync 디렉터리는 동기화 산출물이며 source of truth가 아니다.
 5. `apps/docs/`에 contributor-facing native token delivery guidance가 필요한지 판단하고 필요한 경우 반영한다.
 6. `testing/tokens/`와 native package validation entrypoints에 artifact freshness 및 consumption 검증 흐름을 추가한다.
 

@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prebuild": "node ../tokens/scripts/build-platform-tokens.mjs --platform swiftui --sync-consumer-root .",
+    "prebuild": "node ../tokens/scripts/build-platform-tokens.mjs --platform swiftui --sync-consumer-root . --sync-subdir Generated",
     "build": "swift build",
-    "validate:tokens-consumption": "node ../tokens/scripts/build-platform-tokens.mjs --platform swiftui --sync-consumer-root . --validate-consumer"
+    "validate:tokens-consumption": "node ../tokens/scripts/build-platform-tokens.mjs --platform swiftui --sync-consumer-root . --sync-subdir Generated --validate-consumer"
   }
 }

@@ -18,7 +18,7 @@ let package = Package(
             name: "ZDSSwiftUI",
             path: ".",
             exclude: ["package.json", "README.md"],
-            sources: ["components", ".generated"]
+            sources: ["components", "Generated"]
         )
     ]
 )

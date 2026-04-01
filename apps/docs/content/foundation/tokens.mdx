@@ -40,7 +40,7 @@ native token delivery는 shared JSON token source를 platform-native artifact로
 - workflow command: `pnpm generate:platform-tokens`
 - review guide: `specs/007-native-token-delivery/quickstart.md`
 
-generated artifact는 `packages/tokens/generated/`가 ownership root이며, native package의 `.generated/` 디렉터리는 build hook이 동기화하는 소비 전용 산출물입니다.
+generated artifact는 `packages/tokens/generated/`가 ownership root이며, native package의 `Generated/` 또는 `.generated/` 같은 sync 디렉터리는 build hook이 동기화하는 소비 전용 산출물입니다.
 
 ## 플랫폼별 사용법
 
@@ -90,7 +90,7 @@ struct ExampleView: View {
 ```
 
 - 패키지 product 이름은 `ZDSSwiftUI`입니다.
-- 생성된 Swift 토큰은 패키지 내부 `.generated` 소스에서 자동으로 연결됩니다.
+- 생성된 Swift 토큰은 패키지 내부 `Generated/` 소스에서 자동으로 연결됩니다.
 - 사용자는 별도 token 파일을 직접 import하지 않습니다.
 
 ### Kotlin

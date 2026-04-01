@@ -25,7 +25,7 @@ packages.
 
 1. The repository MUST define one approved generation path from shared token source to platform-native token artifacts.
 2. The generation path MUST preserve shared semantic token names and component token concepts unless a platform exception is already approved in shared metadata.
-3. Generated artifacts MUST have clear repository locations and clear ownership boundaries distinguishing generated files from manually authored files. Package-local `.generated/` directories are sync outputs, not ownership roots.
+3. Generated artifacts MUST have clear repository locations and clear ownership boundaries distinguishing generated files from manually authored files. Package-local sync directories such as `Generated/` or `.generated/` are sync outputs, not ownership roots.
 
 ## Native Consumption Contract
 
