@@ -1,0 +1,108 @@
+name: Native Validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "packages/tokens/**"
+      - "packages/swiftui/**"
+      - "packages/kotlin/**"
+      - "packages/windows/**"
+      - "spec/components/button/**"
+      - "testing/tokens/**"
+      - "testing/spec/**"
+      - "specs/007-native-token-delivery/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/native-validation.yml"
+      - ".github/workflows/reusable-pnpm-command.yml"
+      - ".github/actions/setup-pnpm/**"
+  pull_request:
+    paths:
+      - "packages/tokens/**"
+      - "packages/swiftui/**"
+      - "packages/kotlin/**"
+      - "packages/windows/**"
+      - "spec/components/button/**"
+      - "testing/tokens/**"
+      - "testing/spec/**"
+      - "specs/007-native-token-delivery/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/native-validation.yml"
+      - ".github/workflows/reusable-pnpm-command.yml"
+      - ".github/actions/setup-pnpm/**"
+
+concurrency:
+  group: native-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-swiftui:
+    uses: ./.github/workflows/reusable-pnpm-command.yml
+    permissions:
+      contents: read
+    with:
+      runner: macos-latest
+      pnpm-version: "10"
+      command: pnpm --filter @zds/swiftui validate:tokens-consumption && pnpm --filter @zds/swiftui build
+
+  validate-kotlin:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Setup workspace
+        uses: ./.github/actions/setup-pnpm
+        with:
+          node-version: "22"
+          pnpm-version: "10"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.10
+
+      - name: Validate Kotlin token consumption
+        run: pnpm --filter @zds/kotlin validate:tokens-consumption
+
+      - name: Validate Kotlin package
+        run: pnpm --filter @zds/kotlin build
+
+  validate-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Setup workspace
+        uses: ./.github/actions/setup-pnpm
+        with:
+          node-version: "22"
+          pnpm-version: "10"
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: "[17.0,18.0)"
+
+      - name: Validate Windows token consumption
+        run: pnpm --filter @zds/windows validate:tokens-consumption
+
+      - name: Validate WinUI 3 package
+        run: pnpm --filter @zds/windows build

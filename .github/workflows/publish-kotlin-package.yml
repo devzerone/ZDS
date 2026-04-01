@@ -11,6 +11,10 @@ on:
         required: true
         type: string
 
+concurrency:
+  group: publish-kotlin-package-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -19,8 +23,11 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Setup workspace
+        uses: ./.github/actions/setup-pnpm
+        with:
+          node-version: "22"
+          pnpm-version: "10"
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -43,8 +50,11 @@ jobs:
             echo "value=${GITHUB_REF_NAME#kotlin-v}" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Validate Kotlin token consumption
+        run: pnpm --filter @zds/kotlin validate:tokens-consumption
+
       - name: Publish Kotlin package
-        run: gradle --no-daemon -p packages/kotlin publish
+        run: pnpm --filter @zds/kotlin exec gradle --no-daemon -p . publish
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

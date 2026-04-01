@@ -11,6 +11,10 @@ on:
         required: true
         type: string
 
+concurrency:
+  group: publish-windows-package-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish:
     runs-on: windows-latest
@@ -19,8 +23,11 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Setup workspace
+        uses: ./.github/actions/setup-pnpm
+        with:
+          node-version: "22"
+          pnpm-version: "10"
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
@@ -41,6 +48,9 @@ jobs:
           else
             echo "value=${GITHUB_REF_NAME#windows-v}" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Validate Windows token consumption
+        run: pnpm --filter @zds/windows validate:tokens-consumption
 
       - name: Pack WinUI 3 package
         run: msbuild packages/windows/ZDS.Windows.csproj /restore /t:Pack /p:Configuration=Release /p:Platform=x64 /p:PackageVersion=${{ steps.version.outputs.value }} /p:PackageOutputPath=artifacts/windows

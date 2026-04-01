@@ -1,0 +1,37 @@
+name: Reusable PNPM Command
+
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: "GitHub-hosted runner label"
+        required: true
+        type: string
+      command:
+        description: "Command to execute after workspace setup"
+        required: true
+        type: string
+      node-version:
+        description: "Node.js version"
+        required: false
+        default: "22"
+        type: string
+      pnpm-version:
+        description: "pnpm version"
+        required: false
+        default: "10.30.3"
+        type: string
+
+jobs:
+  run-command:
+    runs-on: ${{ inputs.runner }}
+
+    steps:
+      - name: Setup workspace
+        uses: ./.github/actions/setup-pnpm
+        with:
+          node-version: ${{ inputs.node-version }}
+          pnpm-version: ${{ inputs.pnpm-version }}
+
+      - name: Run command
+        run: ${{ inputs.command }}
