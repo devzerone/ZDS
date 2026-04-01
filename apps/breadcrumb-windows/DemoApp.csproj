@@ -15,13 +15,13 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
   </ItemGroup>
 
-  <!-- Link breadcrumb component + tokens from parent package -->
+  <!-- Link breadcrumb component + tokens from packages/windows -->
   <ItemGroup>
-    <Page Include="..\components\Breadcrumb.xaml" Link="Components\Breadcrumb.xaml">
+    <Page Include="..\..\packages\windows\components\Breadcrumb.xaml" Link="Components\Breadcrumb.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="..\components\Breadcrumb.xaml.cs" Link="Components\Breadcrumb.xaml.cs" />
-    <Page Include="..\.generated\BreadcrumbTokens.xaml" Link="Generated\BreadcrumbTokens.xaml" />
-    <Page Include="..\.generated\FoundationTokens.xaml" Link="Generated\FoundationTokens.xaml" />
+    <Compile Include="..\..\packages\windows\components\Breadcrumb.xaml.cs" Link="Components\Breadcrumb.xaml.cs" />
+    <Page Include="..\..\packages\windows\.generated\BreadcrumbTokens.xaml" Link="Generated\BreadcrumbTokens.xaml" />
+    <Page Include="..\..\packages\windows\.generated\FoundationTokens.xaml" Link="Generated\FoundationTokens.xaml" />
   </ItemGroup>
 </Project>

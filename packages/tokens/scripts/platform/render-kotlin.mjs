@@ -9,7 +9,7 @@ function renderMap(entries, formatValue, indent = "        ") {
 }
 
 export function renderKotlinArtifacts(graph) {
-  const foundation = `package zds.button
+  const foundation = `package zds.foundation
 
 data class ZDSColorToken(val lightHex: String, val darkHex: String)
 data class ZDSTypographyToken(val fontSize: Int, val lineHeight: Int, val fontWeight: Int)

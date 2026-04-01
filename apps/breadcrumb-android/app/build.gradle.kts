@@ -27,8 +27,8 @@ android {
     sourceSets {
         getByName("main") {
             kotlin.srcDirs(
-                "../../components",
-                "../../.generated"
+                "../../../packages/kotlin/components",
+                "../../../packages/kotlin/.generated"
             )
         }
     }

@@ -1,5 +1,7 @@
 package zds.button
 
+import zds.foundation.ZDSFoundationTokens
+
 // Review note: Compose preserves the shared variant, size, and core state names.
 // Touch-first parity exceptions for hover and pressed are documented in
 // spec/components/button/button.spec.json as kotlin-hover-pressed.
