@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prebuild": "node ../tokens/scripts/build-platform-tokens.mjs --platform windows --sync-consumer-root .",
-    "build": "dotnet build ZDS.Windows.csproj",
+    "build": "msbuild ZDS.Windows.csproj /restore /p:Configuration=Debug /p:Platform=x64",
     "validate:tokens-consumption": "node ../tokens/scripts/build-platform-tokens.mjs --platform windows --sync-consumer-root . --validate-consumer"
   }
 }
