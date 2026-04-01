@@ -40,7 +40,7 @@ fun BreadcrumbDemo(modifier: Modifier = Modifier) {
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
-        Text("ZDS Breadcrumb Demo", style = MaterialTheme.typography.headlineSmall)
+        Text("ZDS Demo", style = MaterialTheme.typography.headlineSmall)
 
         // 1-item path (no separators)
         Text("1 item:", style = MaterialTheme.typography.labelMedium)

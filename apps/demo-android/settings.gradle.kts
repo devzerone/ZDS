@@ -6,5 +6,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "zds-breadcrumb-demo"
+rootProject.name = "zds-demo"
 include(":app")
