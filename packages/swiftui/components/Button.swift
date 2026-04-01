@@ -24,6 +24,8 @@ public enum ZDSButtonState: String, CaseIterable {
 }
 
 public struct ZDSButton: View {
+  @Environment(\.colorScheme) private var colorScheme
+
   public let label: String
   public let variant: ZDSButtonVariant
   public let size: ZDSButtonSize
@@ -51,70 +53,81 @@ public struct ZDSButton: View {
   }
 
   public var body: some View {
+    let sizeTokens = ZDSGeneratedButtonTokens.sizeTokens(for: size)
+    let colorTokens = ZDSGeneratedButtonTokens.colorTokens(for: variant, state: state)
+
     Button(action: {
       guard state != .loading, state != .disabled else {
         return
       }
       onPress()
     }) {
-      HStack(spacing: spacingValue) {
+      HStack(spacing: spacingValue(sizeTokens)) {
         if let leadingIcon {
           leadingIcon
+            .foregroundStyle(Color(zdsHex: foregroundHex(colorTokens)))
         }
         Text(label)
-          .font(fontValue)
+          .font(fontValue(sizeTokens))
+          .foregroundStyle(Color(zdsHex: foregroundHex(colorTokens)))
         if state == .loading {
           ProgressView()
             .progressViewStyle(.circular)
+            .tint(Color(zdsHex: foregroundHex(colorTokens)))
         } else if let trailingIcon {
           trailingIcon
+            .foregroundStyle(Color(zdsHex: foregroundHex(colorTokens)))
         }
       }
-      .frame(minHeight: minHeightValue)
-      .padding(.horizontal, horizontalPadding)
-      .padding(.vertical, verticalPadding)
+      .frame(minHeight: sizeTokens.minHeight)
+      .padding(.horizontal, spacingValue(sizeTokens.paddingX))
+      .padding(.vertical, spacingValue(sizeTokens.paddingY))
       .frame(maxWidth: .infinity)
+      .background(
+        RoundedRectangle(cornerRadius: radiusValue(sizeTokens))
+          .fill(Color(zdsHex: backgroundHex(colorTokens)))
+      )
+      .overlay(
+        RoundedRectangle(cornerRadius: radiusValue(sizeTokens))
+          .stroke(Color(zdsHex: borderHex(colorTokens)), lineWidth: 1)
+      )
     }
     .buttonStyle(.plain)
     .disabled(state == .loading || state == .disabled)
     .accessibilityLabel(Text(label))
   }
 
-  private var minHeightValue: CGFloat {
-    switch size {
-      case .small: return 32
-      case .medium: return 40
-      case .large: return 48
+  private func spacingValue(_ tokenName: String) -> CGFloat {
+    ZDSFoundationTokens.spacing[tokenName] ?? 0
+  }
+
+  private func radiusValue(_ sizeTokens: ZDSButtonSizeTokenSet) -> CGFloat {
+    ZDSFoundationTokens.radius[sizeTokens.radius] ?? 0
+  }
+
+  private func spacingValue(_ sizeTokens: ZDSButtonSizeTokenSet) -> CGFloat {
+    ZDSFoundationTokens.spacing[sizeTokens.gap] ?? 0
+  }
+
+  private func fontValue(_ sizeTokens: ZDSButtonSizeTokenSet) -> Font {
+    let typography = ZDSFoundationTokens.typography[sizeTokens.labelTypography]
+    switch typography?.fontSize {
+      case 18:
+        return .body
+      default:
+        return .callout
     }
   }
 
-  private var horizontalPadding: CGFloat {
-    switch size {
-      case .small: return 12
-      case .medium: return 16
-      case .large: return 20
-    }
+  private func backgroundHex(_ tokenSet: ZDSButtonColorTokenSet) -> String {
+    colorScheme == .dark ? tokenSet.backgroundDarkHex : tokenSet.backgroundLightHex
   }
 
-  private var verticalPadding: CGFloat {
-    switch size {
-      case .small: return 4
-      case .medium: return 8
-      case .large: return 12
-    }
+  private func foregroundHex(_ tokenSet: ZDSButtonColorTokenSet) -> String {
+    colorScheme == .dark ? tokenSet.foregroundDarkHex : tokenSet.foregroundLightHex
   }
 
-  private var spacingValue: CGFloat {
-    switch size {
-      case .small: return 4
-      case .medium, .large: return 8
-    }
-  }
-
-  private var fontValue: Font {
-    switch size {
-      case .large: return .body
-      case .small, .medium: return .callout
-    }
+  private func borderHex(_ tokenSet: ZDSButtonColorTokenSet) -> String {
+    colorScheme == .dark ? tokenSet.borderDarkHex : tokenSet.borderLightHex
   }
 }

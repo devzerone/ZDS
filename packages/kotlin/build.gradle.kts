@@ -16,7 +16,7 @@ kotlin {
 
 sourceSets {
     main {
-        kotlin.srcDirs("components")
+        kotlin.srcDirs("components", ".generated")
     }
 }
 

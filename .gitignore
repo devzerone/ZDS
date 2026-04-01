@@ -34,3 +34,4 @@ turbo/
 Thumbs.db
 *.tmp
 *.swp
+.generated/

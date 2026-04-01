@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "swift build"
+    "prebuild": "node ../tokens/scripts/build-platform-tokens.mjs --platform swiftui --sync-consumer-root .",
+    "build": "swift build",
+    "validate:tokens-consumption": "node ../tokens/scripts/build-platform-tokens.mjs --platform swiftui --sync-consumer-root . --validate-consumer"
   }
 }

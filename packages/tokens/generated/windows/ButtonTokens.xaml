@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Double x:Key="Button.Size.small.MinHeight">32</x:Double>
+  <Thickness x:Key="Button.Size.small.Padding">12,4,12,4</Thickness>
+  <x:Double x:Key="Button.Size.small.Gap">4</x:Double>
+  <x:Double x:Key="Button.Size.small.CornerRadius">8</x:Double>
+  <x:Double x:Key="Button.Size.small.LabelFontSize">14</x:Double>
+  <x:Double x:Key="Button.Size.medium.MinHeight">40</x:Double>
+  <Thickness x:Key="Button.Size.medium.Padding">16,8,16,8</Thickness>
+  <x:Double x:Key="Button.Size.medium.Gap">8</x:Double>
+  <x:Double x:Key="Button.Size.medium.CornerRadius">12</x:Double>
+  <x:Double x:Key="Button.Size.medium.LabelFontSize">14</x:Double>
+  <x:Double x:Key="Button.Size.large.MinHeight">48</x:Double>
+  <Thickness x:Key="Button.Size.large.Padding">24,12,24,12</Thickness>
+  <x:Double x:Key="Button.Size.large.Gap">8</x:Double>
+  <x:Double x:Key="Button.Size.large.CornerRadius">16</x:Double>
+  <x:Double x:Key="Button.Size.large.LabelFontSize">18</x:Double>
+  <SolidColorBrush x:Key="Button.Variant.primary.default.Background" Color="#5e6ad2" />
+  <SolidColorBrush x:Key="Button.Variant.primary.default.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.primary.default.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.primary.default.BackgroundToken">color.bg.brand</x:String>
+  <x:String x:Key="Button.Variant.primary.default.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.primary.default.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.primary.hover.Background" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.primary.hover.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.primary.hover.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.primary.hover.BackgroundToken">color.bg.brand-strong</x:String>
+  <x:String x:Key="Button.Variant.primary.hover.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.primary.hover.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.primary.pressed.Background" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.primary.pressed.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.primary.pressed.Border" Color="#9aa3b2" />
+  <x:String x:Key="Button.Variant.primary.pressed.BackgroundToken">color.bg.brand-strong</x:String>
+  <x:String x:Key="Button.Variant.primary.pressed.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.primary.pressed.BorderToken">color.border.strong</x:String>
+  <SolidColorBrush x:Key="Button.Variant.primary.focus.Background" Color="#5e6ad2" />
+  <SolidColorBrush x:Key="Button.Variant.primary.focus.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.primary.focus.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.primary.focus.BackgroundToken">color.bg.brand</x:String>
+  <x:String x:Key="Button.Variant.primary.focus.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.primary.focus.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.primary.disabled.Background" Color="#f1f3f6" />
+  <SolidColorBrush x:Key="Button.Variant.primary.disabled.Foreground" Color="#9aa3b2" />
+  <SolidColorBrush x:Key="Button.Variant.primary.disabled.Border" Color="#e4e8ee" />
+  <x:String x:Key="Button.Variant.primary.disabled.BackgroundToken">color.bg.surface-alt</x:String>
+  <x:String x:Key="Button.Variant.primary.disabled.ForegroundToken">color.fg.disabled</x:String>
+  <x:String x:Key="Button.Variant.primary.disabled.BorderToken">color.border.default</x:String>
+  <SolidColorBrush x:Key="Button.Variant.primary.loading.Background" Color="#e9ebff" />
+  <SolidColorBrush x:Key="Button.Variant.primary.loading.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.primary.loading.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.primary.loading.BackgroundToken">color.bg.brand-soft</x:String>
+  <x:String x:Key="Button.Variant.primary.loading.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.primary.loading.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.secondary.default.Background" Color="#f8f9fb" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.default.Foreground" Color="#171b24" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.default.Border" Color="#e4e8ee" />
+  <x:String x:Key="Button.Variant.secondary.default.BackgroundToken">color.bg.surface</x:String>
+  <x:String x:Key="Button.Variant.secondary.default.ForegroundToken">color.fg.primary</x:String>
+  <x:String x:Key="Button.Variant.secondary.default.BorderToken">color.border.default</x:String>
+  <SolidColorBrush x:Key="Button.Variant.secondary.hover.Background" Color="#f1f3f6" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.hover.Foreground" Color="#171b24" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.hover.Border" Color="#9aa3b2" />
+  <x:String x:Key="Button.Variant.secondary.hover.BackgroundToken">color.bg.surface-alt</x:String>
+  <x:String x:Key="Button.Variant.secondary.hover.ForegroundToken">color.fg.primary</x:String>
+  <x:String x:Key="Button.Variant.secondary.hover.BorderToken">color.border.strong</x:String>
+  <SolidColorBrush x:Key="Button.Variant.secondary.pressed.Background" Color="#f1f3f6" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.pressed.Foreground" Color="#171b24" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.pressed.Border" Color="#9aa3b2" />
+  <x:String x:Key="Button.Variant.secondary.pressed.BackgroundToken">color.bg.surface-alt</x:String>
+  <x:String x:Key="Button.Variant.secondary.pressed.ForegroundToken">color.fg.primary</x:String>
+  <x:String x:Key="Button.Variant.secondary.pressed.BorderToken">color.border.strong</x:String>
+  <SolidColorBrush x:Key="Button.Variant.secondary.focus.Background" Color="#f8f9fb" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.focus.Foreground" Color="#171b24" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.focus.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.secondary.focus.BackgroundToken">color.bg.surface</x:String>
+  <x:String x:Key="Button.Variant.secondary.focus.ForegroundToken">color.fg.primary</x:String>
+  <x:String x:Key="Button.Variant.secondary.focus.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.secondary.disabled.Background" Color="#f1f3f6" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.disabled.Foreground" Color="#9aa3b2" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.disabled.Border" Color="#e4e8ee" />
+  <x:String x:Key="Button.Variant.secondary.disabled.BackgroundToken">color.bg.surface-alt</x:String>
+  <x:String x:Key="Button.Variant.secondary.disabled.ForegroundToken">color.fg.disabled</x:String>
+  <x:String x:Key="Button.Variant.secondary.disabled.BorderToken">color.border.default</x:String>
+  <SolidColorBrush x:Key="Button.Variant.secondary.loading.Background" Color="#e9ebff" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.loading.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.secondary.loading.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.secondary.loading.BackgroundToken">color.bg.brand-soft</x:String>
+  <x:String x:Key="Button.Variant.secondary.loading.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.secondary.loading.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.tertiary.default.Background" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.default.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.default.Border" Color="#e4e8ee" />
+  <x:String x:Key="Button.Variant.tertiary.default.BackgroundToken">color.bg.canvas</x:String>
+  <x:String x:Key="Button.Variant.tertiary.default.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.tertiary.default.BorderToken">color.border.default</x:String>
+  <SolidColorBrush x:Key="Button.Variant.tertiary.hover.Background" Color="#e9ebff" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.hover.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.hover.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.tertiary.hover.BackgroundToken">color.bg.brand-soft</x:String>
+  <x:String x:Key="Button.Variant.tertiary.hover.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.tertiary.hover.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.tertiary.pressed.Background" Color="#e9ebff" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.pressed.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.pressed.Border" Color="#9aa3b2" />
+  <x:String x:Key="Button.Variant.tertiary.pressed.BackgroundToken">color.bg.brand-soft</x:String>
+  <x:String x:Key="Button.Variant.tertiary.pressed.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.tertiary.pressed.BorderToken">color.border.strong</x:String>
+  <SolidColorBrush x:Key="Button.Variant.tertiary.focus.Background" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.focus.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.focus.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.tertiary.focus.BackgroundToken">color.bg.canvas</x:String>
+  <x:String x:Key="Button.Variant.tertiary.focus.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.tertiary.focus.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.tertiary.disabled.Background" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.disabled.Foreground" Color="#9aa3b2" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.disabled.Border" Color="#e4e8ee" />
+  <x:String x:Key="Button.Variant.tertiary.disabled.BackgroundToken">color.bg.canvas</x:String>
+  <x:String x:Key="Button.Variant.tertiary.disabled.ForegroundToken">color.fg.disabled</x:String>
+  <x:String x:Key="Button.Variant.tertiary.disabled.BorderToken">color.border.default</x:String>
+  <SolidColorBrush x:Key="Button.Variant.tertiary.loading.Background" Color="#e9ebff" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.loading.Foreground" Color="#4f59bf" />
+  <SolidColorBrush x:Key="Button.Variant.tertiary.loading.Border" Color="#5e6ad2" />
+  <x:String x:Key="Button.Variant.tertiary.loading.BackgroundToken">color.bg.brand-soft</x:String>
+  <x:String x:Key="Button.Variant.tertiary.loading.ForegroundToken">color.fg.brand</x:String>
+  <x:String x:Key="Button.Variant.tertiary.loading.BorderToken">color.border.brand</x:String>
+  <SolidColorBrush x:Key="Button.Variant.destructive.default.Background" Color="#b33854" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.default.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.default.Border" Color="#b33854" />
+  <x:String x:Key="Button.Variant.destructive.default.BackgroundToken">color.bg.danger</x:String>
+  <x:String x:Key="Button.Variant.destructive.default.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.destructive.default.BorderToken">color.border.danger</x:String>
+  <SolidColorBrush x:Key="Button.Variant.destructive.hover.Background" Color="#b33854" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.hover.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.hover.Border" Color="#b33854" />
+  <x:String x:Key="Button.Variant.destructive.hover.BackgroundToken">color.bg.danger</x:String>
+  <x:String x:Key="Button.Variant.destructive.hover.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.destructive.hover.BorderToken">color.border.danger</x:String>
+  <SolidColorBrush x:Key="Button.Variant.destructive.pressed.Background" Color="#b33854" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.pressed.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.pressed.Border" Color="#9aa3b2" />
+  <x:String x:Key="Button.Variant.destructive.pressed.BackgroundToken">color.bg.danger</x:String>
+  <x:String x:Key="Button.Variant.destructive.pressed.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.destructive.pressed.BorderToken">color.border.strong</x:String>
+  <SolidColorBrush x:Key="Button.Variant.destructive.focus.Background" Color="#b33854" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.focus.Foreground" Color="#ffffff" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.focus.Border" Color="#b33854" />
+  <x:String x:Key="Button.Variant.destructive.focus.BackgroundToken">color.bg.danger</x:String>
+  <x:String x:Key="Button.Variant.destructive.focus.ForegroundToken">color.fg.inverse</x:String>
+  <x:String x:Key="Button.Variant.destructive.focus.BorderToken">color.border.danger</x:String>
+  <SolidColorBrush x:Key="Button.Variant.destructive.disabled.Background" Color="#ffdce3" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.disabled.Foreground" Color="#9aa3b2" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.disabled.Border" Color="#e4e8ee" />
+  <x:String x:Key="Button.Variant.destructive.disabled.BackgroundToken">color.bg.danger-soft</x:String>
+  <x:String x:Key="Button.Variant.destructive.disabled.ForegroundToken">color.fg.disabled</x:String>
+  <x:String x:Key="Button.Variant.destructive.disabled.BorderToken">color.border.default</x:String>
+  <SolidColorBrush x:Key="Button.Variant.destructive.loading.Background" Color="#ffdce3" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.loading.Foreground" Color="#922d46" />
+  <SolidColorBrush x:Key="Button.Variant.destructive.loading.Border" Color="#b33854" />
+  <x:String x:Key="Button.Variant.destructive.loading.BackgroundToken">color.bg.danger-soft</x:String>
+  <x:String x:Key="Button.Variant.destructive.loading.ForegroundToken">color.status.danger.fg</x:String>
+  <x:String x:Key="Button.Variant.destructive.loading.BorderToken">color.border.danger</x:String>
+</ResourceDictionary>
