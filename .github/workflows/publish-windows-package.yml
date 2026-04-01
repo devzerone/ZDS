@@ -30,7 +30,7 @@ jobs:
         uses: ./.github/actions/setup-pnpm
         with:
           node-version: "22"
-          pnpm-version: "10"
+          pnpm-version: "10.30.3"
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v4

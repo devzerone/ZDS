@@ -24,7 +24,7 @@ jobs:
         uses: ./.github/actions/setup-pnpm
         with:
           node-version: "22"
-          pnpm-version: "10"
+          pnpm-version: "10.30.3"
 
       - name: Validate SwiftUI token consumption
         run: pnpm --filter @zds/swiftui validate:tokens-consumption
