@@ -56,6 +56,9 @@ jobs:
       contents: read
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup workspace
         uses: ./.github/actions/setup-pnpm
         with:
@@ -85,6 +88,9 @@ jobs:
       contents: read
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup workspace
         uses: ./.github/actions/setup-pnpm
         with:
