@@ -1,0 +1,33 @@
+<Window
+    x:Class="ZDS.Demo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:zds="using:ZDS.Components"
+    Title="ZDS Breadcrumb Demo">
+
+    <ScrollViewer>
+        <StackPanel Padding="24" Spacing="32">
+
+            <TextBlock Text="ZDS Breadcrumb Demo" Style="{StaticResource TitleTextBlockStyle}"/>
+
+            <!-- 1-item path (no separators) -->
+            <StackPanel Spacing="8">
+                <TextBlock Text="1 item:" FontWeight="SemiBold"/>
+                <zds:Breadcrumb x:Name="Breadcrumb1"/>
+            </StackPanel>
+
+            <!-- 4-item path (all visible) -->
+            <StackPanel Spacing="8">
+                <TextBlock Text="4 items:" FontWeight="SemiBold"/>
+                <zds:Breadcrumb x:Name="Breadcrumb4"/>
+            </StackPanel>
+
+            <!-- 8-item path with maxVisibleItems=5 (first + "..." + last 3) -->
+            <StackPanel Spacing="8">
+                <TextBlock Text="8 items, maxVisible=5:" FontWeight="SemiBold"/>
+                <zds:Breadcrumb x:Name="Breadcrumb8"/>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>

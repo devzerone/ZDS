@@ -1,0 +1,3 @@
+#!/bin/sh
+# Gradle wrapper stub - run `gradle wrapper` once to generate the real wrapper
+exec gradle "$@"

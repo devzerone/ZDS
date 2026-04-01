@@ -71,22 +71,22 @@
       "remediationTarget": "006-breadcrumb-component"
     },
     "swiftui": {
-      "status": "not-started",
-      "gap": "Platform translation is deferred until the React reference and review baseline stabilize",
+      "status": "ready",
+      "gap": "None planned for the initial platform release",
       "owner": "design-system-ios",
-      "remediationTarget": "future-release"
+      "remediationTarget": "008-breadcrumb-platform-expand"
     },
     "kotlin": {
-      "status": "not-started",
-      "gap": "Compose translation is deferred until the React reference and review baseline stabilize",
+      "status": "ready",
+      "gap": "None planned for the initial platform release",
       "owner": "design-system-android",
-      "remediationTarget": "future-release"
+      "remediationTarget": "008-breadcrumb-platform-expand"
     },
     "windows": {
-      "status": "not-started",
-      "gap": "Windows translation is deferred until the React reference and review baseline stabilize",
+      "status": "ready",
+      "gap": "None planned for the initial platform release",
       "owner": "design-system-windows",
-      "remediationTarget": "future-release"
+      "remediationTarget": "008-breadcrumb-platform-expand"
     }
   }
 }

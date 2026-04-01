@@ -64,8 +64,25 @@ export function loadNormalizedTokenGraph() {
   const radius = loadJson("data/radius/core.json");
   const typography = loadJson("data/typography/core.json");
   const buttonTokens = loadJson("data/components/button.json");
+  const breadcrumbTokens = loadJson("data/components/breadcrumb.json");
 
   const semanticTokens = resolveSemanticTokenMap(palette, semantic);
+
+  function resolveBreadcrumbRoleColors(roleMap) {
+    return Object.fromEntries(
+      Object.entries(roleMap).map(([roleName, tokens]) => [
+        roleName,
+        Object.fromEntries(
+          Object.entries(tokens).map(([prop, ref]) => [
+            prop,
+            typeof ref === "string" && semanticTokens[ref]
+              ? { token: ref, ...semanticTokens[ref] }
+              : ref
+          ])
+        )
+      ])
+    );
+  }
 
   return {
     meta: {
@@ -82,6 +99,18 @@ export function loadNormalizedTokenGraph() {
       statePrecedence: buttonTokens.statePrecedence,
       sizes: buttonTokens.sizes,
       variants: resolveButtonVariants(buttonTokens, semanticTokens)
+    },
+    breadcrumb: {
+      layout: breadcrumbTokens.layout,
+      typography: breadcrumbTokens.typography,
+      itemRoles: resolveBreadcrumbRoleColors(breadcrumbTokens.itemRoles),
+      separator: (() => {
+        const sep = breadcrumbTokens.separator;
+        return {
+          foregroundToken: sep.foreground,
+          ...(semanticTokens[sep.foreground] || {})
+        };
+      })()
     }
   };
 }

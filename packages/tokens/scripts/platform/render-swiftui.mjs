@@ -56,6 +56,50 @@ function renderButtonSizeMap(sizes) {
     .join(",\n");
 }
 
+function renderBreadcrumbRoleColorEntries(itemRoles) {
+  return Object.entries(itemRoles)
+    .map(([roleName, tokens]) => {
+      const props = Object.entries(tokens)
+        .map(([prop, value]) => {
+          if (typeof value === "object" && value.lightHex !== undefined) {
+            return `      "${prop}": ZDSBreadcrumbColorToken(token: "${value.token}", lightHex: "${value.lightHex}", darkHex: "${value.darkHex}")`;
+          }
+          return `      "${prop}": ${JSON.stringify(value)}`;
+        })
+        .join(",\n");
+      return `    "${roleName}": [\n${props}\n    ]`;
+    })
+    .join(",\n");
+}
+
+function renderBreadcrumbSwift(graph) {
+  const bc = graph.breadcrumb;
+  return `import SwiftUI
+
+public struct ZDSBreadcrumbColorToken {
+  public let token: String
+  public let lightHex: String
+  public let darkHex: String
+}
+
+public enum ZDSGeneratedBreadcrumbTokens {
+  public static let layout: [String: String] = [
+${Object.entries(bc.layout).map(([k, v]) => `    "${k}": "${v}"`).join(",\n")}
+  ]
+
+  public static let typography: [String: String] = [
+${Object.entries(bc.typography).map(([k, v]) => `    "${k}": "${v}"`).join(",\n")}
+  ]
+
+  public static let itemRoles: [String: [String: ZDSBreadcrumbColorToken]] = [
+${renderBreadcrumbRoleColorEntries(bc.itemRoles)}
+  ]
+
+  public static let separator = ZDSBreadcrumbColorToken(token: "${bc.separator.foregroundToken}", lightHex: "${bc.separator.lightHex}", darkHex: "${bc.separator.darkHex}")
+}
+`;
+}
+
 export function renderSwiftUIArtifacts(graph) {
   const foundation = `import SwiftUI
 
@@ -170,6 +214,7 @@ ${renderButtonVariantMap(graph.button.variants)}
 
   return {
     "ZDSFoundationTokens.swift": foundation,
-    "ZDSButtonTokens.swift": button
+    "ZDSButtonTokens.swift": button,
+    "ZDSBreadcrumbTokens.swift": renderBreadcrumbSwift(graph)
   };
 }

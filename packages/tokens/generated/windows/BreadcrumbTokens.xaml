@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:String x:Key="Breadcrumb.Layout.itemGap">space.050</x:String>
+  <x:String x:Key="Breadcrumb.Layout.separatorGap">space.100</x:String>
+  <x:String x:Key="Breadcrumb.Layout.wrapGap">space.100</x:String>
+  <x:String x:Key="Breadcrumb.Layout.paddingY">space.050</x:String>
+  <x:String x:Key="Breadcrumb.Typography.itemLabel">font.label.md</x:String>
+  <x:String x:Key="Breadcrumb.Typography.summaryLabel">font.label.md</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Role.ancestor.foreground" Color="#3a414e" />
+  <x:String x:Key="Breadcrumb.Role.ancestor.foregroundToken">color.fg.secondary</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Role.ancestor.interactiveForeground" Color="#3a414e" />
+  <x:String x:Key="Breadcrumb.Role.ancestor.interactiveForegroundToken">color.fg.secondary</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Role.ancestor.focus" Color="#5e6ad2" />
+  <x:String x:Key="Breadcrumb.Role.ancestor.focusToken">color.accent.primary</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Role.current.foreground" Color="#171b24" />
+  <x:String x:Key="Breadcrumb.Role.current.foregroundToken">color.fg.primary</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Role.current.emphasis" Color="#171b24" />
+  <x:String x:Key="Breadcrumb.Role.current.emphasisToken">color.fg.primary</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Role.collapsed-summary.foreground" Color="#6b7280" />
+  <x:String x:Key="Breadcrumb.Role.collapsed-summary.foregroundToken">color.fg.tertiary</x:String>
+  <SolidColorBrush x:Key="Breadcrumb.Separator.Foreground" Color="#6b7280" />
+  <x:String x:Key="Breadcrumb.Separator.ForegroundToken">color.fg.tertiary</x:String>
+</ResourceDictionary>

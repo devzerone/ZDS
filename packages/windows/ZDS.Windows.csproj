@@ -28,12 +28,22 @@
     <Page Include=".generated/ButtonTokens.xaml">
       <Link>Generated/ButtonTokens.xaml</Link>
     </Page>
+    <Page Include=".generated/BreadcrumbTokens.xaml">
+      <Link>Generated/BreadcrumbTokens.xaml</Link>
+    </Page>
     <Page Include="components/Button.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="components/Button.xaml.cs">
       <DependentUpon>Button.xaml</DependentUpon>
+    </Compile>
+    <Page Include="components/Breadcrumb.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="components/Breadcrumb.xaml.cs">
+      <DependentUpon>Breadcrumb.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

@@ -121,8 +121,44 @@ ${buttonVariants}
 }
 `;
 
+  const breadcrumb = `package zds.breadcrumb
+
+data class ZDSBreadcrumbColorToken(
+    val token: String,
+    val lightHex: String,
+    val darkHex: String
+)
+
+object ZDSBreadcrumbTokens {
+    val layout = mapOf(
+${Object.entries(graph.breadcrumb.layout).map(([k, v]) => `        ${quote(k)} to ${quote(v)}`).join(",\n")}
+    )
+
+    val typography = mapOf(
+${Object.entries(graph.breadcrumb.typography).map(([k, v]) => `        ${quote(k)} to ${quote(v)}`).join(",\n")}
+    )
+
+    val itemRoles = mapOf(
+${Object.entries(graph.breadcrumb.itemRoles).map(([roleName, tokens]) => {
+      const props = Object.entries(tokens)
+        .map(([prop, value]) => {
+          if (typeof value === "object" && value.lightHex !== undefined) {
+            return `            ${quote(prop)} to ZDSBreadcrumbColorToken(token = ${quote(value.token)}, lightHex = ${quote(value.lightHex)}, darkHex = ${quote(value.darkHex)})`;
+          }
+          return `            ${quote(prop)} to ${quote(value)}`;
+        })
+        .join(",\n");
+      return `        ${quote(roleName)} to mapOf(\n${props}\n        )`;
+    }).join(",\n")}
+    )
+
+    val separator = ZDSBreadcrumbColorToken(token = ${quote(graph.breadcrumb.separator.foregroundToken)}, lightHex = ${quote(graph.breadcrumb.separator.lightHex)}, darkHex = ${quote(graph.breadcrumb.separator.darkHex)})
+}
+`;
+
   return {
     "ZDSFoundationTokens.kt": foundation,
-    "ZDSButtonTokens.kt": button
+    "ZDSButtonTokens.kt": button,
+    "ZDSBreadcrumbTokens.kt": breadcrumb
   };
 }

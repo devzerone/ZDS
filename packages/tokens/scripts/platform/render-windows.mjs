@@ -52,8 +52,32 @@ ${renderButtonVariantResources(graph.button.variants)}
 </ResourceDictionary>
 `;
 
+  const bc = graph.breadcrumb;
+  const breadcrumb = `<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+${Object.entries(bc.layout).map(([k, v]) => `  <x:String x:Key="Breadcrumb.Layout.${k}">${v}</x:String>`).join("\n")}
+${Object.entries(bc.typography).map(([k, v]) => `  <x:String x:Key="Breadcrumb.Typography.${k}">${v}</x:String>`).join("\n")}
+${Object.entries(bc.itemRoles).flatMap(([roleName, tokens]) =>
+  Object.entries(tokens).flatMap(([prop, value]) => {
+    if (typeof value === "object" && value.lightHex !== undefined) {
+      return [
+        `  <SolidColorBrush x:Key="Breadcrumb.Role.${roleName}.${prop}" Color="${value.lightHex}" />`,
+        `  <x:String x:Key="Breadcrumb.Role.${roleName}.${prop}Token">${value.token}</x:String>`
+      ];
+    }
+    return [`  <x:String x:Key="Breadcrumb.Role.${roleName}.${prop}">${value}</x:String>`];
+  })
+).join("\n")}
+  <SolidColorBrush x:Key="Breadcrumb.Separator.Foreground" Color="${bc.separator.lightHex}" />
+  <x:String x:Key="Breadcrumb.Separator.ForegroundToken">${bc.separator.foregroundToken}</x:String>
+</ResourceDictionary>
+`;
+
   return {
     "FoundationTokens.xaml": foundation,
-    "ButtonTokens.xaml": button
+    "ButtonTokens.xaml": button,
+    "BreadcrumbTokens.xaml": breadcrumb
   };
 }
