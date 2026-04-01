@@ -5,6 +5,25 @@ const root = process.cwd();
 const errors = [];
 const surfaces = [
   {
+    name: "foundation-tokens",
+    docsContent: readFileSync(resolve(root, "apps/docs/content/foundation/tokens.mdx"), "utf8"),
+    docsPage: readFileSync(resolve(root, "apps/docs/app/foundation/tokens/page.tsx"), "utf8"),
+    validate() {
+      for (const marker of [
+        "packages/tokens/generated/swiftui/ZDSButtonTokens.swift",
+        "packages/tokens/generated/kotlin/ZDSButtonTokens.kt",
+        "packages/tokens/generated/windows/ButtonTokens.xaml",
+        "packages/swiftui/components/Button.swift",
+        "packages/kotlin/components/Button.kt",
+        "packages/windows/components/Button.xaml.cs"
+      ]) {
+        if (!this.docsContent.includes(marker) && !this.docsPage.includes(marker)) {
+          errors.push(`Foundation tokens docs must reference native delivery artifact: ${marker}`);
+        }
+      }
+    }
+  },
+  {
     name: "button",
     spec: JSON.parse(readFileSync(resolve(root, "spec/components/button/button.spec.json"), "utf8")),
     docsContent: readFileSync(resolve(root, "apps/docs/content/components/button.mdx"), "utf8"),

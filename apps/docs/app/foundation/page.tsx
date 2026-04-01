@@ -46,6 +46,9 @@ export default function FoundationPage() {
               <Link className="preview-link" href="/foundation/tokens">
                 Token 문서 보기
               </Link>
+              <Link className="docs-text-link" href="/foundation/tokens#native-token-delivery">
+                Native token delivery 보기
+              </Link>
               <Link className="docs-text-link" href="/components/button">
                 Button 문서로 이동
               </Link>

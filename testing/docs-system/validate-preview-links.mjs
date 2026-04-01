@@ -3,6 +3,9 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const errors = [];
+const foundationPage = readFileSync(resolve(root, "apps/docs/app/foundation/page.tsx"), "utf8");
+const foundationTokensPage = readFileSync(resolve(root, "apps/docs/app/foundation/tokens/page.tsx"), "utf8");
+const siteNav = readFileSync(resolve(root, "apps/docs/components/navigation/site-nav.ts"), "utf8");
 const surfaces = [
   {
     name: "Button",
@@ -21,6 +24,24 @@ const surfaces = [
     metadataMarker: "ConstrainedPath"
   }
 ];
+
+if (!siteNav.includes('href: "/foundation/tokens"')) {
+  errors.push("Site navigation must expose the foundation tokens route.");
+}
+
+if (!foundationPage.includes('href="/foundation/tokens"') && !foundationPage.includes('href: "/foundation/tokens"')) {
+  errors.push("Foundation landing page must link to the native token delivery guidance.");
+}
+
+for (const marker of [
+  "packages/tokens/generated/swiftui/ZDSButtonTokens.swift",
+  "packages/tokens/generated/kotlin/ZDSButtonTokens.kt",
+  "packages/tokens/generated/windows/ButtonTokens.xaml"
+]) {
+  if (!foundationTokensPage.includes(marker)) {
+    errors.push(`Foundation tokens page must reference generated native artifact path: ${marker}`);
+  }
+}
 
 for (const surface of surfaces) {
   if (!surface.docsPage.includes(surface.storybookPath)) {
