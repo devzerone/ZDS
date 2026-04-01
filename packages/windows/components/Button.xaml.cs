@@ -31,8 +31,8 @@ public sealed partial class Button
         RootButton.Background = GetBrushResource($"Button.Variant.{Variant}.{normalizedState}.Background");
         RootButton.BorderBrush = GetBrushResource($"Button.Variant.{Variant}.{normalizedState}.Border");
         LabelSlot.Foreground = GetBrushResource($"Button.Variant.{Variant}.{normalizedState}.Foreground");
-        RootButton.BorderThickness = new Thickness(1);
-        RootButton.CornerRadius = new CornerRadius(GetDoubleResource($"Button.Size.{Size}.CornerRadius"));
+        RootButton.BorderThickness = new Microsoft.UI.Xaml.Thickness(1);
+        RootButton.CornerRadius = new Microsoft.UI.Xaml.CornerRadius(GetDoubleResource($"Button.Size.{Size}.CornerRadius"));
     }
 
     private double GetDoubleResource(string key)
@@ -40,9 +40,9 @@ public sealed partial class Button
         return Resources[key] is double value ? value : 0;
     }
 
-    private Thickness GetThicknessResource(string key)
+    private Microsoft.UI.Xaml.Thickness GetThicknessResource(string key)
     {
-        return Resources[key] is Thickness value ? value : default;
+        return Resources[key] is Microsoft.UI.Xaml.Thickness value ? value : default;
     }
 
     private Microsoft.UI.Xaml.Media.SolidColorBrush? GetBrushResource(string key)
